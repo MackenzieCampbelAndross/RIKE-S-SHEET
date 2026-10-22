@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
+import type { User } from '@supabase/supabase-js';
+import { supabase } from '../lib/supabase';
 
 const ATTENDANCE_STORAGE_KEY = 'ad2_attendance_v2';
 
@@ -81,7 +83,7 @@ export function calculateStreaksFromDates(dates: string[]): { currentStreak: num
   return { currentStreak, longestStreak: maxStreak };
 }
 
-export function useAttendance() {
+export function useAttendance(currentUser?: User | null) {
   const [attendance, setAttendance] = useState<AttendanceState>(() => {
     try {
       const saved = localStorage.getItem(ATTENDANCE_STORAGE_KEY);
@@ -134,20 +136,98 @@ export function useAttendance() {
     }
   }, [attendance, activeLongestStreak]);
 
+  // Sync with Supabase when authenticated
+  useEffect(() => {
+    if (!currentUser) return;
+    let mounted = true;
+
+    async function loadCloudAttendance() {
+      try {
+        const { data, error } = await supabase
+          .from('attendance_records')
+          .select('attended_date')
+          .eq('user_id', currentUser!.id)
+          .order('attended_date', { ascending: true });
+
+        if (error) {
+          console.error('Failed to fetch cloud attendance:', error);
+          return;
+        }
+
+        if (mounted && data) {
+          const cloudDates = data.map((r: { attended_date: string }) => r.attended_date);
+
+          // If cloud has dates, merge them with local dates
+          if (cloudDates.length > 0) {
+            const merged = Array.from(new Set([...attendance.attendedDates, ...cloudDates])).sort();
+            const { longestStreak } = calculateStreaksFromDates(merged);
+            setAttendance({
+              attendedDates: merged,
+              longestStreak: Math.max(activeLongestStreak, longestStreak),
+            });
+          } else if (attendance.attendedDates.length > 0) {
+            // If cloud is empty but local has dates, migrate local to cloud
+            const rows = attendance.attendedDates.map((d) => ({
+              user_id: currentUser!.id,
+              attended_date: d,
+            }));
+            await supabase.from('attendance_records').upsert(rows, { onConflict: 'user_id,attended_date' });
+            await supabase.from('user_streaks').upsert({
+              user_id: currentUser!.id,
+              current_streak: currentStreak,
+              longest_streak: activeLongestStreak,
+              updated_at: new Date().toISOString(),
+            }, { onConflict: 'user_id' });
+          }
+        }
+      } catch (err) {
+        console.error('Error syncing cloud attendance:', err);
+      }
+    }
+
+    loadCloudAttendance();
+
+    return () => {
+      mounted = false;
+    };
+  }, [currentUser]);
+
   // ONLY triggered when ENTER is clicked on landing page
-  const recordAttendanceOnEnter = useCallback(() => {
+  const recordAttendanceOnEnter = useCallback(async () => {
     const todayStr = getLocalDateString();
     let updatedDates = attendance.attendedDates;
 
     if (!attendance.attendedDates.includes(todayStr)) {
       updatedDates = [...attendance.attendedDates, todayStr];
-      const { longestStreak } = calculateStreaksFromDates(updatedDates);
+      const { currentStreak: newCurrent, longestStreak: newLongest } = calculateStreaksFromDates(updatedDates);
+      const finalLongest = Math.max(activeLongestStreak, newLongest);
+
       setAttendance({
         attendedDates: updatedDates,
-        longestStreak: Math.max(activeLongestStreak, longestStreak),
+        longestStreak: finalLongest,
       });
+
+      // Sync to Supabase if authenticated
+      if (currentUser) {
+        try {
+          await supabase.from('attendance_records').insert({
+            user_id: currentUser.id,
+            attended_date: todayStr,
+          });
+
+          await supabase.from('user_streaks').upsert({
+            user_id: currentUser.id,
+            current_streak: newCurrent,
+            longest_streak: finalLongest,
+            last_attended_date: todayStr,
+            updated_at: new Date().toISOString(),
+          }, { onConflict: 'user_id' });
+        } catch (err) {
+          console.error('Failed to record attendance to cloud:', err);
+        }
+      }
     }
-  }, [attendance.attendedDates, activeLongestStreak]);
+  }, [attendance.attendedDates, activeLongestStreak, currentUser]);
 
   const hasAttendedToday = attendance.attendedDates.includes(getLocalDateString());
 

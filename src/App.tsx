@@ -1,9 +1,12 @@
 import { useEffect, useState, useMemo } from 'react';
-import { CURRICULUM, TOTAL_DAYS } from './data/curriculum';
+import { TOTAL_DAYS } from './data/curriculum';
+import type { CourseId } from './types/curriculum';
+import { useAuth } from './hooks/useAuth';
 import { usePlacementOS } from './hooks/usePlacementOS';
 import { useAttendance } from './hooks/useAttendance';
 import { useProfile } from './hooks/useProfile';
 import { useTheme } from './hooks/useTheme';
+import { useActiveTracker } from './hooks/useActiveTracker';
 import { SidebarNav, type SidebarTab } from './components/SidebarNav';
 import { DayHeader } from './components/DayHeader';
 import { TaskItem } from './components/TaskItem';
@@ -14,41 +17,79 @@ import { ProfilePage } from './components/ProfilePage';
 import { NotesPage } from './components/NotesPage';
 import { TasksPage } from './components/TasksPage';
 import { ProgressPage } from './components/ProgressPage';
-import { ResourcesPage } from './components/ResourcesPage';
+import { ConnectionsPage } from './components/ConnectionsPage';
 import { SettingsPage } from './components/SettingsPage';
-import { ChevronDown, Sun, Moon, Menu, X } from 'lucide-react';
+import { CourseSelectModal } from './components/CourseSelectModal';
+import { CourseSwitcher } from './components/CourseSwitcher';
+import { AuthModal } from './components/AuthModal';
+import { EloIndicator } from './components/EloIndicator';
+import { AvatarIcon } from './components/AvatarIcon';
+import { ChevronDown, Menu, X, Sun, Moon } from 'lucide-react';
 
 export function App() {
-  // Persistent user data
+  // Supabase Authentication state
   const {
+    user,
+    profile: authProfile,
+    session,
+    logout: authLogout,
+    deleteAccount,
+    refreshProfile,
+    updateProfile,
+  } = useAuth();
+
+  // Persistent multi-course user data with Supabase Cloud integration
+  const {
+    selectedCourseId,
+    selectCourse,
+    currentCourseMeta,
+    currentCurriculum,
     currentDay,
     setCurrentDay,
     toggleTask,
-    resetToday,
+    resetCurrentCourse,
     resetAll,
     isTaskCompleted,
     getDayCompletedCount,
     isDayFullyCompleted,
     totalCompletedTasksCount,
-  } = usePlacementOS();
+    allCourseStats,
+  } = usePlacementOS(user, () => refreshProfile());
 
   const {
     attendedDates,
     currentStreak,
     longestStreak,
     recordAttendanceOnEnter,
-  } = useAttendance();
+  } = useAttendance(user);
 
   const {
-    profile,
-    updateName,
-    updateAvatar,
+    profile: localProfile,
+    updateName: updateLocalName,
+    updateAvatar: updateLocalAvatar,
   } = useProfile();
 
   const { isDark, toggleTheme } = useTheme();
 
+  // Conservative session-based active time tracking (heartbeats every 30s)
+  useActiveTracker(user);
+
+  // Effective profile reconciling cloud profile with local storage
+  const effectiveProfile = useMemo(() => {
+    return {
+      name: authProfile?.display_name || localProfile.name,
+      avatarId: authProfile?.avatar_id || localProfile.avatarId,
+    };
+  }, [authProfile, localProfile]);
+
+  // Auth modal state
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
+
   // In-memory entry state: MUST ALWAYS BE FALSE ON FRESH APPLICATION LOAD / REFRESH
   const [hasEnteredThisLoad, setHasEnteredThisLoad] = useState<boolean>(false);
+
+  // Course selection modal state triggered after clicking ENTER on Landing Page
+  const [isCourseSelectModalOpen, setIsCourseSelectModalOpen] = useState<boolean>(false);
 
   // Active navigation tab
   const [activeNavTab, setActiveNavTab] = useState<SidebarTab>('home');
@@ -72,14 +113,14 @@ export function App() {
       const hash = window.location.hash;
       if (hash.startsWith('#/profile')) {
         setActiveNavTab('profile');
+      } else if (hash.startsWith('#/connections')) {
+        setActiveNavTab('connections');
       } else if (hash.startsWith('#/notes')) {
         setActiveNavTab('notes');
       } else if (hash.startsWith('#/tasks')) {
         setActiveNavTab('tasks');
       } else if (hash.startsWith('#/progress')) {
         setActiveNavTab('progress');
-      } else if (hash.startsWith('#/resources')) {
-        setActiveNavTab('resources');
       } else if (hash.startsWith('#/settings')) {
         setActiveNavTab('settings');
       } else if (hash.startsWith('#/day/')) {
@@ -110,27 +151,84 @@ export function App() {
     }
   }, [hasEnteredThisLoad, activeNavTab, currentDay]);
 
-  // ENTER is the ONE and ONLY gate to the internal application
-  const handleEnter = () => {
+  // Triggered when clicking ENTER on the landing page
+  const handleLandingEnterClick = () => {
+    // Open Course Selection Popup
+    setIsCourseSelectModalOpen(true);
+  };
+
+  // Triggered when a course is chosen in the modal
+  const handleCourseChosenFromModal = (courseId: CourseId) => {
+    selectCourse(courseId);
     recordAttendanceOnEnter();
     setHasEnteredThisLoad(true);
+    setIsCourseSelectModalOpen(false);
     setActiveNavTab('home');
     window.location.hash = `/day/${currentDay}`;
   };
 
-  // LOG OUT Handler: returns user directly to landing page
-  const handleLogout = () => {
+  // Dismissing modal returns user to landing page without entering
+  const handleDismissCourseModal = () => {
+    setIsCourseSelectModalOpen(false);
+  };
+
+  // LOG OUT Handler: logs out of Supabase and returns user directly to landing page
+  const handleLogout = async () => {
+    await authLogout();
     setHasEnteredThisLoad(false);
+    setIsCourseSelectModalOpen(false);
+    setIsAuthModalOpen(false);
     window.location.hash = '';
   };
 
-  // Current day data
+  // DELETE ACCOUNT Handler: deletes from Supabase auth.users & tables, cleans storage and returns to landing
+  const handleDeleteAccount = async () => {
+    try {
+      await deleteAccount();
+      resetAll();
+      setHasEnteredThisLoad(false);
+      setIsCourseSelectModalOpen(false);
+      setIsAuthModalOpen(false);
+      window.location.hash = '';
+    } catch (err) {
+      console.error('Failed to delete account:', err);
+      throw err;
+    }
+  };
+
+  // Current day data for the selected course
   const currentDayData = useMemo(() => {
-    return CURRICULUM.find((d) => d.dayNumber === currentDay) || CURRICULUM[0];
-  }, [currentDay]);
+    return (
+      currentCurriculum.find((d) => d.dayNumber === currentDay) ||
+      currentCurriculum[0]
+    );
+  }, [currentCurriculum, currentDay]);
 
   const completedTodayCount = getDayCompletedCount(currentDay);
   const totalTodayTasks = currentDayData.tasks.length;
+
+  // Profile update handlers syncing local state and Supabase profile
+  const handleUpdateName = async (name: string) => {
+    updateLocalName(name);
+    if (user) {
+      try {
+        await updateProfile({ display_name: name });
+      } catch (err) {
+        console.error('Failed to sync updated name to cloud:', err);
+      }
+    }
+  };
+
+  const handleUpdateAvatar = async (avatarId: string) => {
+    updateLocalAvatar(avatarId);
+    if (user) {
+      try {
+        await updateProfile({ avatar_id: avatarId });
+      } catch (err) {
+        console.error('Failed to sync updated avatar to cloud:', err);
+      }
+    }
+  };
 
   // Keyboard navigation when in internal application
   useEffect(() => {
@@ -175,21 +273,49 @@ export function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [hasEnteredThisLoad, currentDay, setCurrentDay, activeNavTab]);
 
+  const isAuthenticated = Boolean(session?.user);
+
   return (
     <div className="min-h-screen text-[#091424] dark:text-[#F3F3F0] font-sans antialiased selection:bg-[#FCD34D] selection:text-[#091424]">
       {/* 
         MANDATORY GATEWAY:
-        If user has not clicked ENTER during this page load, render LandingPage.
+        If user has not completed entry during this page load, render LandingPage.
       */}
       {!hasEnteredThisLoad ? (
-        <LandingPage
-          onEnter={handleEnter}
-          currentStreak={currentStreak}
-          currentDay={currentDay}
-          totalDays={TOTAL_DAYS}
-          isDark={isDark}
-          onToggleTheme={toggleTheme}
-        />
+        <>
+          <LandingPage
+            onEnter={handleLandingEnterClick}
+            onLogin={() => setIsAuthModalOpen(true)}
+            isAuthenticated={isAuthenticated}
+            username={authProfile?.username}
+            currentStreak={currentStreak}
+            currentDay={currentDay}
+            totalDays={TOTAL_DAYS}
+            isDark={isDark}
+            onToggleTheme={toggleTheme}
+          />
+
+          {/* Authentication Modal */}
+          <AuthModal
+            isOpen={isAuthModalOpen}
+            onClose={() => setIsAuthModalOpen(false)}
+            onSuccess={() => {
+              setIsAuthModalOpen(false);
+              // Open course selection popup upon successful authentication
+              setIsCourseSelectModalOpen(true);
+            }}
+          />
+
+          {/* Course Selection Popup modal before opening dashboard */}
+          <CourseSelectModal
+            isOpen={isCourseSelectModalOpen}
+            onClose={handleDismissCourseModal}
+            onSelectCourse={handleCourseChosenFromModal}
+            courses={allCourseStats}
+            selectedCourseId={selectedCourseId}
+            isDark={isDark}
+          />
+        </>
       ) : (
         <div className="min-h-screen flex flex-col md:flex-row bg-[#F5F2EB] dark:bg-[#1f1f1f] transition-colors duration-200">
           {/* Mobile Overlay when sidebar is open */}
@@ -213,6 +339,7 @@ export function App() {
                 setActiveNavTab(tab);
               }}
               onLogout={handleLogout}
+              courseName={currentCourseMeta.name}
             />
           </div>
 
@@ -221,8 +348,8 @@ export function App() {
             {/* Top Bar on Home page */}
             {activeNavTab === 'home' && (
               <header className="w-full max-w-5xl flex items-center justify-between pb-4">
-                {/* Left: Mobile hamburger + Day selector dropdown trigger */}
-                <div className="flex items-center space-x-3">
+                {/* Left: Mobile hamburger + Course Switcher + Day selector dropdown trigger */}
+                <div className="flex items-center space-x-2.5 sm:space-x-3">
                   <button
                     type="button"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -231,6 +358,13 @@ export function App() {
                   >
                     {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
                   </button>
+
+                  {/* Compact Course Switcher in Dashboard Header */}
+                  <CourseSwitcher
+                    currentCourseId={selectedCourseId}
+                    courses={allCourseStats}
+                    onSelectCourse={selectCourse}
+                  />
 
                   <button
                     type="button"
@@ -243,8 +377,8 @@ export function App() {
                   </button>
                 </div>
 
-                {/* Right: Tasks: 0   🔥 1 */}
-                <div className="flex items-center space-x-3 sm:space-x-4 text-xs font-heading font-medium text-[#091424] dark:text-white">
+                {/* Right: Tasks: 0   🔥 1   ⚡ 1,000 ELO   [Avatar] */}
+                <div className="flex items-center space-x-3 sm:space-x-3.5 text-xs font-heading font-medium text-[#091424] dark:text-white">
                   <div className="flex items-center space-x-1.5">
                     <span className="text-[#64748B] dark:text-[#9E9E96] font-normal">Tasks:</span>
                     <span className="font-bold">{totalCompletedTasksCount}</span>
@@ -254,11 +388,27 @@ export function App() {
                     <span className="text-sm">🔥</span>
                     <span className="font-bold">{currentStreak}</span>
                   </div>
+
+                  {/* ELO Rating Pill beside Profile Avatar */}
+                  <EloIndicator
+                    rating={authProfile?.elo_rating || 1000}
+                    onClick={() => setActiveNavTab('profile')}
+                  />
+
+                  {/* Circular Avatar Control */}
+                  <button
+                    type="button"
+                    onClick={() => setActiveNavTab('profile')}
+                    title="Open Profile"
+                    className="w-8 h-8 rounded-full border border-[#091424]/20 dark:border-white/20 bg-white/50 dark:bg-white/10 hover:border-[#F4D875] flex items-center justify-center p-1.5 transition-all cursor-pointer shadow-sm"
+                  >
+                    <AvatarIcon id={effectiveProfile.avatarId} className="w-full h-full text-[#091424] dark:text-white" />
+                  </button>
                 </div>
               </header>
             )}
 
-            {/* PAGE ROUTING (All pages follow the exact same warm cream UI and format!) */}
+            {/* PAGE ROUTING */}
             {activeNavTab === 'home' && (
               <main className="flex-1 w-full max-w-5xl">
                 <div className="w-full rounded-3xl border border-[#E7E2D6] dark:border-[#383838] bg-[#FAF8F5] dark:bg-[#282828] p-6 sm:p-8 md:p-10 shadow-sm space-y-6 transition-colors">
@@ -277,7 +427,7 @@ export function App() {
                         id="checklist-heading"
                         className="text-xs font-heading font-bold uppercase tracking-widest text-[#091424] dark:text-white"
                       >
-                        TODAY'S CHECKLIST
+                        TODAY'S CHECKLIST &bull; {currentCourseMeta.name}
                       </h2>
                       <span className="text-xs font-heading font-normal tracking-wide text-[#091424] dark:text-[#9E9E96]">
                         {completedTodayCount} of {totalTodayTasks} complete
@@ -317,6 +467,11 @@ export function App() {
                 onBack={() => setActiveNavTab('home')}
                 currentDay={currentDay}
                 onSelectDay={setCurrentDay}
+                curriculum={currentCurriculum}
+                courseId={selectedCourseId}
+                courseMeta={currentCourseMeta}
+                courses={allCourseStats}
+                onSelectCourse={selectCourse}
               />
             )}
 
@@ -330,6 +485,10 @@ export function App() {
                 isTaskCompleted={isTaskCompleted}
                 toggleTask={toggleTask}
                 getDayCompletedCount={getDayCompletedCount}
+                curriculum={currentCurriculum}
+                courseMeta={currentCourseMeta}
+                courses={allCourseStats}
+                onSelectCourse={selectCourse}
               />
             )}
 
@@ -340,21 +499,28 @@ export function App() {
                 isDayFullyCompleted={isDayFullyCompleted}
                 totalCompletedTasksCount={totalCompletedTasksCount}
                 currentStreak={currentStreak}
+                curriculum={currentCurriculum}
+                courseMeta={currentCourseMeta}
+                courses={allCourseStats}
+                onSelectCourse={selectCourse}
               />
             )}
 
-            {activeNavTab === 'resources' && (
-              <ResourcesPage
+            {activeNavTab === 'connections' && (
+              <ConnectionsPage
                 onBack={() => setActiveNavTab('home')}
+                currentUser={user}
               />
             )}
 
             {activeNavTab === 'profile' && (
               <ProfilePage
                 onBack={() => setActiveNavTab('home')}
-                profile={profile}
-                onUpdateName={updateName}
-                onUpdateAvatar={updateAvatar}
+                profile={effectiveProfile}
+                username={authProfile?.username}
+                eloRating={authProfile?.elo_rating || 1000}
+                onUpdateName={handleUpdateName}
+                onUpdateAvatar={handleUpdateAvatar}
                 currentStreak={currentStreak}
                 longestStreak={longestStreak}
                 attendedDates={attendedDates}
@@ -365,13 +531,17 @@ export function App() {
               <SettingsPage
                 onBack={() => setActiveNavTab('home')}
                 currentDay={currentDay}
-                profile={profile}
-                onUpdateName={updateName}
-                onUpdateAvatar={updateAvatar}
-                onResetToday={() => resetToday(currentDay)}
+                profile={effectiveProfile}
+                onUpdateName={handleUpdateName}
+                onUpdateAvatar={handleUpdateAvatar}
+                onResetCurrentCourse={resetCurrentCourse}
                 onResetAll={resetAll}
+                onDeleteAccount={handleDeleteAccount}
                 isDark={isDark}
                 onToggleTheme={toggleTheme}
+                courseMeta={currentCourseMeta}
+                courses={allCourseStats}
+                onSelectCourse={selectCourse}
               />
             )}
 
@@ -379,13 +549,15 @@ export function App() {
             <DayPickerModal
               isOpen={isDayPickerOpen}
               onClose={() => setIsDayPickerOpen(false)}
-              currentDay={currentDay}
               onSelectDay={(day) => {
                 setCurrentDay(day);
-                setActiveNavTab('home');
+                setIsDayPickerOpen(false);
               }}
+              currentDay={currentDay}
+              curriculum={currentCurriculum}
               isDayFullyCompleted={isDayFullyCompleted}
               getDayCompletedCount={getDayCompletedCount}
+              courseName={currentCourseMeta.name}
             />
 
             {/* Floating Dark/Light Mode Button */}
@@ -393,6 +565,7 @@ export function App() {
               type="button"
               onClick={toggleTheme}
               title={isDark ? "Switch to Default Warm Cream Theme" : "Switch to Dark Mode (#1f1f1f)"}
+              aria-label={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
               className="fixed bottom-6 right-8 z-50 flex items-center space-x-2 px-4 py-2.5 rounded-full bg-[#091424] dark:bg-[#282828] text-white dark:border dark:border-white/10 hover:opacity-90 transition-all shadow-xl text-xs font-heading font-medium cursor-pointer select-none"
             >
               {isDark ? <Sun className="w-4 h-4 stroke-[2]" /> : <Moon className="w-4 h-4 stroke-[2]" />}
@@ -406,3 +579,4 @@ export function App() {
 }
 
 export default App;
+

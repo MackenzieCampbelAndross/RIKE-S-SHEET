@@ -1,6 +1,8 @@
 import React from 'react';
 import { ArrowLeft, Trophy, CheckCircle2, Award, Zap, Target } from 'lucide-react';
-import { CURRICULUM, PHASES } from '../data/curriculum';
+import { CURRICULUM as DEFAULT_CURRICULUM, PHASES } from '../data/curriculum';
+import type { DayPlan, CourseMetadata, CourseStats, CourseId } from '../types/curriculum';
+import { CourseSwitcher } from './CourseSwitcher';
 
 interface ProgressPageProps {
   onBack: () => void;
@@ -8,6 +10,10 @@ interface ProgressPageProps {
   isDayFullyCompleted: (day: number, totalDayTasks: number) => boolean;
   totalCompletedTasksCount: number;
   currentStreak: number;
+  curriculum?: DayPlan[];
+  courseMeta?: CourseMetadata;
+  courses?: CourseStats[];
+  onSelectCourse?: (courseId: CourseId) => void;
 }
 
 export const ProgressPage: React.FC<ProgressPageProps> = ({
@@ -16,14 +22,19 @@ export const ProgressPage: React.FC<ProgressPageProps> = ({
   isDayFullyCompleted,
   totalCompletedTasksCount,
   currentStreak,
+  curriculum = DEFAULT_CURRICULUM,
+  courseMeta,
+  courses,
+  onSelectCourse,
 }) => {
-  const totalTasksOverall = CURRICULUM.reduce((acc, d) => acc + d.tasks.length, 0);
+  const activeCurriculum = curriculum && curriculum.length > 0 ? curriculum : DEFAULT_CURRICULUM;
+  const totalTasksOverall = activeCurriculum.reduce((acc, d) => acc + d.tasks.length, 0);
   const overallPercentage = Math.round((totalCompletedTasksCount / Math.max(1, totalTasksOverall)) * 100);
 
-  const daysCompletedCount = CURRICULUM.filter((d) => isDayFullyCompleted(d.dayNumber, d.tasks.length)).length;
+  const daysCompletedCount = activeCurriculum.filter((d) => isDayFullyCompleted(d.dayNumber, d.tasks.length)).length;
 
   const phaseStats = PHASES.map((p) => {
-    const daysInPhase = CURRICULUM.filter((d) => d.phase === p.phase);
+    const daysInPhase = activeCurriculum.filter((d) => d.phase === p.phase);
     const tasksInPhase = daysInPhase.reduce((acc, d) => acc + d.tasks.length, 0);
     const completedInPhase = daysInPhase.reduce((acc, d) => acc + getDayCompletedCount(d.dayNumber), 0);
     const pct = Math.round((completedInPhase / Math.max(1, tasksInPhase)) * 100);
@@ -47,20 +58,37 @@ export const ProgressPage: React.FC<ProgressPageProps> = ({
           <ArrowLeft className="w-4 h-4 stroke-[2]" />
           <span>Return to Workspace</span>
         </button>
-        <span className="text-xs font-heading font-bold uppercase tracking-widest text-[#091424] dark:text-white">
-          PROGRESS &amp; METRICS
-        </span>
+
+        <div className="flex items-center space-x-3">
+          {courseMeta && courses && onSelectCourse && (
+            <CourseSwitcher
+              currentCourseId={courseMeta.id}
+              courses={courses}
+              onSelectCourse={onSelectCourse}
+            />
+          )}
+          <span className="text-xs font-heading font-bold uppercase tracking-widest text-[#091424] dark:text-white hidden sm:inline">
+            PROGRESS &amp; METRICS
+          </span>
+        </div>
       </div>
 
       {/* Main Card */}
       <div className="w-full rounded-3xl border border-[#E7E2D6] dark:border-[#383838] bg-[#FAF8F5] dark:bg-[#282828] p-6 sm:p-8 md:p-10 shadow-sm space-y-8 text-[#091424] dark:text-[#F3F3F0] transition-colors">
         {/* Title and High-level Summary */}
         <div className="space-y-1 pb-2 border-b border-[#E5E0D5] dark:border-[#383838]">
-          <h1 className="text-2xl sm:text-3xl font-heading font-black text-[#091424] dark:text-white">
-            Curriculum Mastery &amp; Readiness
-          </h1>
+          <div className="flex items-center space-x-2">
+            {courseMeta && (
+              <span className="px-2.5 py-0.5 rounded-full bg-[#091424] dark:bg-white text-white dark:text-[#091424] text-[10px] font-heading font-bold uppercase tracking-wider">
+                {courseMeta.name}
+              </span>
+            )}
+            <h1 className="text-2xl sm:text-3xl font-heading font-black text-[#091424] dark:text-white">
+              Curriculum Mastery &amp; Readiness
+            </h1>
+          </div>
           <p className="text-xs sm:text-sm font-body text-[#64748B] dark:text-[#9E9E96]">
-            Real-time assessment tracking across all 180 days and placement milestones.
+            Real-time assessment tracking across all 180 days of {courseMeta?.name || 'the curriculum'}.
           </p>
         </div>
 
@@ -191,7 +219,7 @@ export const ProgressPage: React.FC<ProgressPageProps> = ({
                 <CheckCircle2 className="w-4 h-4 stroke-[2.2]" />
               </div>
               <h4 className="text-xs font-heading font-bold text-[#091424] dark:text-white">Day 1 Master</h4>
-              <p className="text-[10px] text-[#64748B] dark:text-[#9E9E96]">All 10 tasks cleared</p>
+              <p className="text-[10px] text-[#64748B] dark:text-[#9E9E96]">All day tasks cleared</p>
             </div>
 
             <div className={`p-4 rounded-2xl border text-center space-y-2 ${

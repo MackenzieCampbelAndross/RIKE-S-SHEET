@@ -1,18 +1,20 @@
 import React from 'react';
-import { Home, BookOpen, CheckSquare, BarChart2, Folder, User, Settings, LogOut } from 'lucide-react';
+import { Home, BookOpen, CheckSquare, BarChart2, Users, User, Settings, LogOut } from 'lucide-react';
 
-export type SidebarTab = 'home' | 'notes' | 'tasks' | 'progress' | 'resources' | 'profile' | 'settings';
+export type SidebarTab = 'home' | 'notes' | 'tasks' | 'progress' | 'connections' | 'profile' | 'settings';
 
 interface SidebarNavProps {
   activeTab: SidebarTab;
   onSelectTab: (tab: SidebarTab) => void;
   onLogout?: () => void;
+  courseName?: string;
 }
 
 export const SidebarNav: React.FC<SidebarNavProps> = ({
   activeTab,
   onSelectTab,
   onLogout,
+  courseName,
 }) => {
   return (
     <aside className="w-52 md:w-60 bg-[#091424] dark:bg-[#151515] text-white flex flex-col justify-between p-5 md:p-6 z-20 flex-shrink-0 min-h-screen select-none border-r border-transparent dark:border-white/5 transition-colors duration-200">
@@ -27,6 +29,16 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
               SHEET
             </span>
           </div>
+
+          {/* Active Course Track Badge */}
+          {courseName && (
+            <div className="pt-0.5">
+              <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-heading font-bold uppercase tracking-wider bg-white/10 text-[#FCD34D] border border-white/10">
+                {courseName}
+              </span>
+            </div>
+          )}
+
           {/* Subtle line under logo */}
           <div className="w-6 h-[1.5px] bg-white/20" />
         </div>
@@ -89,18 +101,18 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
             <span>PROGRESS</span>
           </button>
 
-          {/* RESOURCES */}
+          {/* CONNECTIONS */}
           <button
             type="button"
-            onClick={() => onSelectTab('resources')}
+            onClick={() => onSelectTab('connections')}
             className={`w-full flex items-center space-x-3.5 px-4 py-2.5 rounded-lg transition-all text-left uppercase font-bold text-xs ${
-              activeTab === 'resources'
+              activeTab === 'connections'
                 ? 'bg-[#FCD34D] text-[#0D1B2A] shadow-md'
                 : 'text-white/70 hover:text-white hover:bg-white/5'
             }`}
           >
-            <Folder className="w-4 h-4 stroke-[2]" />
-            <span>RESOURCES</span>
+            <Users className="w-4 h-4 stroke-[2]" />
+            <span>CONNECTIONS</span>
           </button>
         </nav>
       </div>
@@ -139,7 +151,7 @@ export const SidebarNav: React.FC<SidebarNavProps> = ({
           </button>
         </div>
 
-        {/* LOG OUT Button (replaces bottom verse) */}
+        {/* LOG OUT Button */}
         <div className="pt-2 border-t border-white/10">
           <button
             type="button"

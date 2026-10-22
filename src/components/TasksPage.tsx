@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { ArrowLeft, Search, Check, ChevronRight } from 'lucide-react';
-import { CURRICULUM, PHASES } from '../data/curriculum';
+import { CURRICULUM as DEFAULT_CURRICULUM, PHASES } from '../data/curriculum';
+import type { DayPlan, CourseMetadata, CourseStats, CourseId } from '../types/curriculum';
+import { CourseSwitcher } from './CourseSwitcher';
 
 interface TasksPageProps {
   onBack: () => void;
@@ -8,6 +10,10 @@ interface TasksPageProps {
   isTaskCompleted: (day: number, taskId: string) => boolean;
   toggleTask: (day: number, taskId: string) => void;
   getDayCompletedCount: (day: number) => number;
+  curriculum?: DayPlan[];
+  courseMeta?: CourseMetadata;
+  courses?: CourseStats[];
+  onSelectCourse?: (courseId: CourseId) => void;
 }
 
 export const TasksPage: React.FC<TasksPageProps> = ({
@@ -16,14 +22,19 @@ export const TasksPage: React.FC<TasksPageProps> = ({
   isTaskCompleted,
   toggleTask,
   getDayCompletedCount,
+  curriculum = DEFAULT_CURRICULUM,
+  courseMeta,
+  courses,
+  onSelectCourse,
 }) => {
+  const activeCurriculum = curriculum && curriculum.length > 0 ? curriculum : DEFAULT_CURRICULUM;
   const [selectedPhase, setSelectedPhase] = useState<number | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedDay, setExpandedDay] = useState<number | null>(null);
 
   // Filtered days
   const filteredDays = useMemo(() => {
-    return CURRICULUM.filter((day) => {
+    return activeCurriculum.filter((day) => {
       const matchPhase = selectedPhase === 'all' || day.phase === selectedPhase;
       if (!matchPhase) return false;
 
@@ -31,10 +42,12 @@ export const TasksPage: React.FC<TasksPageProps> = ({
       const query = searchQuery.toLowerCase();
       const inTitle = day.title.toLowerCase().includes(query);
       const inFocus = day.focus.toLowerCase().includes(query);
-      const inTasks = day.tasks.some((t) => t.title.toLowerCase().includes(query) || t.category.toLowerCase().includes(query));
+      const inTasks = day.tasks.some(
+        (t) => t.title.toLowerCase().includes(query) || t.category.toLowerCase().includes(query)
+      );
       return inTitle || inFocus || inTasks;
     });
-  }, [selectedPhase, searchQuery]);
+  }, [activeCurriculum, selectedPhase, searchQuery]);
 
   return (
     <div className="w-full max-w-5xl space-y-4 animate-fadeIn">
@@ -47,9 +60,19 @@ export const TasksPage: React.FC<TasksPageProps> = ({
           <ArrowLeft className="w-4 h-4 stroke-[2]" />
           <span>Return to Workspace</span>
         </button>
-        <span className="text-xs font-heading font-bold uppercase tracking-widest text-[#091424] dark:text-white">
-          TASKS &amp; CURRICULUM
-        </span>
+
+        <div className="flex items-center space-x-3">
+          {courseMeta && courses && onSelectCourse && (
+            <CourseSwitcher
+              currentCourseId={courseMeta.id}
+              courses={courses}
+              onSelectCourse={onSelectCourse}
+            />
+          )}
+          <span className="text-xs font-heading font-bold uppercase tracking-widest text-[#091424] dark:text-white hidden sm:inline">
+            TASKS &amp; CURRICULUM
+          </span>
+        </div>
       </div>
 
       {/* Main Card */}
@@ -57,11 +80,18 @@ export const TasksPage: React.FC<TasksPageProps> = ({
         {/* Title and Search */}
         <div className="space-y-4 pb-2 border-b border-[#E5E0D5] dark:border-[#383838]">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-heading font-black text-[#091424] dark:text-white">
-              180-Day Curriculum Explorer
-            </h1>
+            <div className="flex items-center space-x-2">
+              {courseMeta && (
+                <span className="px-2.5 py-0.5 rounded-full bg-[#091424] dark:bg-white text-white dark:text-[#091424] text-[10px] font-heading font-bold uppercase tracking-wider">
+                  {courseMeta.name}
+                </span>
+              )}
+              <h1 className="text-2xl sm:text-3xl font-heading font-black text-[#091424] dark:text-white">
+                180-Day Curriculum Explorer
+              </h1>
+            </div>
             <p className="text-xs sm:text-sm font-body text-[#64748B] dark:text-[#9E9E96] pt-0.5">
-              Comprehensive placement roadmap from fundamentals to high-frequency assessment readiness.
+              Comprehensive placement roadmap from fundamentals to high-frequency assessment readiness in {courseMeta?.name || 'your track'}.
             </p>
           </div>
 
@@ -72,7 +102,7 @@ export const TasksPage: React.FC<TasksPageProps> = ({
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search concepts, algorithms, data structures (e.g., C++, Binary Search, Dynamic Programming, Graphs)..."
+              placeholder="Search concepts, algorithms, tasks (e.g., Recursion, Binary Search, Dynamic Programming, Graphs)..."
               className="w-full bg-[#FCFBF8] dark:bg-[#1f1f1f] border border-[#E5E0D5] dark:border-[#383838] rounded-full pl-11 pr-4 py-3 text-xs sm:text-sm font-body text-[#091424] dark:text-white placeholder:text-[#94A3B8] focus:outline-none focus:border-[#FCD34D] transition-all shadow-sm"
             />
           </div>
@@ -105,115 +135,133 @@ export const TasksPage: React.FC<TasksPageProps> = ({
           </div>
         </div>
 
-        {/* Days List */}
+        {/* Days List Accordion */}
         <div className="space-y-3">
-          <div className="flex items-center justify-between text-xs font-heading font-medium text-[#64748B] dark:text-[#9E9E96] pb-1">
-            <span>Showing {filteredDays.length} days</span>
-            <span>Click day to view or open tasks</span>
-          </div>
-
-          <div className="space-y-2.5 max-h-[600px] overflow-y-auto pr-1">
-            {filteredDays.map((day) => {
-              const completedCount = getDayCompletedCount(day.dayNumber);
-              const totalTasks = day.tasks.length;
+          {filteredDays.length === 0 ? (
+            <div className="text-center py-12 text-[#64748B] dark:text-[#9E9E96]">
+              <p className="text-sm font-body">No curriculum days match your search criteria.</p>
+            </div>
+          ) : (
+            filteredDays.map((day) => {
               const isExpanded = expandedDay === day.dayNumber;
-              const isAllDone = completedCount === totalTasks && totalTasks > 0;
+              const completedCount = getDayCompletedCount(day.dayNumber);
+              const totalCount = day.tasks.length;
+              const isAllDone = totalCount > 0 && completedCount >= totalCount;
 
               return (
                 <div
                   key={day.dayNumber}
-                  className="rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] hover:border-[#D5CEBF] dark:hover:border-[#555555] transition-all overflow-hidden shadow-sm"
+                  className="rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] overflow-hidden transition-all duration-150"
                 >
                   {/* Day Row Header */}
                   <div
                     onClick={() => setExpandedDay(isExpanded ? null : day.dayNumber)}
-                    className="p-4 sm:p-5 flex items-center justify-between cursor-pointer select-none"
+                    className="p-4 sm:p-5 flex items-center justify-between cursor-pointer hover:bg-white/50 dark:hover:bg-[#262626] transition-colors"
                   >
-                    <div className="flex items-center space-x-3.5 min-w-0 flex-1 pr-3">
-                      <div className="w-8 h-8 rounded-full bg-[#FAF8F5] dark:bg-[#1f1f1f] border border-[#E5E0D5] dark:border-[#383838] flex items-center justify-center font-heading font-bold text-xs text-[#091424] dark:text-white flex-shrink-0">
-                        {String(day.dayNumber).padStart(2, '0')}
+                    <div className="flex items-center space-x-3 sm:space-x-4 min-w-0 flex-1 pr-2">
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-heading font-bold ${
+                          isAllDone
+                            ? 'bg-[#091424] dark:bg-[#FCD34D] text-white dark:text-[#091424]'
+                            : 'bg-[#E5E0D5]/70 dark:bg-[#333333] text-[#091424] dark:text-white'
+                        }`}
+                      >
+                        {isAllDone ? (
+                          <Check className="w-4 h-4 stroke-[3]" />
+                        ) : (
+                          String(day.dayNumber).padStart(2, '0')
+                        )}
                       </div>
 
-                      <div className="min-w-0">
+                      <div className="min-w-0 flex-1">
                         <div className="flex items-center space-x-2">
-                          <span className="text-[10px] font-heading font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#FAE392] text-[#091424]">
-                            Phase {day.phase}
+                          <span className="text-[10px] font-heading font-bold uppercase tracking-wider text-[#64748B] dark:text-[#9E9E96]">
+                            Day {day.dayNumber} &bull; P{day.phase}
                           </span>
-                          <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white truncate">
-                            {day.title}
-                          </h3>
                         </div>
-                        <p className="text-xs font-body text-[#64748B] dark:text-[#9E9E96] truncate pt-0.5">
+                        <h3 className="text-sm sm:text-base font-heading font-bold text-[#091424] dark:text-white truncate">
+                          {day.title}
+                        </h3>
+                        <p className="text-xs font-body text-[#64748B] dark:text-[#9E9E96] truncate">
                           {day.focus}
                         </p>
                       </div>
                     </div>
 
                     <div className="flex items-center space-x-3 flex-shrink-0">
-                      <span className={`text-xs font-heading font-bold px-2.5 py-1 rounded-full border ${
-                        isAllDone
-                          ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800'
-                          : 'bg-white dark:bg-[#1f1f1f] text-[#64748B] dark:text-[#9E9E96] border-[#E5E0D5] dark:border-[#383838]'
-                      }`}>
-                        {completedCount} / {totalTasks}
+                      <span className="text-xs font-heading font-medium text-[#64748B] dark:text-[#9E9E96]">
+                        {completedCount}/{totalCount}
                       </span>
-
                       <button
-                        type="button"
                         onClick={(e) => {
                           e.stopPropagation();
                           onSelectDay(day.dayNumber);
                         }}
-                        className="px-3 py-1 rounded-full bg-[#091424] dark:bg-[#FCD34D] text-white dark:text-[#091424] hover:opacity-90 text-[11px] font-heading font-bold transition-all"
+                        className="px-3 py-1 rounded-full text-xs font-heading font-bold bg-[#091424] dark:bg-white text-white dark:text-[#091424] hover:opacity-85 transition-opacity"
+                        title="Jump to Workspace for this day"
                       >
-                        Open Day
+                        Open
                       </button>
-
-                      <ChevronRight className={`w-4 h-4 text-[#94A3B8] transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+                      <ChevronRight
+                        className={`w-4 h-4 text-[#94A3B8] transition-transform duration-200 ${
+                          isExpanded ? 'rotate-90' : ''
+                        }`}
+                      />
                     </div>
                   </div>
 
-                  {/* Expanded Task List with Live Checkboxes */}
+                  {/* Tasks Checklist when expanded */}
                   {isExpanded && (
-                    <div className="p-4 sm:p-5 bg-white dark:bg-[#1d1d1d] border-t border-[#E5E0D5] dark:border-[#383838] space-y-2 animate-fadeIn">
-                      <div className="text-xs font-heading font-bold text-[#64748B] dark:text-[#9E9E96] uppercase tracking-wider pb-1">
-                        Day {day.dayNumber} Tasks:
+                    <div className="px-4 sm:px-5 pb-5 pt-2 border-t border-[#EFECE4] dark:border-[#333333] space-y-2 bg-[#FAF8F5] dark:bg-[#1f1f1f]/60 animate-fadeIn">
+                      <div className="text-[11px] font-heading font-bold uppercase tracking-wider text-[#64748B] dark:text-[#9E9E96] py-1">
+                        Daily Action Checklist
                       </div>
-                      {day.tasks.map((task) => {
-                        const done = isTaskCompleted(day.dayNumber, task.id);
-                        return (
-                          <div
-                            key={task.id}
-                            onClick={() => toggleTask(day.dayNumber, task.id)}
-                            className="flex items-center justify-between p-3 rounded-xl border border-[#E5E0D5] dark:border-[#333333] bg-[#FAF8F5] dark:bg-[#222222] hover:bg-white dark:hover:bg-[#2a2a2a] cursor-pointer select-none transition-all"
-                          >
-                            <div className="flex items-center space-x-3 min-w-0 flex-1 pr-2">
-                              <button
-                                type="button"
-                                className={`w-4 h-4 rounded-full border flex items-center justify-center transition-all ${
-                                  done
-                                    ? 'bg-[#091424] dark:bg-[#FCD34D] border-[#091424] dark:border-[#FCD34D] text-white dark:text-[#091424]'
-                                    : 'border-[#94A3B8] dark:border-[#666666] bg-white dark:bg-[#1f1f1f]'
-                                }`}
-                              >
-                                {done && <Check className="w-2.5 h-2.5 stroke-[3]" />}
-                              </button>
-                              <span className={`text-xs font-body ${done ? 'line-through text-[#94A3B8] dark:text-[#777777]' : 'text-[#091424] dark:text-[#F3F3F0] font-medium'}`}>
-                                {task.title}
+                      <div className="space-y-1.5">
+                        {day.tasks.map((task) => {
+                          const done = isTaskCompleted(day.dayNumber, task.id);
+                          return (
+                            <div
+                              key={task.id}
+                              onClick={() => toggleTask(day.dayNumber, task.id)}
+                              className={`flex items-center justify-between p-2.5 rounded-xl border transition-all cursor-pointer ${
+                                done
+                                  ? 'bg-white/60 dark:bg-[#252525]/60 border-transparent opacity-75'
+                                  : 'bg-white dark:bg-[#252525] border-[#E5E0D5] dark:border-[#333333] hover:border-[#091424]'
+                              }`}
+                            >
+                              <div className="flex items-center space-x-3 flex-1 pr-2">
+                                <div
+                                  className={`w-4 h-4 rounded-full border flex items-center justify-center flex-shrink-0 ${
+                                    done
+                                      ? 'bg-[#091424] dark:bg-[#FCD34D] border-[#091424] dark:border-[#FCD34D] text-white dark:text-[#091424]'
+                                      : 'border-[#94A3B8]'
+                                  }`}
+                                >
+                                  {done && <Check className="w-2.5 h-2.5 stroke-[3]" />}
+                                </div>
+                                <span
+                                  className={`text-xs font-body ${
+                                    done
+                                      ? 'text-[#94A3B8] dark:text-[#777777] line-through'
+                                      : 'text-[#091424] dark:text-[#F3F3F0]'
+                                  }`}
+                                >
+                                  {task.title}
+                                </span>
+                              </div>
+                              <span className="text-[10px] font-heading px-2 py-0.5 rounded border border-[#CBD5E1] dark:border-[#444444] text-[#64748B] dark:text-[#A0A0A0]">
+                                {task.category}
                               </span>
                             </div>
-                            <span className="text-[10px] font-heading font-medium text-[#64748B] dark:text-[#A0A0A0] px-2 py-0.5 rounded-full border border-[#CBD5E1] dark:border-[#444444] bg-white dark:bg-[#1f1f1f]">
-                              {task.category}
-                            </span>
-                          </div>
-                        );
-                      })}
+                          );
+                        })}
+                      </div>
                     </div>
                   )}
                 </div>
               );
-            })}
-          </div>
+            })
+          )}
         </div>
       </div>
     </div>

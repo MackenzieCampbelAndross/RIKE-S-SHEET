@@ -4,6 +4,9 @@ import { getRandomVerse } from '../data/verses';
 
 interface LandingPageProps {
   onEnter: () => void;
+  onLogin?: () => void;
+  isAuthenticated?: boolean;
+  username?: string;
   currentStreak: number;
   currentDay?: number;
   totalDays?: number;
@@ -13,6 +16,9 @@ interface LandingPageProps {
 
 export const LandingPage: React.FC<LandingPageProps> = ({
   onEnter,
+  onLogin,
+  isAuthenticated = false,
+  username,
   currentDay = 1,
   totalDays = 180,
   isDark = false,
@@ -160,18 +166,24 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               </h2>
             </div>
 
-            {/* Solid Butter-Yellow ENTER pill button */}
-            <div>
+            {/* Solid Butter-Yellow CTA pill button */}
+            <div className="space-y-1.5">
               <button
                 type="button"
-                onClick={onEnter}
+                onClick={isAuthenticated ? onEnter : onLogin}
                 className="group inline-flex items-center justify-between w-56 sm:w-64 md:w-72 px-6 sm:px-7 py-3 rounded-full bg-[#FCD34D] hover:bg-[#F5CA38] text-[#0D1B2A] transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer"
               >
                 <span className="text-xs sm:text-sm font-heading font-bold tracking-[0.2em] uppercase">
-                  ENTER
+                  {isAuthenticated ? 'ENTER' : 'LOGIN'}
                 </span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2] text-[#0D1B2A] transition-transform duration-200 group-hover:translate-x-1" />
               </button>
+
+              {isAuthenticated && username && (
+                <p className="text-[11px] font-heading font-semibold text-[#0D1B2A]/70 dark:text-white/70 pl-3">
+                  Signed in as <span className="font-bold text-[#0D1B2A] dark:text-[#FCD34D]">@{username}</span>
+                </p>
+              )}
             </div>
           </div>
 

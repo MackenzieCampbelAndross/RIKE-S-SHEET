@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Code, Terminal, Layers, Database, Copy, Check } from 'lucide-react';
+import type { CourseId, CourseMetadata, CourseStats } from '../types/curriculum';
+import { CourseSwitcher } from './CourseSwitcher';
 
 interface ResourcesPageProps {
   onBack: () => void;
+  courseMeta?: CourseMetadata;
+  courses?: CourseStats[];
+  onSelectCourse?: (courseId: CourseId) => void;
 }
 
-export const ResourcesPage: React.FC<ResourcesPageProps> = ({ onBack }) => {
-  const [activeCategory, setActiveCategory] = useState<'cpp' | 'patterns' | 'core' | 'system'>('cpp');
+export const ResourcesPage: React.FC<ResourcesPageProps> = ({
+  onBack,
+  courseMeta,
+  courses,
+  onSelectCourse,
+}) => {
+  const defaultTab = courseMeta?.id === 'java-heavy' ? 'java' : courseMeta?.id === 'python' ? 'python' : 'cpp';
+  const [activeCategory, setActiveCategory] = useState<'cpp' | 'java' | 'python' | 'patterns' | 'core' | 'system'>(defaultTab);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const copyCode = (id: string, text: string) => {
@@ -26,9 +37,19 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({ onBack }) => {
           <ArrowLeft className="w-4 h-4 stroke-[2]" />
           <span>Return to Workspace</span>
         </button>
-        <span className="text-xs font-heading font-bold uppercase tracking-widest text-[#091424] dark:text-white">
-          PREPARATION RESOURCES
-        </span>
+
+        <div className="flex items-center space-x-3">
+          {courseMeta && courses && onSelectCourse && (
+            <CourseSwitcher
+              currentCourseId={courseMeta.id}
+              courses={courses}
+              onSelectCourse={onSelectCourse}
+            />
+          )}
+          <span className="text-xs font-heading font-bold uppercase tracking-widest text-[#091424] dark:text-white hidden sm:inline">
+            PREPARATION RESOURCES
+          </span>
+        </div>
       </div>
 
       {/* Main Card */}
@@ -53,7 +74,31 @@ export const ResourcesPage: React.FC<ResourcesPageProps> = ({ onBack }) => {
               }`}
             >
               <Code className="w-3.5 h-3.5" />
-              <span>C++ &amp; STL Cheatsheet</span>
+              <span>C++ &amp; STL</span>
+            </button>
+
+            <button
+              onClick={() => setActiveCategory('java')}
+              className={`flex items-center space-x-2 px-4 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-wider transition-all ${
+                activeCategory === 'java'
+                  ? 'bg-[#091424] dark:bg-[#FCD34D] text-white dark:text-[#091424] shadow-sm'
+                  : 'bg-[#FCFBF8] dark:bg-[#222222] text-[#091424] dark:text-white border border-[#E5E0D5] dark:border-[#383838] hover:border-[#091424]'
+              }`}
+            >
+              <Code className="w-3.5 h-3.5" />
+              <span>Java Collections</span>
+            </button>
+
+            <button
+              onClick={() => setActiveCategory('python')}
+              className={`flex items-center space-x-2 px-4 py-2 rounded-full text-xs font-heading font-bold uppercase tracking-wider transition-all ${
+                activeCategory === 'python'
+                  ? 'bg-[#091424] dark:bg-[#FCD34D] text-white dark:text-[#091424] shadow-sm'
+                  : 'bg-[#FCFBF8] dark:bg-[#222222] text-[#091424] dark:text-white border border-[#E5E0D5] dark:border-[#383838] hover:border-[#091424]'
+              }`}
+            >
+              <Code className="w-3.5 h-3.5" />
+              <span>Python DSA</span>
             </button>
 
             <button
@@ -120,7 +165,7 @@ v.push_back(4); // O(1) amortized
 v.pop_back();   // O(1)
 sort(v.begin(), v.end()); // O(N log N)`}
                 </pre>
-                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Continuous memory allocation. Best for indexed lookups and sequential iteration.</p>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Contiguous memory allocation. Best for indexed lookups and sequential iteration.</p>
               </div>
 
               {/* Unordered Map */}
@@ -128,7 +173,7 @@ sort(v.begin(), v.end()); // O(N log N)`}
                 <div className="flex items-center justify-between">
                   <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">std::unordered_map &bull; Hash Table</h3>
                   <button
-                    onClick={() => copyCode('cpp-map', 'unordered_map<string, int> mp;\nmp["target"] = 10; // O(1) avg\nif (mp.count("target")) {\n    // key exists\n}')}
+                    onClick={() => copyCode('cpp-map', 'unordered_map<string, int> mp;\nmp["apple"] = 5; // O(1) avg\nif (mp.count("apple")) { ... }\nfor (auto& [k, v] : mp) { ... }')}
                     className="p-1 text-[#64748B] dark:text-[#9E9E96] hover:text-[#091424] dark:hover:text-white"
                     title="Copy Snippet"
                   >
@@ -137,56 +182,119 @@ sort(v.begin(), v.end()); // O(N log N)`}
                 </div>
                 <pre className="p-3 bg-[#091424] dark:bg-[#151515] text-[#FCD34D] rounded-xl text-xs font-mono overflow-x-auto leading-relaxed border border-transparent dark:border-white/5">
 {`unordered_map<string, int> mp;
-mp["target"] = 10; // O(1) avg
-if (mp.count("target")) {
-    int val = mp["target"];
+mp["apple"] = 5; // O(1) average
+if (mp.count("apple")) { ... }
+for (auto& [k, v] : mp) { ... }`}
+                </pre>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Hash table with average O(1) insertions, deletions, and key lookups.</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Java Collections Tab */}
+        {activeCategory === 'java' && (
+          <div className="space-y-4 animate-fadeIn">
+            <h2 className="text-xs font-heading font-bold uppercase tracking-widest text-[#091424] dark:text-white">
+              Java Collections Framework &amp; Essential Utilities
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* ArrayList */}
+              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">ArrayList &amp; Sorting</h3>
+                  <button
+                    onClick={() => copyCode('java-arraylist', 'List<Integer> list = new ArrayList<>();\nlist.add(10);\nCollections.sort(list); // Dual-Pivot Quicksort / Timsort\nlist.sort((a, b) -> b - a); // Descending')}
+                    className="p-1 text-[#64748B] dark:text-[#9E9E96] hover:text-[#091424] dark:hover:text-white"
+                    title="Copy Snippet"
+                  >
+                    {copiedId === 'java-arraylist' ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                  </button>
+                </div>
+                <pre className="p-3 bg-[#091424] dark:bg-[#151515] text-[#FCD34D] rounded-xl text-xs font-mono overflow-x-auto leading-relaxed border border-transparent dark:border-white/5">
+{`List<Integer> list = new ArrayList<>();
+list.add(10); // O(1) amortized
+Collections.sort(list); // O(N log N)
+list.sort((a, b) -> b - a); // Descending sort`}
+                </pre>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Dynamic array backed by continuous array resizing by 50% (newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1)).</p>
+              </div>
+
+              {/* HashMap */}
+              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">HashMap &amp; Frequency Counter</h3>
+                  <button
+                    onClick={() => copyCode('java-hashmap', 'Map<String, Integer> map = new HashMap<>();\nmap.put("key", map.getOrDefault("key", 0) + 1);\nfor (Map.Entry<String, Integer> e : map.entrySet()) {\n  System.out.println(e.getKey() + ": " + e.getValue());\n}')}
+                    className="p-1 text-[#64748B] dark:text-[#9E9E96] hover:text-[#091424] dark:hover:text-white"
+                    title="Copy Snippet"
+                  >
+                    {copiedId === 'java-hashmap' ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                  </button>
+                </div>
+                <pre className="p-3 bg-[#091424] dark:bg-[#151515] text-[#FCD34D] rounded-xl text-xs font-mono overflow-x-auto leading-relaxed border border-transparent dark:border-white/5">
+{`Map<String, Integer> map = new HashMap<>();
+map.put("key", map.getOrDefault("key", 0) + 1);
+for (Map.Entry<String, Integer> e : map.entrySet()) {
+    System.out.println(e.getKey() + ": " + e.getValue());
 }`}
                 </pre>
-                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Hash map. Average O(1) insertion, deletion, and lookup. Worst case O(N) on collisions.</p>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">O(1) average lookup. Buckets treeify to Red-Black Trees when chain exceeds TREEIFY_THRESHOLD (8).</p>
               </div>
+            </div>
+          </div>
+        )}
 
-              {/* Priority Queue */}
+        {/* Python DSA Tab */}
+        {activeCategory === 'python' && (
+          <div className="space-y-4 animate-fadeIn">
+            <h2 className="text-xs font-heading font-bold uppercase tracking-widest text-[#091424] dark:text-white">
+              Python Collections, heapq &amp; Algorithmic Idioms
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Counter and defaultdict */}
               <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-2.5">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">std::priority_queue &bull; Heap</h3>
+                  <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">collections.Counter &amp; defaultdict</h3>
                   <button
-                    onClick={() => copyCode('cpp-pq', '// Max-heap (default)\npriority_queue<int> maxH;\n\n// Min-heap\npriority_queue<int, vector<int>, greater<int>> minH;')}
+                    onClick={() => copyCode('py-counter', 'from collections import Counter, defaultdict\ncounts = Counter([1, 2, 2, 3]) # counts[2] == 2\nadj = defaultdict(list)\nadj[u].append(v)')}
                     className="p-1 text-[#64748B] dark:text-[#9E9E96] hover:text-[#091424] dark:hover:text-white"
                     title="Copy Snippet"
                   >
-                    {copiedId === 'cpp-pq' ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                    {copiedId === 'py-counter' ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
                   </button>
                 </div>
                 <pre className="p-3 bg-[#091424] dark:bg-[#151515] text-[#FCD34D] rounded-xl text-xs font-mono overflow-x-auto leading-relaxed border border-transparent dark:border-white/5">
-{`// Max-Heap (default)
-priority_queue<int> maxH;
-
-// Min-Heap
-priority_queue<int, vector<int>, greater<int>> minH;`}
+{`from collections import Counter, defaultdict
+counts = Counter("placement_prep") # O(N) frequency
+adj = defaultdict(list)
+adj[node].append(neighbor)`}
                 </pre>
-                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Heap structure. O(log N) push/pop, O(1) top lookup. Indispensable for Dijkstra and Top-K elements.</p>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">High performance hashing wrappers in CPython eliminating KeyError checks.</p>
               </div>
 
-              {/* Custom Comparator */}
+              {/* Heapq */}
               <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-2.5">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">Lambda Comparator</h3>
+                  <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">heapq &bull; Priority Queue</h3>
                   <button
-                    onClick={() => copyCode('cpp-comp', 'auto comp = [](const pair<int,int>& a, const pair<int,int>& b) {\n    return a.first > b.first; // ascending\n};\nsort(v.begin(), v.end(), comp);')}
+                    onClick={() => copyCode('py-heapq', 'import heapq\nheap = [3, 1, 4]\nheapq.heapify(heap) # O(N) in-place min-heap\nheapq.heappush(heap, 2) # O(log N)\nsmallest = heapq.heappop(heap) # O(log N)')}
                     className="p-1 text-[#64748B] dark:text-[#9E9E96] hover:text-[#091424] dark:hover:text-white"
                     title="Copy Snippet"
                   >
-                    {copiedId === 'cpp-comp' ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                    {copiedId === 'py-heapq' ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
                   </button>
                 </div>
                 <pre className="p-3 bg-[#091424] dark:bg-[#151515] text-[#FCD34D] rounded-xl text-xs font-mono overflow-x-auto leading-relaxed border border-transparent dark:border-white/5">
-{`auto comp = [](const auto& a, const auto& b) {
-    if (a.first != b.first) return a.first < b.first;
-    return a.second > b.second;
-};
-sort(v.begin(), v.end(), comp);`}
+{`import heapq
+heap = [3, 1, 4]
+heapq.heapify(heap) # O(N) min-heap
+heapq.heappush(heap, 2) # O(log N)
+min_val = heapq.heappop(heap) # O(log N)`}
                 </pre>
-                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Clean inline sorting logic for intervals, coordinate pairs, and complex objects.</p>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Min-heap implementation over standard Python lists. For max-heap, negate values.</p>
               </div>
             </div>
           </div>
@@ -196,38 +304,16 @@ sort(v.begin(), v.end(), comp);`}
         {activeCategory === 'patterns' && (
           <div className="space-y-4 animate-fadeIn">
             <h2 className="text-xs font-heading font-bold uppercase tracking-widest text-[#091424] dark:text-white">
-              High Frequency 15+ LPA Placement Patterns
+              High-Frequency Algorithmic Blueprints
             </h2>
-
-            <div className="space-y-3">
-              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">1. Two Pointers / Sliding Window</h3>
-                  <span className="text-[10px] font-heading font-bold px-2.5 py-0.5 rounded-full bg-[#FAE392] text-[#091424]">Frequency: Very High</span>
-                </div>
-                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">
-                  Applied when seeking subarrays or contiguous segments with a monotonic condition (sum &le; K, at most K distinct elements). Reduces O(N&sup2;) brute force to O(N).
-                </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-2">
+                <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">1. Two Pointers (Opposite Ends)</h3>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Applicable to sorted arrays for pair sum, palindrome verification, and water trapping.</p>
               </div>
-
-              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">2. Binary Search on Answer</h3>
-                  <span className="text-[10px] font-heading font-bold px-2.5 py-0.5 rounded-full bg-[#FAE392] text-[#091424]">Frequency: High</span>
-                </div>
-                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">
-                  Used when the decision function is monotonic: `if check(mid) == true`, then all values &ge; mid or &le; mid are also valid. Classic problems: Book Allocation, Painter's Partition, Aggressive Cows.
-                </p>
-              </div>
-
-              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">3. Dynamic Programming (1D &bull; 2D &bull; Knapsack &bull; MCM)</h3>
-                  <span className="text-[10px] font-heading font-bold px-2.5 py-0.5 rounded-full bg-[#FAE392] text-[#091424]">Frequency: Critical</span>
-                </div>
-                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">
-                  Identified by overlapping subproblems and optimal substructure. 4 key steps: State definition `dp[i][j]`, Base case, State transition recurrence, and Space optimization from O(N&sup2;) to O(N).
-                </p>
+              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-2">
+                <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">2. Sliding Window (Dynamic Expansion)</h3>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Applicable to contiguous subarray/substring problems under dynamic constraints.</p>
               </div>
             </div>
           </div>
@@ -237,26 +323,20 @@ sort(v.begin(), v.end(), comp);`}
         {activeCategory === 'core' && (
           <div className="space-y-4 animate-fadeIn">
             <h2 className="text-xs font-heading font-bold uppercase tracking-widest text-[#091424] dark:text-white">
-              Computer Science Fundamentals Rapid Fire
+              Computer Science Core Subject Interview Sheets
             </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-2">
-                <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">Operating Systems (OS)</h3>
-                <ul className="text-xs text-[#64748B] dark:text-[#9E9E96] space-y-1 list-disc pl-4">
-                  <li>Process vs Thread (Address space, context switch cost)</li>
-                  <li>Deadlock 4 Coffman conditions: Mutual Exclusion, Hold &amp; Wait, No Preemption, Circular Wait</li>
-                  <li>Virtual Memory, Paging, TLB, Page Fault Handling, LRU replacement</li>
-                </ul>
+                <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">Operating Systems</h3>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Process vs Thread, Semaphores, Mutex, Banker's Algorithm, Paging &amp; Virtual Memory.</p>
               </div>
-
               <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-2">
-                <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">Database Management Systems (DBMS)</h3>
-                <ul className="text-xs text-[#64748B] dark:text-[#9E9E96] space-y-1 list-disc pl-4">
-                  <li>ACID Properties: Atomicity, Consistency, Isolation, Durability</li>
-                  <li>Indexing: B+ Trees vs Hash Index, Clustered vs Non-Clustered</li>
-                  <li>SQL Joins, Normalization (1NF, 2NF, 3NF, BCNF)</li>
-                </ul>
+                <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">DBMS &amp; SQL</h3>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">ACID Properties, Normalization (1NF to BCNF), Indexing (B+ Trees), Joins &amp; Window Functions.</p>
+              </div>
+              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-2">
+                <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">Computer Networks</h3>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">TCP 3-Way Handshake, Flow vs Congestion Control, DNS, HTTP/HTTPS, IP Subnetting.</p>
               </div>
             </div>
           </div>
@@ -266,23 +346,16 @@ sort(v.begin(), v.end(), comp);`}
         {activeCategory === 'system' && (
           <div className="space-y-4 animate-fadeIn">
             <h2 className="text-xs font-heading font-bold uppercase tracking-widest text-[#091424] dark:text-white">
-              High-Level System Design (HLD) Building Blocks
+              High-Level System Design Fundamentals
             </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-1.5">
-                <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">CAP Theorem</h3>
-                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">In any distributed data store, you can only pick two of Consistency, Availability, and Partition Tolerance.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-2">
+                <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">Scalability &amp; Load Balancing</h3>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Horizontal vs Vertical scaling, Reverse Proxy (Nginx), Round-Robin and Consistent Hashing.</p>
               </div>
-
-              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-1.5">
-                <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">Caching Strategies</h3>
-                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Read-Through, Write-Through, Write-Behind, and Cache-Aside. Redis vs Memcached.</p>
-              </div>
-
-              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-1.5">
-                <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">Load Balancing</h3>
-                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Round Robin, Least Connections, Consistent Hashing for stateless and stateful clusters.</p>
+              <div className="p-5 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FCFBF8] dark:bg-[#222222] space-y-2">
+                <h3 className="text-sm font-heading font-bold text-[#091424] dark:text-white">Caching &amp; CAP Theorem</h3>
+                <p className="text-xs text-[#64748B] dark:text-[#9E9E96]">Redis/Memcached, Cache-Aside vs Write-Through, Consistency vs Availability under network partitions.</p>
               </div>
             </div>
           </div>

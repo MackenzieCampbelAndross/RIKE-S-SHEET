@@ -7,6 +7,8 @@ import type { UserProfile } from '../hooks/useProfile';
 interface ProfilePageProps {
   onBack: () => void;
   profile: UserProfile;
+  username?: string;
+  eloRating?: number;
   onUpdateName: (name: string) => void;
   onUpdateAvatar: (avatarId: string) => void;
   currentStreak: number;
@@ -17,6 +19,8 @@ interface ProfilePageProps {
 export const ProfilePage: React.FC<ProfilePageProps> = ({
   onBack,
   profile,
+  username,
+  eloRating = 1000,
   onUpdateName,
   onUpdateAvatar,
   currentStreak,
@@ -88,20 +92,28 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
                   </button>
                 </form>
               ) : (
-                <div className="flex items-center space-x-2.5">
-                  <h1 className="text-3xl sm:text-4xl font-heading font-black tracking-tight text-[#091424] dark:text-white">
-                    {profile.name}
-                  </h1>
-                  <button
-                    onClick={() => {
-                      setNameInput(profile.name);
-                      setIsEditingName(true);
-                    }}
-                    className="p-1 text-[#64748B] dark:text-[#9E9E96] hover:text-[#091424] dark:hover:text-white transition-colors"
-                    title="Edit Name"
-                  >
-                    <Edit2 className="w-4 h-4 stroke-[2]" />
-                  </button>
+                <div className="flex flex-col">
+                  <div className="flex items-center space-x-2.5">
+                    <h1 className="text-3xl sm:text-4xl font-heading font-black tracking-tight text-[#091424] dark:text-white">
+                      {profile.name}
+                    </h1>
+                    <button
+                      onClick={() => {
+                        setNameInput(profile.name);
+                        setIsEditingName(true);
+                      }}
+                      className="p-1 text-[#64748B] dark:text-[#9E9E96] hover:text-[#091424] dark:hover:text-white transition-colors"
+                      title="Edit Name"
+                    >
+                      <Edit2 className="w-4 h-4 stroke-[2]" />
+                    </button>
+                  </div>
+
+                  {username && (
+                    <p className="text-xs font-heading font-bold text-[#64748B] dark:text-[#F4D875] tracking-wide">
+                      @{username}
+                    </p>
+                  )}
                 </div>
               )}
 
@@ -111,18 +123,39 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
             </div>
           </div>
 
-          {/* Right Hero Card: Golden Drop/Flame + Big Streak count matching reference */}
-          <div className="px-6 py-4 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FAF8F5] dark:bg-[#222222] flex items-center space-x-4 shadow-sm min-w-[170px]">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#FDE68A] to-[#F59E0B] shadow-[0_0_12px_rgba(251,191,36,0.6)] flex items-center justify-center text-white flex-shrink-0">
-              <Flame className="w-5 h-5 fill-white/90 stroke-none" />
+          {/* Right Hero Cards: ELO Rating & Streak */}
+          <div className="flex items-center space-x-3">
+            {/* ELO Rating Card */}
+            <div
+              title="Global placement rating"
+              className="px-5 py-4 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FAF8F5] dark:bg-[#222222] flex items-center space-x-3 shadow-sm min-w-[140px]"
+            >
+              <div className="w-9 h-9 rounded-full bg-[#FAF0CA] dark:bg-[#333333] flex items-center justify-center text-[#B45309] dark:text-[#F4D875] flex-shrink-0 font-heading font-black text-xs">
+                ⚡
+              </div>
+              <div className="flex flex-col">
+                <span className="text-2xl sm:text-3xl font-heading font-black text-[#091424] dark:text-white leading-none">
+                  {eloRating.toLocaleString()}
+                </span>
+                <span className="text-xs font-heading font-medium text-[#64748B] dark:text-[#9E9E96] mt-0.5">
+                  ELO Rating
+                </span>
+              </div>
             </div>
-            <div className="flex flex-col">
-              <span className="text-2xl sm:text-3xl font-heading font-black text-[#091424] dark:text-white leading-none">
-                {currentStreak}
-              </span>
-              <span className="text-xs font-heading font-medium text-[#64748B] dark:text-[#9E9E96] mt-0.5">
-                Day Streak
-              </span>
+
+            {/* Streak Card */}
+            <div className="px-5 py-4 rounded-2xl border border-[#E5E0D5] dark:border-[#383838] bg-[#FAF8F5] dark:bg-[#222222] flex items-center space-x-3 shadow-sm min-w-[140px]">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#FDE68A] to-[#F59E0B] shadow-[0_0_12px_rgba(251,191,36,0.6)] flex items-center justify-center text-white flex-shrink-0">
+                <Flame className="w-5 h-5 fill-white/90 stroke-none" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-2xl sm:text-3xl font-heading font-black text-[#091424] dark:text-white leading-none">
+                  {currentStreak}
+                </span>
+                <span className="text-xs font-heading font-medium text-[#64748B] dark:text-[#9E9E96] mt-0.5">
+                  Day Streak
+                </span>
+              </div>
             </div>
           </div>
         </div>
