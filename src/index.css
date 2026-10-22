@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * RIKE'S SHEET Theme System
+ *
+ * Light mode (default): Warm cream background #F5F2EB
+ * Dark mode: #1f1f1f background with refined neutral dark cards
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-editorial: 'Instrument Serif', Georgia, serif;
+
+  /* Light Theme (Default) */
+  --bg-app: #F5F2EB;
+  --color-card-bg: #FAF8F5;
+  --color-card-border: #E7E2D6;
+
+  --color-row-bg: #FCFBF8;
+  --color-row-hover: #FFFFFF;
+  --color-row-border: #E5E0D5;
+
+  --color-accent: #FCD34D;
+  --color-accent-text: #091424;
+
+  --color-text-main: #091424;
+  --color-text-sub: #334155;
+  --color-text-dim: #64748B;
+
+  --color-progress-track: #E5E0D5;
+  --color-progress-bar: #091424;
+}
+
+html.dark, [data-theme='dark'] {
+  color-scheme: dark;
+
+  /* Dark Theme with requested #1f1f1f background */
+  --bg-app: #1f1f1f;
+  --color-card-bg: #282828;
+  --color-card-border: #383838;
+
+  --color-row-bg: #222222;
+  --color-row-hover: #2c2c2c;
+  --color-row-border: #333333;
+
+  --color-accent: #FCD34D;
+  --color-accent-text: #091424;
+
+  --color-text-main: #F5F5F3;
+  --color-text-sub: #D5D5CF;
+  --color-text-dim: #9E9E96;
+
+  --color-progress-track: #383838;
+  --color-progress-bar: #FCD34D;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg-app);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Headings use Space Grotesk */
+h1, h2, h3, h4, h5, h6, .font-heading, .font-space {
+  font-family: var(--font-heading);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.45);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.18s ease-out forwards;
+}

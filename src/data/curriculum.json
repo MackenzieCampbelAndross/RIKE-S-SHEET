@@ -1,0 +1,7982 @@
+[
+  {
+    "id": 1,
+    "dayNumber": 1,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "C++ Foundations I",
+    "focus": "Programming fundamentals",
+    "tasks": [
+      {
+        "id": "d001_t01",
+        "title": "Install and verify C++ compiler and IDE",
+        "category": "C++"
+      },
+      {
+        "id": "d001_t02",
+        "title": "Learn variables and constants",
+        "category": "C++"
+      },
+      {
+        "id": "d001_t03",
+        "title": "Learn int, long long, float, double, char, bool",
+        "category": "C++"
+      },
+      {
+        "id": "d001_t04",
+        "title": "Learn input and output using cin and cout",
+        "category": "C++"
+      },
+      {
+        "id": "d001_t05",
+        "title": "Learn arithmetic, relational and logical operators",
+        "category": "C++"
+      },
+      {
+        "id": "d001_t06",
+        "title": "Write 5 tiny programs using input and output",
+        "category": "C++"
+      },
+      {
+        "id": "d001_t07",
+        "title": "Solve 5 beginner programming problems",
+        "category": "C++"
+      },
+      {
+        "id": "d001_t08",
+        "title": "Learn what time complexity means",
+        "category": "C++"
+      },
+      {
+        "id": "d001_t09",
+        "title": "Learn O(1), O(n), O(n²)",
+        "category": "C++"
+      },
+      {
+        "id": "d001_t10",
+        "title": "Create the placement-prep Git repository",
+        "category": "CN"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "dayNumber": 2,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "C++ Foundations II",
+    "focus": "Conditions and loops",
+    "tasks": [
+      {
+        "id": "d002_t01",
+        "title": "Learn if, else if and else",
+        "category": "OOP"
+      },
+      {
+        "id": "d002_t02",
+        "title": "Learn switch",
+        "category": "OOP"
+      },
+      {
+        "id": "d002_t03",
+        "title": "Learn for, while and do while",
+        "category": "OOP"
+      },
+      {
+        "id": "d002_t04",
+        "title": "Learn break and continue",
+        "category": "OOP"
+      },
+      {
+        "id": "d002_t05",
+        "title": "Write 10 loop based programs",
+        "category": "OOP"
+      },
+      {
+        "id": "d002_t06",
+        "title": "Solve 5 number pattern problems",
+        "category": "OOP"
+      },
+      {
+        "id": "d002_t07",
+        "title": "Explain the complexity of 5 loop snippets",
+        "category": "OOP"
+      },
+      {
+        "id": "d002_t08",
+        "title": "Review Day 1",
+        "category": "OOP"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "dayNumber": 3,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Functions",
+    "focus": "Breaking problems into reusable logic",
+    "tasks": [
+      {
+        "id": "d003_t01",
+        "title": "Learn function declaration and definition",
+        "category": "DSA"
+      },
+      {
+        "id": "d003_t02",
+        "title": "Learn parameters and return values",
+        "category": "DSA"
+      },
+      {
+        "id": "d003_t03",
+        "title": "Learn pass by value",
+        "category": "DSA"
+      },
+      {
+        "id": "d003_t04",
+        "title": "Learn local and global scope",
+        "category": "DSA"
+      },
+      {
+        "id": "d003_t05",
+        "title": "Write 10 functions",
+        "category": "DSA"
+      },
+      {
+        "id": "d003_t06",
+        "title": "Solve 5 function based problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d003_t07",
+        "title": "Explain why functions improve code quality",
+        "category": "DSA"
+      },
+      {
+        "id": "d003_t08",
+        "title": "Review loops and complexity",
+        "category": "OOP"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "dayNumber": 4,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Arrays I",
+    "focus": "Array fundamentals",
+    "tasks": [
+      {
+        "id": "d004_t01",
+        "title": "Learn one dimensional arrays",
+        "category": "DSA"
+      },
+      {
+        "id": "d004_t02",
+        "title": "Learn traversal",
+        "category": "DSA"
+      },
+      {
+        "id": "d004_t03",
+        "title": "Find maximum and minimum",
+        "category": "DSA"
+      },
+      {
+        "id": "d004_t04",
+        "title": "Calculate sum and average",
+        "category": "DSA"
+      },
+      {
+        "id": "d004_t05",
+        "title": "Reverse an array",
+        "category": "DSA"
+      },
+      {
+        "id": "d004_t06",
+        "title": "Find second largest element",
+        "category": "DSA"
+      },
+      {
+        "id": "d004_t07",
+        "title": "Solve 7 array problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d004_t08",
+        "title": "Explain array time complexity",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "dayNumber": 5,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Arrays II",
+    "focus": "Array problem solving",
+    "tasks": [
+      {
+        "id": "d005_t01",
+        "title": "Learn insertion and deletion concepts",
+        "category": "DSA"
+      },
+      {
+        "id": "d005_t02",
+        "title": "Learn frequency counting",
+        "category": "DSA"
+      },
+      {
+        "id": "d005_t03",
+        "title": "Learn duplicate detection",
+        "category": "DSA"
+      },
+      {
+        "id": "d005_t04",
+        "title": "Solve 8 array problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d005_t05",
+        "title": "Implement array reversal from scratch",
+        "category": "DSA"
+      },
+      {
+        "id": "d005_t06",
+        "title": "Implement left rotation",
+        "category": "DSA"
+      },
+      {
+        "id": "d005_t07",
+        "title": "Review Days 1 to 4",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "dayNumber": 6,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Strings I",
+    "focus": "String fundamentals",
+    "tasks": [
+      {
+        "id": "d006_t01",
+        "title": "Learn std::string",
+        "category": "DSA"
+      },
+      {
+        "id": "d006_t02",
+        "title": "Learn indexing and traversal",
+        "category": "DBMS"
+      },
+      {
+        "id": "d006_t03",
+        "title": "Learn string length",
+        "category": "DSA"
+      },
+      {
+        "id": "d006_t04",
+        "title": "Learn substring",
+        "category": "DSA"
+      },
+      {
+        "id": "d006_t05",
+        "title": "Learn concatenation",
+        "category": "DSA"
+      },
+      {
+        "id": "d006_t06",
+        "title": "Learn character conversion",
+        "category": "SQL"
+      },
+      {
+        "id": "d006_t07",
+        "title": "Solve 7 string problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d006_t08",
+        "title": "Practice palindrome checking",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "dayNumber": 7,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Weekly Foundation Review",
+    "focus": "Consolidation",
+    "tasks": [
+      {
+        "id": "d007_t01",
+        "title": "Revise C++ syntax",
+        "category": "C++"
+      },
+      {
+        "id": "d007_t02",
+        "title": "Revise loops",
+        "category": "OOP"
+      },
+      {
+        "id": "d007_t03",
+        "title": "Revise functions",
+        "category": "REVISION"
+      },
+      {
+        "id": "d007_t04",
+        "title": "Revise arrays",
+        "category": "REVISION"
+      },
+      {
+        "id": "d007_t05",
+        "title": "Revise strings",
+        "category": "REVISION"
+      },
+      {
+        "id": "d007_t06",
+        "title": "Solve 10 mixed beginner problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d007_t07",
+        "title": "Take a 30 minute timed coding test",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d007_t08",
+        "title": "Write down every mistake",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "dayNumber": 8,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Pointers",
+    "focus": "Memory fundamentals",
+    "tasks": [
+      {
+        "id": "d008_t01",
+        "title": "Understand memory addresses",
+        "category": "C++"
+      },
+      {
+        "id": "d008_t02",
+        "title": "Learn pointers",
+        "category": "C++"
+      },
+      {
+        "id": "d008_t03",
+        "title": "Learn dereferencing",
+        "category": "C++"
+      },
+      {
+        "id": "d008_t04",
+        "title": "Learn pointer arithmetic",
+        "category": "C++"
+      },
+      {
+        "id": "d008_t05",
+        "title": "Understand nullptr",
+        "category": "C++"
+      },
+      {
+        "id": "d008_t06",
+        "title": "Understand pointer versus variable",
+        "category": "C++"
+      },
+      {
+        "id": "d008_t07",
+        "title": "Write 8 pointer exercises",
+        "category": "C++"
+      },
+      {
+        "id": "d008_t08",
+        "title": "Explain stack memory at a basic level",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "dayNumber": 9,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "References and Memory",
+    "focus": "C++ memory model",
+    "tasks": [
+      {
+        "id": "d009_t01",
+        "title": "Learn references",
+        "category": "C++"
+      },
+      {
+        "id": "d009_t02",
+        "title": "Compare pointers and references",
+        "category": "C++"
+      },
+      {
+        "id": "d009_t03",
+        "title": "Learn pass by reference",
+        "category": "C++"
+      },
+      {
+        "id": "d009_t04",
+        "title": "Understand stack versus heap",
+        "category": "C++"
+      },
+      {
+        "id": "d009_t05",
+        "title": "Understand lifetime and scope",
+        "category": "C++"
+      },
+      {
+        "id": "d009_t06",
+        "title": "Solve 6 pointer/reference problems",
+        "category": "C++"
+      },
+      {
+        "id": "d009_t07",
+        "title": "Explain memory allocation conceptually",
+        "category": "C++"
+      },
+      {
+        "id": "d009_t08",
+        "title": "Review Day 8",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "dayNumber": 10,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Complexity",
+    "focus": "Big O mastery",
+    "tasks": [
+      {
+        "id": "d010_t01",
+        "title": "Learn Big O",
+        "category": "DSA"
+      },
+      {
+        "id": "d010_t02",
+        "title": "Learn Big Omega",
+        "category": "DSA"
+      },
+      {
+        "id": "d010_t03",
+        "title": "Learn Big Theta",
+        "category": "DSA"
+      },
+      {
+        "id": "d010_t04",
+        "title": "Analyze loops",
+        "category": "OOP"
+      },
+      {
+        "id": "d010_t05",
+        "title": "Analyze nested loops",
+        "category": "OOP"
+      },
+      {
+        "id": "d010_t06",
+        "title": "Analyze logarithmic algorithms",
+        "category": "DSA"
+      },
+      {
+        "id": "d010_t07",
+        "title": "Analyze recursive complexity at a basic level",
+        "category": "DSA"
+      },
+      {
+        "id": "d010_t08",
+        "title": "Solve 15 complexity identification questions",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "dayNumber": 11,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "STL Vector",
+    "focus": "First major STL container",
+    "tasks": [
+      {
+        "id": "d011_t01",
+        "title": "Learn vector",
+        "category": "C++"
+      },
+      {
+        "id": "d011_t02",
+        "title": "push_back",
+        "category": "C++"
+      },
+      {
+        "id": "d011_t03",
+        "title": "pop_back",
+        "category": "C++"
+      },
+      {
+        "id": "d011_t04",
+        "title": "size",
+        "category": "C++"
+      },
+      {
+        "id": "d011_t05",
+        "title": "front and back",
+        "category": "C++"
+      },
+      {
+        "id": "d011_t06",
+        "title": "indexing",
+        "category": "DBMS"
+      },
+      {
+        "id": "d011_t07",
+        "title": "iterators",
+        "category": "C++"
+      },
+      {
+        "id": "d011_t08",
+        "title": "Solve 8 vector problems",
+        "category": "C++"
+      },
+      {
+        "id": "d011_t09",
+        "title": "Rewrite 3 previous array problems using vector",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "dayNumber": 12,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "STL Strings and Pairs",
+    "focus": "Useful STL primitives",
+    "tasks": [
+      {
+        "id": "d012_t01",
+        "title": "Learn pair",
+        "category": "DSA"
+      },
+      {
+        "id": "d012_t02",
+        "title": "Learn nested pairs",
+        "category": "DSA"
+      },
+      {
+        "id": "d012_t03",
+        "title": "Learn tuple basics",
+        "category": "DSA"
+      },
+      {
+        "id": "d012_t04",
+        "title": "Learn string utilities",
+        "category": "DSA"
+      },
+      {
+        "id": "d012_t05",
+        "title": "Practice vector of pairs",
+        "category": "C++"
+      },
+      {
+        "id": "d012_t06",
+        "title": "Solve 8 problems using vector and pair",
+        "category": "C++"
+      },
+      {
+        "id": "d012_t07",
+        "title": "Review STL syntax",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "dayNumber": 13,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "STL Stack and Queue",
+    "focus": "Linear data structures",
+    "tasks": [
+      {
+        "id": "d013_t01",
+        "title": "Learn stack",
+        "category": "DSA"
+      },
+      {
+        "id": "d013_t02",
+        "title": "push, pop, top",
+        "category": "DSA"
+      },
+      {
+        "id": "d013_t03",
+        "title": "Learn queue",
+        "category": "DSA"
+      },
+      {
+        "id": "d013_t04",
+        "title": "push, pop, front",
+        "category": "DSA"
+      },
+      {
+        "id": "d013_t05",
+        "title": "Learn deque",
+        "category": "DSA"
+      },
+      {
+        "id": "d013_t06",
+        "title": "Implement stack conceptually",
+        "category": "DSA"
+      },
+      {
+        "id": "d013_t07",
+        "title": "Solve 8 stack and queue problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "dayNumber": 14,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "STL Set and Map",
+    "focus": "Ordered containers",
+    "tasks": [
+      {
+        "id": "d014_t01",
+        "title": "Learn set",
+        "category": "DSA"
+      },
+      {
+        "id": "d014_t02",
+        "title": "Learn multiset",
+        "category": "DSA"
+      },
+      {
+        "id": "d014_t03",
+        "title": "Learn map",
+        "category": "DSA"
+      },
+      {
+        "id": "d014_t04",
+        "title": "Learn frequency maps",
+        "category": "DSA"
+      },
+      {
+        "id": "d014_t05",
+        "title": "Learn lower_bound",
+        "category": "DSA"
+      },
+      {
+        "id": "d014_t06",
+        "title": "Learn upper_bound",
+        "category": "DSA"
+      },
+      {
+        "id": "d014_t07",
+        "title": "Solve 10 problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d014_t08",
+        "title": "Explain when map beats vector",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "dayNumber": 15,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Unordered Containers",
+    "focus": "Hashing",
+    "tasks": [
+      {
+        "id": "d015_t01",
+        "title": "Learn unordered_map",
+        "category": "DSA"
+      },
+      {
+        "id": "d015_t02",
+        "title": "Learn unordered_set",
+        "category": "DSA"
+      },
+      {
+        "id": "d015_t03",
+        "title": "Understand average O(1) lookup",
+        "category": "DSA"
+      },
+      {
+        "id": "d015_t04",
+        "title": "Compare map and unordered_map",
+        "category": "DSA"
+      },
+      {
+        "id": "d015_t05",
+        "title": "Solve Two Sum",
+        "category": "DSA"
+      },
+      {
+        "id": "d015_t06",
+        "title": "Solve frequency problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d015_t07",
+        "title": "Solve 8 hashing problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "dayNumber": 16,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Sorting",
+    "focus": "Ordering data efficiently",
+    "tasks": [
+      {
+        "id": "d016_t01",
+        "title": "Learn std::sort",
+        "category": "DSA"
+      },
+      {
+        "id": "d016_t02",
+        "title": "Learn custom comparator",
+        "category": "DSA"
+      },
+      {
+        "id": "d016_t03",
+        "title": "Learn ascending and descending order",
+        "category": "DSA"
+      },
+      {
+        "id": "d016_t04",
+        "title": "Learn sorting pairs",
+        "category": "DSA"
+      },
+      {
+        "id": "d016_t05",
+        "title": "Understand O(n log n)",
+        "category": "DSA"
+      },
+      {
+        "id": "d016_t06",
+        "title": "Solve 8 sorting problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d016_t07",
+        "title": "Implement bubble sort",
+        "category": "DSA"
+      },
+      {
+        "id": "d016_t08",
+        "title": "Implement selection sort",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "dayNumber": 17,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Binary Search I",
+    "focus": "Core pattern",
+    "tasks": [
+      {
+        "id": "d017_t01",
+        "title": "Understand search space",
+        "category": "DSA"
+      },
+      {
+        "id": "d017_t02",
+        "title": "Implement binary search from scratch",
+        "category": "DSA"
+      },
+      {
+        "id": "d017_t03",
+        "title": "Learn low, high and mid",
+        "category": "DSA"
+      },
+      {
+        "id": "d017_t04",
+        "title": "Handle edge cases",
+        "category": "DSA"
+      },
+      {
+        "id": "d017_t05",
+        "title": "Solve classic Binary Search",
+        "category": "OOP"
+      },
+      {
+        "id": "d017_t06",
+        "title": "Solve first occurrence",
+        "category": "DSA"
+      },
+      {
+        "id": "d017_t07",
+        "title": "Solve last occurrence",
+        "category": "DSA"
+      },
+      {
+        "id": "d017_t08",
+        "title": "Solve 7 binary search problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "dayNumber": 18,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Binary Search II",
+    "focus": "STL and variants",
+    "tasks": [
+      {
+        "id": "d018_t01",
+        "title": "Learn lower_bound",
+        "category": "DSA"
+      },
+      {
+        "id": "d018_t02",
+        "title": "Learn upper_bound",
+        "category": "DSA"
+      },
+      {
+        "id": "d018_t03",
+        "title": "Learn search in sorted arrays",
+        "category": "DSA"
+      },
+      {
+        "id": "d018_t04",
+        "title": "Learn binary search on answer concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d018_t05",
+        "title": "Solve 8 problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d018_t06",
+        "title": "Explain why binary search is O(log n)",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "dayNumber": 19,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Basic OOP I",
+    "focus": "Classes and objects",
+    "tasks": [
+      {
+        "id": "d019_t01",
+        "title": "Learn class",
+        "category": "OOP"
+      },
+      {
+        "id": "d019_t02",
+        "title": "Learn object",
+        "category": "OOP"
+      },
+      {
+        "id": "d019_t03",
+        "title": "Learn attributes",
+        "category": "OOP"
+      },
+      {
+        "id": "d019_t04",
+        "title": "Learn methods",
+        "category": "OOP"
+      },
+      {
+        "id": "d019_t05",
+        "title": "Learn access modifiers",
+        "category": "OOP"
+      },
+      {
+        "id": "d019_t06",
+        "title": "Learn constructors",
+        "category": "OOP"
+      },
+      {
+        "id": "d019_t07",
+        "title": "Build 3 simple classes",
+        "category": "OOP"
+      },
+      {
+        "id": "d019_t08",
+        "title": "Answer 10 OOP questions",
+        "category": "OOP"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "dayNumber": 20,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Basic OOP II",
+    "focus": "Core principles",
+    "tasks": [
+      {
+        "id": "d020_t01",
+        "title": "Learn encapsulation",
+        "category": "OOP"
+      },
+      {
+        "id": "d020_t02",
+        "title": "Learn abstraction",
+        "category": "OOP"
+      },
+      {
+        "id": "d020_t03",
+        "title": "Learn inheritance",
+        "category": "OOP"
+      },
+      {
+        "id": "d020_t04",
+        "title": "Learn polymorphism",
+        "category": "OOP"
+      },
+      {
+        "id": "d020_t05",
+        "title": "Learn overloading",
+        "category": "OOP"
+      },
+      {
+        "id": "d020_t06",
+        "title": "Learn overriding",
+        "category": "OOP"
+      },
+      {
+        "id": "d020_t07",
+        "title": "Build a small OOP example",
+        "category": "OOP"
+      },
+      {
+        "id": "d020_t08",
+        "title": "Answer 15 OOP interview questions",
+        "category": "OOP"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "dayNumber": 21,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "SQL I",
+    "focus": "Query fundamentals",
+    "tasks": [
+      {
+        "id": "d021_t01",
+        "title": "Learn SELECT",
+        "category": "SQL"
+      },
+      {
+        "id": "d021_t02",
+        "title": "Learn WHERE",
+        "category": "SQL"
+      },
+      {
+        "id": "d021_t03",
+        "title": "Learn ORDER BY",
+        "category": "SQL"
+      },
+      {
+        "id": "d021_t04",
+        "title": "Learn LIMIT",
+        "category": "SQL"
+      },
+      {
+        "id": "d021_t05",
+        "title": "Learn DISTINCT",
+        "category": "SQL"
+      },
+      {
+        "id": "d021_t06",
+        "title": "Learn aggregate functions",
+        "category": "SQL"
+      },
+      {
+        "id": "d021_t07",
+        "title": "Solve 10 SQL problems",
+        "category": "SQL"
+      },
+      {
+        "id": "d021_t08",
+        "title": "Explain primary key",
+        "category": "SQL"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "dayNumber": 22,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "SQL II",
+    "focus": "Grouping and filtering",
+    "tasks": [
+      {
+        "id": "d022_t01",
+        "title": "Learn GROUP BY",
+        "category": "SQL"
+      },
+      {
+        "id": "d022_t02",
+        "title": "Learn HAVING",
+        "category": "SQL"
+      },
+      {
+        "id": "d022_t03",
+        "title": "Learn COUNT",
+        "category": "SQL"
+      },
+      {
+        "id": "d022_t04",
+        "title": "Learn SUM",
+        "category": "SQL"
+      },
+      {
+        "id": "d022_t05",
+        "title": "Learn AVG",
+        "category": "SQL"
+      },
+      {
+        "id": "d022_t06",
+        "title": "Learn MIN and MAX",
+        "category": "SQL"
+      },
+      {
+        "id": "d022_t07",
+        "title": "Solve 10 SQL problems",
+        "category": "SQL"
+      },
+      {
+        "id": "d022_t08",
+        "title": "Explain WHERE versus HAVING",
+        "category": "SQL"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "dayNumber": 23,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Aptitude I",
+    "focus": "Quantitative fundamentals",
+    "tasks": [
+      {
+        "id": "d023_t01",
+        "title": "Percentages",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d023_t02",
+        "title": "Ratios",
+        "category": "OS"
+      },
+      {
+        "id": "d023_t03",
+        "title": "Averages",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d023_t04",
+        "title": "Profit and loss",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d023_t05",
+        "title": "Solve 30 aptitude questions",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d023_t06",
+        "title": "Time yourself",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d023_t07",
+        "title": "Record weak areas",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d023_t08",
+        "title": "Review SQL",
+        "category": "SQL"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "dayNumber": 24,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "C++ Interview Fundamentals",
+    "focus": "Common interview questions",
+    "tasks": [
+      {
+        "id": "d024_t01",
+        "title": "Explain pointer versus reference",
+        "category": "C++"
+      },
+      {
+        "id": "d024_t02",
+        "title": "Explain stack versus heap",
+        "category": "C++"
+      },
+      {
+        "id": "d024_t03",
+        "title": "Explain pass by value versus reference",
+        "category": "C++"
+      },
+      {
+        "id": "d024_t04",
+        "title": "Explain const",
+        "category": "C++"
+      },
+      {
+        "id": "d024_t05",
+        "title": "Explain static",
+        "category": "C++"
+      },
+      {
+        "id": "d024_t06",
+        "title": "Explain vector versus array",
+        "category": "C++"
+      },
+      {
+        "id": "d024_t07",
+        "title": "Answer 20 C++ questions",
+        "category": "C++"
+      },
+      {
+        "id": "d024_t08",
+        "title": "Solve 5 coding problems",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "dayNumber": 25,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Array Patterns",
+    "focus": "Two pointers",
+    "tasks": [
+      {
+        "id": "d025_t01",
+        "title": "Learn two pointers",
+        "category": "C++"
+      },
+      {
+        "id": "d025_t02",
+        "title": "Learn left and right pointer movement",
+        "category": "C++"
+      },
+      {
+        "id": "d025_t03",
+        "title": "Solve Two Sum II",
+        "category": "C++"
+      },
+      {
+        "id": "d025_t04",
+        "title": "Solve container style problems",
+        "category": "C++"
+      },
+      {
+        "id": "d025_t05",
+        "title": "Solve palindrome variations",
+        "category": "C++"
+      },
+      {
+        "id": "d025_t06",
+        "title": "Solve 8 two pointer problems",
+        "category": "C++"
+      },
+      {
+        "id": "d025_t07",
+        "title": "Explain when two pointers applies",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "dayNumber": 26,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Sliding Window I",
+    "focus": "Fixed windows",
+    "tasks": [
+      {
+        "id": "d026_t01",
+        "title": "Understand sliding window",
+        "category": "DSA"
+      },
+      {
+        "id": "d026_t02",
+        "title": "Learn fixed window",
+        "category": "DSA"
+      },
+      {
+        "id": "d026_t03",
+        "title": "Learn running sum",
+        "category": "DSA"
+      },
+      {
+        "id": "d026_t04",
+        "title": "Solve maximum sum subarray of size k",
+        "category": "DSA"
+      },
+      {
+        "id": "d026_t05",
+        "title": "Solve average window problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d026_t06",
+        "title": "Solve 7 sliding window problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d026_t07",
+        "title": "Explain O(n) sliding window",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "dayNumber": 27,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Sliding Window II",
+    "focus": "Variable windows",
+    "tasks": [
+      {
+        "id": "d027_t01",
+        "title": "Learn variable sliding window",
+        "category": "DSA"
+      },
+      {
+        "id": "d027_t02",
+        "title": "Learn frequency map inside window",
+        "category": "DSA"
+      },
+      {
+        "id": "d027_t03",
+        "title": "Solve Longest Substring Without Repeating Characters",
+        "category": "SQL"
+      },
+      {
+        "id": "d027_t04",
+        "title": "Solve minimum window style problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d027_t05",
+        "title": "Solve 7 sliding window problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d027_t06",
+        "title": "Review two pointers",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "dayNumber": 28,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Prefix Sums",
+    "focus": "Range query thinking",
+    "tasks": [
+      {
+        "id": "d028_t01",
+        "title": "Learn prefix sum",
+        "category": "SQL"
+      },
+      {
+        "id": "d028_t02",
+        "title": "Build prefix array",
+        "category": "SQL"
+      },
+      {
+        "id": "d028_t03",
+        "title": "Solve range sum",
+        "category": "SQL"
+      },
+      {
+        "id": "d028_t04",
+        "title": "Solve subarray sum problems",
+        "category": "SQL"
+      },
+      {
+        "id": "d028_t05",
+        "title": "Combine prefix sum with hashmap",
+        "category": "SQL"
+      },
+      {
+        "id": "d028_t06",
+        "title": "Solve 8 problems",
+        "category": "SQL"
+      },
+      {
+        "id": "d028_t07",
+        "title": "Explain the pattern",
+        "category": "SQL"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "dayNumber": 29,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Hashing Patterns",
+    "focus": "Frequency and lookup",
+    "tasks": [
+      {
+        "id": "d029_t01",
+        "title": "Frequency counting",
+        "category": "DSA"
+      },
+      {
+        "id": "d029_t02",
+        "title": "Duplicate detection",
+        "category": "DSA"
+      },
+      {
+        "id": "d029_t03",
+        "title": "Pair lookup",
+        "category": "DSA"
+      },
+      {
+        "id": "d029_t04",
+        "title": "Prefix sum plus hashmap",
+        "category": "DSA"
+      },
+      {
+        "id": "d029_t05",
+        "title": "Grouping",
+        "category": "DSA"
+      },
+      {
+        "id": "d029_t06",
+        "title": "Solve 10 hashing problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d029_t07",
+        "title": "Review Days 21 to 28",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "dayNumber": 30,
+    "phase": 1,
+    "phaseName": "FOUNDATION",
+    "title": "Foundation Assessment",
+    "focus": "Test",
+    "tasks": [
+      {
+        "id": "d030_t01",
+        "title": "Take 90 minute coding assessment",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d030_t02",
+        "title": "Solve 3 Easy problems",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d030_t03",
+        "title": "Solve 2 Medium problems",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d030_t04",
+        "title": "Complete 10 SQL questions",
+        "category": "SQL"
+      },
+      {
+        "id": "d030_t05",
+        "title": "Complete 20 aptitude questions",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d030_t06",
+        "title": "Answer 20 C++ and OOP questions",
+        "category": "OOP"
+      },
+      {
+        "id": "d030_t07",
+        "title": "Identify top 5 weaknesses",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d030_t08",
+        "title": "Create revision list",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "dayNumber": 31,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Linked Lists I",
+    "focus": "Fundamentals",
+    "tasks": [
+      {
+        "id": "d031_t01",
+        "title": "Learn node structure",
+        "category": "DSA"
+      },
+      {
+        "id": "d031_t02",
+        "title": "Learn singly linked list",
+        "category": "DSA"
+      },
+      {
+        "id": "d031_t03",
+        "title": "Insert node",
+        "category": "DSA"
+      },
+      {
+        "id": "d031_t04",
+        "title": "Delete node",
+        "category": "DSA"
+      },
+      {
+        "id": "d031_t05",
+        "title": "Traverse list",
+        "category": "DSA"
+      },
+      {
+        "id": "d031_t06",
+        "title": "Search list",
+        "category": "DSA"
+      },
+      {
+        "id": "d031_t07",
+        "title": "Solve 6 linked list problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "dayNumber": 32,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Linked Lists II",
+    "focus": "Reversal",
+    "tasks": [
+      {
+        "id": "d032_t01",
+        "title": "Reverse linked list iteratively",
+        "category": "DSA"
+      },
+      {
+        "id": "d032_t02",
+        "title": "Reverse linked list recursively",
+        "category": "DSA"
+      },
+      {
+        "id": "d032_t03",
+        "title": "Understand previous, current and next",
+        "category": "DSA"
+      },
+      {
+        "id": "d032_t04",
+        "title": "Solve reverse list variants",
+        "category": "DSA"
+      },
+      {
+        "id": "d032_t05",
+        "title": "Solve 7 problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d032_t06",
+        "title": "Explain O(n) reversal",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "dayNumber": 33,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Fast and Slow Pointers",
+    "focus": "Linked list patterns",
+    "tasks": [
+      {
+        "id": "d033_t01",
+        "title": "Learn tortoise and hare",
+        "category": "C++"
+      },
+      {
+        "id": "d033_t02",
+        "title": "Detect cycle",
+        "category": "C++"
+      },
+      {
+        "id": "d033_t03",
+        "title": "Find cycle entry",
+        "category": "C++"
+      },
+      {
+        "id": "d033_t04",
+        "title": "Find middle node",
+        "category": "C++"
+      },
+      {
+        "id": "d033_t05",
+        "title": "Solve palindrome linked list",
+        "category": "C++"
+      },
+      {
+        "id": "d033_t06",
+        "title": "Solve 7 problems",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "dayNumber": 34,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Linked List Interview Patterns",
+    "focus": "Advanced list operations",
+    "tasks": [
+      {
+        "id": "d034_t01",
+        "title": "Merge sorted lists",
+        "category": "DSA"
+      },
+      {
+        "id": "d034_t02",
+        "title": "Find intersection",
+        "category": "DSA"
+      },
+      {
+        "id": "d034_t03",
+        "title": "Remove nth node",
+        "category": "DSA"
+      },
+      {
+        "id": "d034_t04",
+        "title": "Reorder list",
+        "category": "DSA"
+      },
+      {
+        "id": "d034_t05",
+        "title": "Solve 8 problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d034_t06",
+        "title": "Review linked list patterns",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "dayNumber": 35,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Stack I",
+    "focus": "Stack problems",
+    "tasks": [
+      {
+        "id": "d035_t01",
+        "title": "Review stack STL",
+        "category": "DSA"
+      },
+      {
+        "id": "d035_t02",
+        "title": "Balanced parentheses",
+        "category": "DSA"
+      },
+      {
+        "id": "d035_t03",
+        "title": "Min stack concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d035_t04",
+        "title": "Reverse stack concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d035_t05",
+        "title": "Solve 8 stack problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d035_t06",
+        "title": "Explain LIFO",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "dayNumber": 36,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Monotonic Stack",
+    "focus": "Next greater patterns",
+    "tasks": [
+      {
+        "id": "d036_t01",
+        "title": "Understand monotonic stack",
+        "category": "DSA"
+      },
+      {
+        "id": "d036_t02",
+        "title": "Next greater element",
+        "category": "DSA"
+      },
+      {
+        "id": "d036_t03",
+        "title": "Previous greater element",
+        "category": "DSA"
+      },
+      {
+        "id": "d036_t04",
+        "title": "Daily temperatures style problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d036_t05",
+        "title": "Solve 7 problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d036_t06",
+        "title": "Recognize monotonic stack patterns",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "dayNumber": 37,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Queue and Deque",
+    "focus": "Queue patterns",
+    "tasks": [
+      {
+        "id": "d037_t01",
+        "title": "Review queue",
+        "category": "DSA"
+      },
+      {
+        "id": "d037_t02",
+        "title": "Review deque",
+        "category": "DSA"
+      },
+      {
+        "id": "d037_t03",
+        "title": "Circular queue concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d037_t04",
+        "title": "Sliding window maximum concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d037_t05",
+        "title": "Solve 7 queue problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d037_t06",
+        "title": "Review stack patterns",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "dayNumber": 38,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Recursion I",
+    "focus": "Recursive thinking",
+    "tasks": [
+      {
+        "id": "d038_t01",
+        "title": "Base case",
+        "category": "DSA"
+      },
+      {
+        "id": "d038_t02",
+        "title": "Recursive case",
+        "category": "DSA"
+      },
+      {
+        "id": "d038_t03",
+        "title": "Call stack",
+        "category": "DSA"
+      },
+      {
+        "id": "d038_t04",
+        "title": "Factorial",
+        "category": "DSA"
+      },
+      {
+        "id": "d038_t05",
+        "title": "Fibonacci",
+        "category": "DSA"
+      },
+      {
+        "id": "d038_t06",
+        "title": "Sum and traversal",
+        "category": "DSA"
+      },
+      {
+        "id": "d038_t07",
+        "title": "Write 10 recursive functions",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "dayNumber": 39,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Recursion II",
+    "focus": "Backtracking introduction",
+    "tasks": [
+      {
+        "id": "d039_t01",
+        "title": "Understand decision trees",
+        "category": "DSA"
+      },
+      {
+        "id": "d039_t02",
+        "title": "Learn choose and unchoose",
+        "category": "DSA"
+      },
+      {
+        "id": "d039_t03",
+        "title": "Generate subsets",
+        "category": "DSA"
+      },
+      {
+        "id": "d039_t04",
+        "title": "Generate combinations",
+        "category": "DSA"
+      },
+      {
+        "id": "d039_t05",
+        "title": "Solve 6 recursion problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d039_t06",
+        "title": "Draw recursion trees",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "dayNumber": 40,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Backtracking",
+    "focus": "Search space exploration",
+    "tasks": [
+      {
+        "id": "d040_t01",
+        "title": "Permutations",
+        "category": "DSA"
+      },
+      {
+        "id": "d040_t02",
+        "title": "Combinations",
+        "category": "DSA"
+      },
+      {
+        "id": "d040_t03",
+        "title": "Subsets",
+        "category": "DSA"
+      },
+      {
+        "id": "d040_t04",
+        "title": "N Queens concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d040_t05",
+        "title": "Sudoku concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d040_t06",
+        "title": "Solve 6 backtracking problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d040_t07",
+        "title": "Explain pruning",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "dayNumber": 41,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Heap I",
+    "focus": "Priority queues",
+    "tasks": [
+      {
+        "id": "d041_t01",
+        "title": "Learn min heap",
+        "category": "DSA"
+      },
+      {
+        "id": "d041_t02",
+        "title": "Learn max heap",
+        "category": "DSA"
+      },
+      {
+        "id": "d041_t03",
+        "title": "Learn priority_queue",
+        "category": "DSA"
+      },
+      {
+        "id": "d041_t04",
+        "title": "Insert and extract",
+        "category": "DSA"
+      },
+      {
+        "id": "d041_t05",
+        "title": "Understand heap complexity",
+        "category": "DSA"
+      },
+      {
+        "id": "d041_t06",
+        "title": "Solve 7 heap problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "dayNumber": 42,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Heap II",
+    "focus": "Top K patterns",
+    "tasks": [
+      {
+        "id": "d042_t01",
+        "title": "Kth largest",
+        "category": "DSA"
+      },
+      {
+        "id": "d042_t02",
+        "title": "Kth smallest",
+        "category": "DSA"
+      },
+      {
+        "id": "d042_t03",
+        "title": "Top K frequent",
+        "category": "DSA"
+      },
+      {
+        "id": "d042_t04",
+        "title": "Merge K sorted structures",
+        "category": "DSA"
+      },
+      {
+        "id": "d042_t05",
+        "title": "Solve 8 heap problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d042_t06",
+        "title": "Recognize heap usage",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "dayNumber": 43,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Intervals I",
+    "focus": "Interval patterns",
+    "tasks": [
+      {
+        "id": "d043_t01",
+        "title": "Sort intervals",
+        "category": "DSA"
+      },
+      {
+        "id": "d043_t02",
+        "title": "Merge intervals",
+        "category": "DSA"
+      },
+      {
+        "id": "d043_t03",
+        "title": "Detect overlap",
+        "category": "DSA"
+      },
+      {
+        "id": "d043_t04",
+        "title": "Insert interval",
+        "category": "DSA"
+      },
+      {
+        "id": "d043_t05",
+        "title": "Solve 7 interval problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d043_t06",
+        "title": "Explain why sorting is useful",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "dayNumber": 44,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Intervals II",
+    "focus": "Scheduling",
+    "tasks": [
+      {
+        "id": "d044_t01",
+        "title": "Meeting rooms",
+        "category": "OS"
+      },
+      {
+        "id": "d044_t02",
+        "title": "Minimum rooms",
+        "category": "OS"
+      },
+      {
+        "id": "d044_t03",
+        "title": "Interval scheduling",
+        "category": "OS"
+      },
+      {
+        "id": "d044_t04",
+        "title": "Greedy interval selection",
+        "category": "OS"
+      },
+      {
+        "id": "d044_t05",
+        "title": "Solve 7 problems",
+        "category": "OS"
+      },
+      {
+        "id": "d044_t06",
+        "title": "Review intervals",
+        "category": "OS"
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "dayNumber": 45,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Greedy I",
+    "focus": "Greedy thinking",
+    "tasks": [
+      {
+        "id": "d045_t01",
+        "title": "Understand greedy choice",
+        "category": "DSA"
+      },
+      {
+        "id": "d045_t02",
+        "title": "Understand local versus global optimum",
+        "category": "DSA"
+      },
+      {
+        "id": "d045_t03",
+        "title": "Activity selection",
+        "category": "DSA"
+      },
+      {
+        "id": "d045_t04",
+        "title": "Jump game",
+        "category": "DSA"
+      },
+      {
+        "id": "d045_t05",
+        "title": "Assign cookies",
+        "category": "DSA"
+      },
+      {
+        "id": "d045_t06",
+        "title": "Solve 8 greedy problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "dayNumber": 46,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Greedy II",
+    "focus": "Interview patterns",
+    "tasks": [
+      {
+        "id": "d046_t01",
+        "title": "Gas station",
+        "category": "DSA"
+      },
+      {
+        "id": "d046_t02",
+        "title": "Partition style greedy",
+        "category": "DSA"
+      },
+      {
+        "id": "d046_t03",
+        "title": "Scheduling",
+        "category": "OS"
+      },
+      {
+        "id": "d046_t04",
+        "title": "Minimum jumps",
+        "category": "DSA"
+      },
+      {
+        "id": "d046_t05",
+        "title": "Solve 8 problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d046_t06",
+        "title": "Explain why greedy works",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "dayNumber": 47,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Binary Search on Answer",
+    "focus": "Advanced binary search",
+    "tasks": [
+      {
+        "id": "d047_t01",
+        "title": "Understand feasibility function",
+        "category": "DSA"
+      },
+      {
+        "id": "d047_t02",
+        "title": "Identify monotonic answer space",
+        "category": "DSA"
+      },
+      {
+        "id": "d047_t03",
+        "title": "Capacity problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d047_t04",
+        "title": "Allocation problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d047_t05",
+        "title": "Speed problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d047_t06",
+        "title": "Solve 8 problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "dayNumber": 48,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Arrays Mixed",
+    "focus": "Pattern recognition",
+    "tasks": [
+      {
+        "id": "d048_t01",
+        "title": "Solve 10 mixed array problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d048_t02",
+        "title": "Identify pattern before coding",
+        "category": "DSA"
+      },
+      {
+        "id": "d048_t03",
+        "title": "Time every problem",
+        "category": "DSA"
+      },
+      {
+        "id": "d048_t04",
+        "title": "Write complexity for every solution",
+        "category": "DSA"
+      },
+      {
+        "id": "d048_t05",
+        "title": "Review weak patterns",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "dayNumber": 49,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Strings Mixed",
+    "focus": "Pattern recognition",
+    "tasks": [
+      {
+        "id": "d049_t01",
+        "title": "Solve 10 mixed string problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d049_t02",
+        "title": "Hashing",
+        "category": "DSA"
+      },
+      {
+        "id": "d049_t03",
+        "title": "Sliding window",
+        "category": "DSA"
+      },
+      {
+        "id": "d049_t04",
+        "title": "Two pointers",
+        "category": "C++"
+      },
+      {
+        "id": "d049_t05",
+        "title": "Palindrome patterns",
+        "category": "DSA"
+      },
+      {
+        "id": "d049_t06",
+        "title": "Review mistakes",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "dayNumber": 50,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "DSA Midpoint Test",
+    "focus": "Assessment",
+    "tasks": [
+      {
+        "id": "d050_t01",
+        "title": "120 minute timed test",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d050_t02",
+        "title": "4 coding problems",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d050_t03",
+        "title": "5 SQL problems",
+        "category": "SQL"
+      },
+      {
+        "id": "d050_t04",
+        "title": "20 aptitude questions",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d050_t05",
+        "title": "20 technical questions",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d050_t06",
+        "title": "Analyze every mistake",
+        "category": "REVISION"
+      },
+      {
+        "id": "d050_t07",
+        "title": "Update weakness list",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "dayNumber": 51,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Trees I",
+    "focus": "Binary trees",
+    "tasks": [
+      {
+        "id": "d051_t01",
+        "title": "Learn tree node",
+        "category": "DSA"
+      },
+      {
+        "id": "d051_t02",
+        "title": "Learn root, child, leaf",
+        "category": "DSA"
+      },
+      {
+        "id": "d051_t03",
+        "title": "Preorder",
+        "category": "DSA"
+      },
+      {
+        "id": "d051_t04",
+        "title": "Inorder",
+        "category": "DSA"
+      },
+      {
+        "id": "d051_t05",
+        "title": "Postorder",
+        "category": "DSA"
+      },
+      {
+        "id": "d051_t06",
+        "title": "Implement recursive DFS",
+        "category": "DSA"
+      },
+      {
+        "id": "d051_t07",
+        "title": "Solve 7 tree problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "dayNumber": 52,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Trees II",
+    "focus": "BFS",
+    "tasks": [
+      {
+        "id": "d052_t01",
+        "title": "Learn level order traversal",
+        "category": "DSA"
+      },
+      {
+        "id": "d052_t02",
+        "title": "Queue based BFS",
+        "category": "DSA"
+      },
+      {
+        "id": "d052_t03",
+        "title": "Height of tree",
+        "category": "DSA"
+      },
+      {
+        "id": "d052_t04",
+        "title": "Maximum depth",
+        "category": "DSA"
+      },
+      {
+        "id": "d052_t05",
+        "title": "Solve 7 problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d052_t06",
+        "title": "Compare BFS and DFS",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "dayNumber": 53,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Trees III",
+    "focus": "Tree recursion",
+    "tasks": [
+      {
+        "id": "d053_t01",
+        "title": "Diameter",
+        "category": "DSA"
+      },
+      {
+        "id": "d053_t02",
+        "title": "Balanced tree",
+        "category": "DSA"
+      },
+      {
+        "id": "d053_t03",
+        "title": "Path sum",
+        "category": "DSA"
+      },
+      {
+        "id": "d053_t04",
+        "title": "Invert tree",
+        "category": "DSA"
+      },
+      {
+        "id": "d053_t05",
+        "title": "Same tree",
+        "category": "DSA"
+      },
+      {
+        "id": "d053_t06",
+        "title": "Solve 8 problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d053_t07",
+        "title": "Practice recursive reasoning",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "dayNumber": 54,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "BST I",
+    "focus": "Binary search trees",
+    "tasks": [
+      {
+        "id": "d054_t01",
+        "title": "BST property",
+        "category": "DSA"
+      },
+      {
+        "id": "d054_t02",
+        "title": "Search",
+        "category": "DSA"
+      },
+      {
+        "id": "d054_t03",
+        "title": "Insert",
+        "category": "DSA"
+      },
+      {
+        "id": "d054_t04",
+        "title": "Delete concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d054_t05",
+        "title": "Validate BST",
+        "category": "DSA"
+      },
+      {
+        "id": "d054_t06",
+        "title": "Solve 7 BST problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "dayNumber": 55,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "BST II",
+    "focus": "BST interview problems",
+    "tasks": [
+      {
+        "id": "d055_t01",
+        "title": "Kth smallest",
+        "category": "DSA"
+      },
+      {
+        "id": "d055_t02",
+        "title": "Lowest common ancestor",
+        "category": "DSA"
+      },
+      {
+        "id": "d055_t03",
+        "title": "Successor concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d055_t04",
+        "title": "Range queries",
+        "category": "DSA"
+      },
+      {
+        "id": "d055_t05",
+        "title": "Solve 8 problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d055_t06",
+        "title": "Review BST",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "dayNumber": 56,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Tree Views",
+    "focus": "Interview patterns",
+    "tasks": [
+      {
+        "id": "d056_t01",
+        "title": "Left view",
+        "category": "DSA"
+      },
+      {
+        "id": "d056_t02",
+        "title": "Right view",
+        "category": "DSA"
+      },
+      {
+        "id": "d056_t03",
+        "title": "Top view concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d056_t04",
+        "title": "Bottom view concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d056_t05",
+        "title": "Vertical traversal concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d056_t06",
+        "title": "Solve 6 problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "dayNumber": 57,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Tree Revision",
+    "focus": "Mixed trees",
+    "tasks": [
+      {
+        "id": "d057_t01",
+        "title": "Solve 10 mixed tree problems",
+        "category": "REVISION"
+      },
+      {
+        "id": "d057_t02",
+        "title": "Solve 2 timed Medium problems",
+        "category": "REVISION"
+      },
+      {
+        "id": "d057_t03",
+        "title": "Explain every traversal without notes",
+        "category": "REVISION"
+      },
+      {
+        "id": "d057_t04",
+        "title": "Review recursion",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "dayNumber": 58,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Graphs I",
+    "focus": "Graph representation",
+    "tasks": [
+      {
+        "id": "d058_t01",
+        "title": "Adjacency matrix",
+        "category": "DSA"
+      },
+      {
+        "id": "d058_t02",
+        "title": "Adjacency list",
+        "category": "DSA"
+      },
+      {
+        "id": "d058_t03",
+        "title": "Directed graph",
+        "category": "SQL"
+      },
+      {
+        "id": "d058_t04",
+        "title": "Undirected graph",
+        "category": "SQL"
+      },
+      {
+        "id": "d058_t05",
+        "title": "Weighted graph",
+        "category": "DSA"
+      },
+      {
+        "id": "d058_t06",
+        "title": "Implement graph structure",
+        "category": "DSA"
+      },
+      {
+        "id": "d058_t07",
+        "title": "Solve 5 basic graph problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "dayNumber": 59,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Graphs II",
+    "focus": "DFS",
+    "tasks": [
+      {
+        "id": "d059_t01",
+        "title": "Graph DFS",
+        "category": "DSA"
+      },
+      {
+        "id": "d059_t02",
+        "title": "Visited array",
+        "category": "DSA"
+      },
+      {
+        "id": "d059_t03",
+        "title": "Connected components",
+        "category": "SQL"
+      },
+      {
+        "id": "d059_t04",
+        "title": "Flood fill",
+        "category": "DSA"
+      },
+      {
+        "id": "d059_t05",
+        "title": "Number of islands",
+        "category": "DSA"
+      },
+      {
+        "id": "d059_t06",
+        "title": "Solve 7 DFS problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "dayNumber": 60,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Graphs III",
+    "focus": "BFS",
+    "tasks": [
+      {
+        "id": "d060_t01",
+        "title": "Graph BFS",
+        "category": "DSA"
+      },
+      {
+        "id": "d060_t02",
+        "title": "Shortest path in unweighted graph",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d060_t03",
+        "title": "Multi source BFS",
+        "category": "DSA"
+      },
+      {
+        "id": "d060_t04",
+        "title": "Rotten oranges pattern",
+        "category": "DSA"
+      },
+      {
+        "id": "d060_t05",
+        "title": "Solve 7 BFS problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "dayNumber": 61,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Graph Cycles",
+    "focus": "Cycle detection",
+    "tasks": [
+      {
+        "id": "d061_t01",
+        "title": "Undirected cycle detection",
+        "category": "SQL"
+      },
+      {
+        "id": "d061_t02",
+        "title": "Directed cycle detection",
+        "category": "SQL"
+      },
+      {
+        "id": "d061_t03",
+        "title": "DFS based detection",
+        "category": "DSA"
+      },
+      {
+        "id": "d061_t04",
+        "title": "BFS based detection",
+        "category": "DSA"
+      },
+      {
+        "id": "d061_t05",
+        "title": "Solve 7 problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "dayNumber": 62,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Topological Sort",
+    "focus": "Dependency graphs",
+    "tasks": [
+      {
+        "id": "d062_t01",
+        "title": "Understand DAG",
+        "category": "DSA"
+      },
+      {
+        "id": "d062_t02",
+        "title": "DFS topological sort",
+        "category": "DSA"
+      },
+      {
+        "id": "d062_t03",
+        "title": "Kahn algorithm",
+        "category": "DSA"
+      },
+      {
+        "id": "d062_t04",
+        "title": "Course schedule",
+        "category": "DSA"
+      },
+      {
+        "id": "d062_t05",
+        "title": "Dependency ordering",
+        "category": "DSA"
+      },
+      {
+        "id": "d062_t06",
+        "title": "Solve 7 problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "dayNumber": 63,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Shortest Paths I",
+    "focus": "Dijkstra",
+    "tasks": [
+      {
+        "id": "d063_t01",
+        "title": "Understand shortest path",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d063_t02",
+        "title": "Learn Dijkstra",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d063_t03",
+        "title": "Priority queue implementation",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d063_t04",
+        "title": "Complexity",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d063_t05",
+        "title": "Solve 6 Dijkstra problems",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "dayNumber": 64,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Shortest Paths II",
+    "focus": "Other algorithms",
+    "tasks": [
+      {
+        "id": "d064_t01",
+        "title": "Bellman Ford concept",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d064_t02",
+        "title": "Floyd Warshall concept",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d064_t03",
+        "title": "Compare algorithms",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d064_t04",
+        "title": "Understand negative edges",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d064_t05",
+        "title": "Solve 5 shortest path problems",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "dayNumber": 65,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "DSU",
+    "focus": "Union Find",
+    "tasks": [
+      {
+        "id": "d065_t01",
+        "title": "Parent array",
+        "category": "DSA"
+      },
+      {
+        "id": "d065_t02",
+        "title": "Find",
+        "category": "DSA"
+      },
+      {
+        "id": "d065_t03",
+        "title": "Union",
+        "category": "DSA"
+      },
+      {
+        "id": "d065_t04",
+        "title": "Path compression",
+        "category": "DSA"
+      },
+      {
+        "id": "d065_t05",
+        "title": "Union by rank or size",
+        "category": "DSA"
+      },
+      {
+        "id": "d065_t06",
+        "title": "Solve 6 DSU problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "dayNumber": 66,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Minimum Spanning Tree",
+    "focus": "MST",
+    "tasks": [
+      {
+        "id": "d066_t01",
+        "title": "Understand MST",
+        "category": "DSA"
+      },
+      {
+        "id": "d066_t02",
+        "title": "Prim",
+        "category": "DSA"
+      },
+      {
+        "id": "d066_t03",
+        "title": "Kruskal",
+        "category": "DSA"
+      },
+      {
+        "id": "d066_t04",
+        "title": "Compare Prim and Kruskal",
+        "category": "DSA"
+      },
+      {
+        "id": "d066_t05",
+        "title": "Solve 6 MST problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "dayNumber": 67,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Graph Mixed",
+    "focus": "Pattern recognition",
+    "tasks": [
+      {
+        "id": "d067_t01",
+        "title": "Solve 10 mixed graph problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d067_t02",
+        "title": "Identify BFS versus DFS",
+        "category": "DSA"
+      },
+      {
+        "id": "d067_t03",
+        "title": "Identify shortest path algorithm",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d067_t04",
+        "title": "Identify DSU use",
+        "category": "DSA"
+      },
+      {
+        "id": "d067_t05",
+        "title": "Review mistakes",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "dayNumber": 68,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Dynamic Programming I",
+    "focus": "DP thinking",
+    "tasks": [
+      {
+        "id": "d068_t01",
+        "title": "Understand overlapping subproblems",
+        "category": "DSA"
+      },
+      {
+        "id": "d068_t02",
+        "title": "Understand optimal substructure",
+        "category": "DSA"
+      },
+      {
+        "id": "d068_t03",
+        "title": "Memoization",
+        "category": "DSA"
+      },
+      {
+        "id": "d068_t04",
+        "title": "Tabulation",
+        "category": "DSA"
+      },
+      {
+        "id": "d068_t05",
+        "title": "Fibonacci DP",
+        "category": "DSA"
+      },
+      {
+        "id": "d068_t06",
+        "title": "Climbing stairs",
+        "category": "DSA"
+      },
+      {
+        "id": "d068_t07",
+        "title": "Solve 6 DP problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "dayNumber": 69,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "1D DP",
+    "focus": "State design",
+    "tasks": [
+      {
+        "id": "d069_t01",
+        "title": "House robber",
+        "category": "DSA"
+      },
+      {
+        "id": "d069_t02",
+        "title": "Min cost climbing stairs",
+        "category": "DSA"
+      },
+      {
+        "id": "d069_t03",
+        "title": "Coin change introduction",
+        "category": "DSA"
+      },
+      {
+        "id": "d069_t04",
+        "title": "Define state",
+        "category": "DSA"
+      },
+      {
+        "id": "d069_t05",
+        "title": "Define transition",
+        "category": "DSA"
+      },
+      {
+        "id": "d069_t06",
+        "title": "Solve 7 problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "dayNumber": 70,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "2D DP",
+    "focus": "Grid DP",
+    "tasks": [
+      {
+        "id": "d070_t01",
+        "title": "Grid paths",
+        "category": "DSA"
+      },
+      {
+        "id": "d070_t02",
+        "title": "Minimum path sum",
+        "category": "DSA"
+      },
+      {
+        "id": "d070_t03",
+        "title": "Obstacles",
+        "category": "DSA"
+      },
+      {
+        "id": "d070_t04",
+        "title": "Define two dimensional state",
+        "category": "DSA"
+      },
+      {
+        "id": "d070_t05",
+        "title": "Solve 7 problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "dayNumber": 71,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Knapsack",
+    "focus": "Classic DP",
+    "tasks": [
+      {
+        "id": "d071_t01",
+        "title": "0/1 knapsack",
+        "category": "OOP"
+      },
+      {
+        "id": "d071_t02",
+        "title": "Subset sum",
+        "category": "OOP"
+      },
+      {
+        "id": "d071_t03",
+        "title": "Partition equal subset",
+        "category": "OOP"
+      },
+      {
+        "id": "d071_t04",
+        "title": "Understand include/exclude",
+        "category": "OOP"
+      },
+      {
+        "id": "d071_t05",
+        "title": "Solve 7 problems",
+        "category": "OOP"
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "dayNumber": 72,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "LCS",
+    "focus": "Sequence DP",
+    "tasks": [
+      {
+        "id": "d072_t01",
+        "title": "Longest common subsequence",
+        "category": "DSA"
+      },
+      {
+        "id": "d072_t02",
+        "title": "Longest common substring concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d072_t03",
+        "title": "Edit distance concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d072_t04",
+        "title": "Build recurrence",
+        "category": "DSA"
+      },
+      {
+        "id": "d072_t05",
+        "title": "Solve 6 problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "dayNumber": 73,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "LIS",
+    "focus": "Increasing subsequences",
+    "tasks": [
+      {
+        "id": "d073_t01",
+        "title": "LIS O(n²)",
+        "category": "DSA"
+      },
+      {
+        "id": "d073_t02",
+        "title": "LIS O(n log n) concept",
+        "category": "DSA"
+      },
+      {
+        "id": "d073_t03",
+        "title": "Understand binary search optimization",
+        "category": "DSA"
+      },
+      {
+        "id": "d073_t04",
+        "title": "Solve 6 problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "dayNumber": 74,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "DP Mixed",
+    "focus": "Pattern recognition",
+    "tasks": [
+      {
+        "id": "d074_t01",
+        "title": "Solve 10 mixed DP problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d074_t02",
+        "title": "Identify state",
+        "category": "DSA"
+      },
+      {
+        "id": "d074_t03",
+        "title": "Identify transition",
+        "category": "DSA"
+      },
+      {
+        "id": "d074_t04",
+        "title": "Identify base cases",
+        "category": "DSA"
+      },
+      {
+        "id": "d074_t05",
+        "title": "Analyze complexity",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "dayNumber": 75,
+    "phase": 2,
+    "phaseName": "CORE DSA",
+    "title": "Core DSA Assessment",
+    "focus": "Full test",
+    "tasks": [
+      {
+        "id": "d075_t01",
+        "title": "150 minute DSA assessment",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d075_t02",
+        "title": "5 problems",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d075_t03",
+        "title": "At least 3 Medium",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d075_t04",
+        "title": "One graph problem",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d075_t05",
+        "title": "One DP problem",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d075_t06",
+        "title": "Analyze mistakes",
+        "category": "REVISION"
+      },
+      {
+        "id": "d075_t07",
+        "title": "Revisit weakest 3 patterns",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "dayNumber": 76,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "DBMS I",
+    "focus": "Database foundations",
+    "tasks": [
+      {
+        "id": "d076_t01",
+        "title": "Database versus DBMS",
+        "category": "DBMS"
+      },
+      {
+        "id": "d076_t02",
+        "title": "Relational database",
+        "category": "DBMS"
+      },
+      {
+        "id": "d076_t03",
+        "title": "Tables and records",
+        "category": "DBMS"
+      },
+      {
+        "id": "d076_t04",
+        "title": "Primary key",
+        "category": "DBMS"
+      },
+      {
+        "id": "d076_t05",
+        "title": "Foreign key",
+        "category": "DBMS"
+      },
+      {
+        "id": "d076_t06",
+        "title": "Candidate key",
+        "category": "DBMS"
+      },
+      {
+        "id": "d076_t07",
+        "title": "Super key",
+        "category": "DBMS"
+      },
+      {
+        "id": "d076_t08",
+        "title": "Constraints",
+        "category": "DBMS"
+      },
+      {
+        "id": "d076_t09",
+        "title": "Answer 20 DBMS questions",
+        "category": "DBMS"
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "dayNumber": 77,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "DBMS II",
+    "focus": "Normalization",
+    "tasks": [
+      {
+        "id": "d077_t01",
+        "title": "Functional dependency",
+        "category": "DBMS"
+      },
+      {
+        "id": "d077_t02",
+        "title": "1NF",
+        "category": "DBMS"
+      },
+      {
+        "id": "d077_t03",
+        "title": "2NF",
+        "category": "DBMS"
+      },
+      {
+        "id": "d077_t04",
+        "title": "3NF",
+        "category": "DBMS"
+      },
+      {
+        "id": "d077_t05",
+        "title": "BCNF",
+        "category": "DBMS"
+      },
+      {
+        "id": "d077_t06",
+        "title": "Solve normalization examples",
+        "category": "DBMS"
+      },
+      {
+        "id": "d077_t07",
+        "title": "Answer 15 questions",
+        "category": "DBMS"
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "dayNumber": 78,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "DBMS III",
+    "focus": "Transactions",
+    "tasks": [
+      {
+        "id": "d078_t01",
+        "title": "Transaction",
+        "category": "DBMS"
+      },
+      {
+        "id": "d078_t02",
+        "title": "ACID",
+        "category": "DBMS"
+      },
+      {
+        "id": "d078_t03",
+        "title": "Atomicity",
+        "category": "DBMS"
+      },
+      {
+        "id": "d078_t04",
+        "title": "Consistency",
+        "category": "DBMS"
+      },
+      {
+        "id": "d078_t05",
+        "title": "Isolation",
+        "category": "DBMS"
+      },
+      {
+        "id": "d078_t06",
+        "title": "Durability",
+        "category": "DBMS"
+      },
+      {
+        "id": "d078_t07",
+        "title": "Commit and rollback",
+        "category": "DBMS"
+      },
+      {
+        "id": "d078_t08",
+        "title": "Answer 20 questions",
+        "category": "DBMS"
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "dayNumber": 79,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "DBMS IV",
+    "focus": "Concurrency",
+    "tasks": [
+      {
+        "id": "d079_t01",
+        "title": "Concurrency problems",
+        "category": "DBMS"
+      },
+      {
+        "id": "d079_t02",
+        "title": "Race conditions",
+        "category": "DBMS"
+      },
+      {
+        "id": "d079_t03",
+        "title": "Locks",
+        "category": "DBMS"
+      },
+      {
+        "id": "d079_t04",
+        "title": "Shared lock",
+        "category": "DBMS"
+      },
+      {
+        "id": "d079_t05",
+        "title": "Exclusive lock",
+        "category": "DBMS"
+      },
+      {
+        "id": "d079_t06",
+        "title": "Deadlock",
+        "category": "DBMS"
+      },
+      {
+        "id": "d079_t07",
+        "title": "Isolation levels",
+        "category": "DBMS"
+      },
+      {
+        "id": "d079_t08",
+        "title": "Answer 20 questions",
+        "category": "DBMS"
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "dayNumber": 80,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "DBMS V",
+    "focus": "Indexing",
+    "tasks": [
+      {
+        "id": "d080_t01",
+        "title": "Why indexes exist",
+        "category": "DBMS"
+      },
+      {
+        "id": "d080_t02",
+        "title": "B Tree",
+        "category": "DBMS"
+      },
+      {
+        "id": "d080_t03",
+        "title": "B+ Tree",
+        "category": "DBMS"
+      },
+      {
+        "id": "d080_t04",
+        "title": "Clustered index concept",
+        "category": "DBMS"
+      },
+      {
+        "id": "d080_t05",
+        "title": "Non clustered index concept",
+        "category": "DBMS"
+      },
+      {
+        "id": "d080_t06",
+        "title": "Index tradeoffs",
+        "category": "DBMS"
+      },
+      {
+        "id": "d080_t07",
+        "title": "Answer 20 indexing questions",
+        "category": "DBMS"
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "dayNumber": 81,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "SQL III",
+    "focus": "Joins",
+    "tasks": [
+      {
+        "id": "d081_t01",
+        "title": "INNER JOIN",
+        "category": "SQL"
+      },
+      {
+        "id": "d081_t02",
+        "title": "LEFT JOIN",
+        "category": "SQL"
+      },
+      {
+        "id": "d081_t03",
+        "title": "RIGHT JOIN",
+        "category": "SQL"
+      },
+      {
+        "id": "d081_t04",
+        "title": "FULL JOIN concept",
+        "category": "SQL"
+      },
+      {
+        "id": "d081_t05",
+        "title": "Self join",
+        "category": "SQL"
+      },
+      {
+        "id": "d081_t06",
+        "title": "Solve 15 join problems",
+        "category": "SQL"
+      },
+      {
+        "id": "d081_t07",
+        "title": "Explain join behavior",
+        "category": "SQL"
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "dayNumber": 82,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "SQL IV",
+    "focus": "Subqueries and CTEs",
+    "tasks": [
+      {
+        "id": "d082_t01",
+        "title": "Subquery",
+        "category": "SQL"
+      },
+      {
+        "id": "d082_t02",
+        "title": "Correlated subquery",
+        "category": "SQL"
+      },
+      {
+        "id": "d082_t03",
+        "title": "CTE",
+        "category": "SQL"
+      },
+      {
+        "id": "d082_t04",
+        "title": "WITH clause",
+        "category": "SQL"
+      },
+      {
+        "id": "d082_t05",
+        "title": "Solve 12 problems",
+        "category": "SQL"
+      },
+      {
+        "id": "d082_t06",
+        "title": "Rewrite 3 subqueries as CTEs",
+        "category": "SQL"
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "dayNumber": 83,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "SQL V",
+    "focus": "Window functions",
+    "tasks": [
+      {
+        "id": "d083_t01",
+        "title": "ROW_NUMBER",
+        "category": "SQL"
+      },
+      {
+        "id": "d083_t02",
+        "title": "RANK",
+        "category": "SQL"
+      },
+      {
+        "id": "d083_t03",
+        "title": "DENSE_RANK",
+        "category": "SQL"
+      },
+      {
+        "id": "d083_t04",
+        "title": "LEAD",
+        "category": "SQL"
+      },
+      {
+        "id": "d083_t05",
+        "title": "LAG",
+        "category": "SQL"
+      },
+      {
+        "id": "d083_t06",
+        "title": "PARTITION BY",
+        "category": "SQL"
+      },
+      {
+        "id": "d083_t07",
+        "title": "Solve 12 window function problems",
+        "category": "SQL"
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "dayNumber": 84,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "SQL VI",
+    "focus": "Interview SQL",
+    "tasks": [
+      {
+        "id": "d084_t01",
+        "title": "Top N per group",
+        "category": "SQL"
+      },
+      {
+        "id": "d084_t02",
+        "title": "Second highest salary",
+        "category": "SQL"
+      },
+      {
+        "id": "d084_t03",
+        "title": "Duplicate detection",
+        "category": "SQL"
+      },
+      {
+        "id": "d084_t04",
+        "title": "Consecutive records",
+        "category": "SQL"
+      },
+      {
+        "id": "d084_t05",
+        "title": "Running totals",
+        "category": "SQL"
+      },
+      {
+        "id": "d084_t06",
+        "title": "Solve 15 interview queries",
+        "category": "SQL"
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "dayNumber": 85,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "OOP Deep Dive",
+    "focus": "Interview mastery",
+    "tasks": [
+      {
+        "id": "d085_t01",
+        "title": "Virtual functions",
+        "category": "OOP"
+      },
+      {
+        "id": "d085_t02",
+        "title": "Pure virtual functions",
+        "category": "OOP"
+      },
+      {
+        "id": "d085_t03",
+        "title": "Abstract classes",
+        "category": "OOP"
+      },
+      {
+        "id": "d085_t04",
+        "title": "Interfaces",
+        "category": "OOP"
+      },
+      {
+        "id": "d085_t05",
+        "title": "Constructor behavior",
+        "category": "OOP"
+      },
+      {
+        "id": "d085_t06",
+        "title": "Destructor behavior",
+        "category": "OOP"
+      },
+      {
+        "id": "d085_t07",
+        "title": "Composition",
+        "category": "CN"
+      },
+      {
+        "id": "d085_t08",
+        "title": "Aggregation",
+        "category": "OOP"
+      },
+      {
+        "id": "d085_t09",
+        "title": "Answer 30 OOP questions",
+        "category": "OOP"
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "dayNumber": 86,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "C++ Memory",
+    "focus": "Advanced interview fundamentals",
+    "tasks": [
+      {
+        "id": "d086_t01",
+        "title": "Stack memory",
+        "category": "C++"
+      },
+      {
+        "id": "d086_t02",
+        "title": "Heap memory",
+        "category": "C++"
+      },
+      {
+        "id": "d086_t03",
+        "title": "Dynamic allocation",
+        "category": "C++"
+      },
+      {
+        "id": "d086_t04",
+        "title": "new and delete",
+        "category": "C++"
+      },
+      {
+        "id": "d086_t05",
+        "title": "RAII",
+        "category": "C++"
+      },
+      {
+        "id": "d086_t06",
+        "title": "Smart pointer concepts",
+        "category": "C++"
+      },
+      {
+        "id": "d086_t07",
+        "title": "unique_ptr",
+        "category": "C++"
+      },
+      {
+        "id": "d086_t08",
+        "title": "shared_ptr",
+        "category": "C++"
+      },
+      {
+        "id": "d086_t09",
+        "title": "weak_ptr concept",
+        "category": "C++"
+      },
+      {
+        "id": "d086_t10",
+        "title": "Answer 25 C++ questions",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "dayNumber": 87,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "C++ Advanced",
+    "focus": "Modern C++ interview topics",
+    "tasks": [
+      {
+        "id": "d087_t01",
+        "title": "const correctness",
+        "category": "C++"
+      },
+      {
+        "id": "d087_t02",
+        "title": "References",
+        "category": "C++"
+      },
+      {
+        "id": "d087_t03",
+        "title": "Move semantics concept",
+        "category": "C++"
+      },
+      {
+        "id": "d087_t04",
+        "title": "Copy constructor",
+        "category": "C++"
+      },
+      {
+        "id": "d087_t05",
+        "title": "Assignment operator",
+        "category": "C++"
+      },
+      {
+        "id": "d087_t06",
+        "title": "Rule of 3 concept",
+        "category": "C++"
+      },
+      {
+        "id": "d087_t07",
+        "title": "Rule of 5 concept",
+        "category": "C++"
+      },
+      {
+        "id": "d087_t08",
+        "title": "Answer 25 questions",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "dayNumber": 88,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Java I",
+    "focus": "Java foundations",
+    "tasks": [
+      {
+        "id": "d088_t01",
+        "title": "JDK",
+        "category": "JAVA"
+      },
+      {
+        "id": "d088_t02",
+        "title": "JRE",
+        "category": "JAVA"
+      },
+      {
+        "id": "d088_t03",
+        "title": "JVM",
+        "category": "JAVA"
+      },
+      {
+        "id": "d088_t04",
+        "title": "Java syntax",
+        "category": "JAVA"
+      },
+      {
+        "id": "d088_t05",
+        "title": "Classes",
+        "category": "JAVA"
+      },
+      {
+        "id": "d088_t06",
+        "title": "Objects",
+        "category": "JAVA"
+      },
+      {
+        "id": "d088_t07",
+        "title": "Constructors",
+        "category": "JAVA"
+      },
+      {
+        "id": "d088_t08",
+        "title": "Inheritance",
+        "category": "JAVA"
+      },
+      {
+        "id": "d088_t09",
+        "title": "Solve 5 Java problems",
+        "category": "JAVA"
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "dayNumber": 89,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Java II",
+    "focus": "Collections",
+    "tasks": [
+      {
+        "id": "d089_t01",
+        "title": "ArrayList",
+        "category": "JAVA"
+      },
+      {
+        "id": "d089_t02",
+        "title": "LinkedList",
+        "category": "JAVA"
+      },
+      {
+        "id": "d089_t03",
+        "title": "HashMap",
+        "category": "JAVA"
+      },
+      {
+        "id": "d089_t04",
+        "title": "HashSet",
+        "category": "JAVA"
+      },
+      {
+        "id": "d089_t05",
+        "title": "PriorityQueue",
+        "category": "JAVA"
+      },
+      {
+        "id": "d089_t06",
+        "title": "Comparator",
+        "category": "JAVA"
+      },
+      {
+        "id": "d089_t07",
+        "title": "Comparable",
+        "category": "JAVA"
+      },
+      {
+        "id": "d089_t08",
+        "title": "Solve 8 Java problems",
+        "category": "JAVA"
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "dayNumber": 90,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Java III",
+    "focus": "Java OOP",
+    "tasks": [
+      {
+        "id": "d090_t01",
+        "title": "Interfaces",
+        "category": "JAVA"
+      },
+      {
+        "id": "d090_t02",
+        "title": "Abstract classes",
+        "category": "JAVA"
+      },
+      {
+        "id": "d090_t03",
+        "title": "Overriding",
+        "category": "JAVA"
+      },
+      {
+        "id": "d090_t04",
+        "title": "Overloading",
+        "category": "JAVA"
+      },
+      {
+        "id": "d090_t05",
+        "title": "Exceptions",
+        "category": "JAVA"
+      },
+      {
+        "id": "d090_t06",
+        "title": "Generics",
+        "category": "JAVA"
+      },
+      {
+        "id": "d090_t07",
+        "title": "StringBuilder",
+        "category": "JAVA"
+      },
+      {
+        "id": "d090_t08",
+        "title": "Answer 25 Java questions",
+        "category": "JAVA"
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "dayNumber": 91,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Operating Systems I",
+    "focus": "Processes and threads",
+    "tasks": [
+      {
+        "id": "d091_t01",
+        "title": "Process",
+        "category": "OS"
+      },
+      {
+        "id": "d091_t02",
+        "title": "Thread",
+        "category": "OS"
+      },
+      {
+        "id": "d091_t03",
+        "title": "Process versus thread",
+        "category": "OS"
+      },
+      {
+        "id": "d091_t04",
+        "title": "Context switch",
+        "category": "OS"
+      },
+      {
+        "id": "d091_t05",
+        "title": "User mode",
+        "category": "OS"
+      },
+      {
+        "id": "d091_t06",
+        "title": "Kernel mode",
+        "category": "OS"
+      },
+      {
+        "id": "d091_t07",
+        "title": "System calls",
+        "category": "OS"
+      },
+      {
+        "id": "d091_t08",
+        "title": "Answer 25 OS questions",
+        "category": "OS"
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "dayNumber": 92,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Operating Systems II",
+    "focus": "Scheduling",
+    "tasks": [
+      {
+        "id": "d092_t01",
+        "title": "FCFS",
+        "category": "OS"
+      },
+      {
+        "id": "d092_t02",
+        "title": "SJF",
+        "category": "OS"
+      },
+      {
+        "id": "d092_t03",
+        "title": "SRTF",
+        "category": "OS"
+      },
+      {
+        "id": "d092_t04",
+        "title": "Round Robin",
+        "category": "OS"
+      },
+      {
+        "id": "d092_t05",
+        "title": "Priority scheduling",
+        "category": "OS"
+      },
+      {
+        "id": "d092_t06",
+        "title": "Waiting time",
+        "category": "OS"
+      },
+      {
+        "id": "d092_t07",
+        "title": "Turnaround time",
+        "category": "OS"
+      },
+      {
+        "id": "d092_t08",
+        "title": "Solve scheduling examples",
+        "category": "OS"
+      },
+      {
+        "id": "d092_t09",
+        "title": "Answer 20 questions",
+        "category": "OS"
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "dayNumber": 93,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Operating Systems III",
+    "focus": "Synchronization",
+    "tasks": [
+      {
+        "id": "d093_t01",
+        "title": "Race condition",
+        "category": "OS"
+      },
+      {
+        "id": "d093_t02",
+        "title": "Critical section",
+        "category": "OS"
+      },
+      {
+        "id": "d093_t03",
+        "title": "Mutex",
+        "category": "OS"
+      },
+      {
+        "id": "d093_t04",
+        "title": "Semaphore",
+        "category": "OS"
+      },
+      {
+        "id": "d093_t05",
+        "title": "Monitor concept",
+        "category": "OS"
+      },
+      {
+        "id": "d093_t06",
+        "title": "Producer consumer",
+        "category": "OS"
+      },
+      {
+        "id": "d093_t07",
+        "title": "Readers writers",
+        "category": "OS"
+      },
+      {
+        "id": "d093_t08",
+        "title": "Answer 25 questions",
+        "category": "OS"
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "dayNumber": 94,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Operating Systems IV",
+    "focus": "Deadlocks",
+    "tasks": [
+      {
+        "id": "d094_t01",
+        "title": "Deadlock conditions",
+        "category": "OS"
+      },
+      {
+        "id": "d094_t02",
+        "title": "Prevention",
+        "category": "OS"
+      },
+      {
+        "id": "d094_t03",
+        "title": "Avoidance",
+        "category": "OS"
+      },
+      {
+        "id": "d094_t04",
+        "title": "Detection",
+        "category": "OS"
+      },
+      {
+        "id": "d094_t05",
+        "title": "Banker's algorithm",
+        "category": "OS"
+      },
+      {
+        "id": "d094_t06",
+        "title": "Solve 5 examples",
+        "category": "OS"
+      },
+      {
+        "id": "d094_t07",
+        "title": "Answer 20 questions",
+        "category": "OS"
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "dayNumber": 95,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Operating Systems V",
+    "focus": "Memory",
+    "tasks": [
+      {
+        "id": "d095_t01",
+        "title": "Virtual memory",
+        "category": "OS"
+      },
+      {
+        "id": "d095_t02",
+        "title": "Paging",
+        "category": "OS"
+      },
+      {
+        "id": "d095_t03",
+        "title": "Segmentation",
+        "category": "OS"
+      },
+      {
+        "id": "d095_t04",
+        "title": "Page fault",
+        "category": "OS"
+      },
+      {
+        "id": "d095_t05",
+        "title": "TLB",
+        "category": "OS"
+      },
+      {
+        "id": "d095_t06",
+        "title": "Page replacement",
+        "category": "OS"
+      },
+      {
+        "id": "d095_t07",
+        "title": "FIFO",
+        "category": "OS"
+      },
+      {
+        "id": "d095_t08",
+        "title": "LRU",
+        "category": "OS"
+      },
+      {
+        "id": "d095_t09",
+        "title": "Answer 25 questions",
+        "category": "OS"
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "dayNumber": 96,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Computer Networks I",
+    "focus": "Network fundamentals",
+    "tasks": [
+      {
+        "id": "d096_t01",
+        "title": "OSI model",
+        "category": "CN"
+      },
+      {
+        "id": "d096_t02",
+        "title": "TCP/IP model",
+        "category": "CN"
+      },
+      {
+        "id": "d096_t03",
+        "title": "Layers",
+        "category": "CN"
+      },
+      {
+        "id": "d096_t04",
+        "title": "Encapsulation",
+        "category": "CN"
+      },
+      {
+        "id": "d096_t05",
+        "title": "Decapsulation",
+        "category": "CN"
+      },
+      {
+        "id": "d096_t06",
+        "title": "IP addressing basics",
+        "category": "CN"
+      },
+      {
+        "id": "d096_t07",
+        "title": "Answer 25 questions",
+        "category": "CN"
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "dayNumber": 97,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Computer Networks II",
+    "focus": "TCP and UDP",
+    "tasks": [
+      {
+        "id": "d097_t01",
+        "title": "TCP",
+        "category": "CN"
+      },
+      {
+        "id": "d097_t02",
+        "title": "UDP",
+        "category": "CN"
+      },
+      {
+        "id": "d097_t03",
+        "title": "TCP versus UDP",
+        "category": "CN"
+      },
+      {
+        "id": "d097_t04",
+        "title": "Three way handshake",
+        "category": "CN"
+      },
+      {
+        "id": "d097_t05",
+        "title": "Connection termination",
+        "category": "CN"
+      },
+      {
+        "id": "d097_t06",
+        "title": "Flow control",
+        "category": "CN"
+      },
+      {
+        "id": "d097_t07",
+        "title": "Congestion control",
+        "category": "CN"
+      },
+      {
+        "id": "d097_t08",
+        "title": "Answer 25 questions",
+        "category": "CN"
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "dayNumber": 98,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Computer Networks III",
+    "focus": "Web fundamentals",
+    "tasks": [
+      {
+        "id": "d098_t01",
+        "title": "HTTP",
+        "category": "CN"
+      },
+      {
+        "id": "d098_t02",
+        "title": "HTTPS",
+        "category": "CN"
+      },
+      {
+        "id": "d098_t03",
+        "title": "DNS",
+        "category": "CN"
+      },
+      {
+        "id": "d098_t04",
+        "title": "DHCP",
+        "category": "CN"
+      },
+      {
+        "id": "d098_t05",
+        "title": "ARP",
+        "category": "CN"
+      },
+      {
+        "id": "d098_t06",
+        "title": "HTTP methods",
+        "category": "CN"
+      },
+      {
+        "id": "d098_t07",
+        "title": "HTTP status codes",
+        "category": "CN"
+      },
+      {
+        "id": "d098_t08",
+        "title": "Answer 25 questions",
+        "category": "CN"
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "dayNumber": 99,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Computer Networks IV",
+    "focus": "Network architecture",
+    "tasks": [
+      {
+        "id": "d099_t01",
+        "title": "NAT",
+        "category": "CN"
+      },
+      {
+        "id": "d099_t02",
+        "title": "Firewall",
+        "category": "CN"
+      },
+      {
+        "id": "d099_t03",
+        "title": "Proxy",
+        "category": "CN"
+      },
+      {
+        "id": "d099_t04",
+        "title": "Reverse proxy",
+        "category": "CN"
+      },
+      {
+        "id": "d099_t05",
+        "title": "CDN",
+        "category": "CN"
+      },
+      {
+        "id": "d099_t06",
+        "title": "Routing",
+        "category": "CN"
+      },
+      {
+        "id": "d099_t07",
+        "title": "IPv4 versus IPv6",
+        "category": "CN"
+      },
+      {
+        "id": "d099_t08",
+        "title": "Answer 25 questions",
+        "category": "CN"
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "dayNumber": 100,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "What Happens When You Type Google.com",
+    "focus": "End to end networking",
+    "tasks": [
+      {
+        "id": "d100_t01",
+        "title": "DNS lookup",
+        "category": "CN"
+      },
+      {
+        "id": "d100_t02",
+        "title": "TCP connection",
+        "category": "CN"
+      },
+      {
+        "id": "d100_t03",
+        "title": "TLS handshake",
+        "category": "CN"
+      },
+      {
+        "id": "d100_t04",
+        "title": "HTTP request",
+        "category": "CN"
+      },
+      {
+        "id": "d100_t05",
+        "title": "Server processing",
+        "category": "OS"
+      },
+      {
+        "id": "d100_t06",
+        "title": "Response",
+        "category": "CN"
+      },
+      {
+        "id": "d100_t07",
+        "title": "Browser rendering",
+        "category": "CN"
+      },
+      {
+        "id": "d100_t08",
+        "title": "Explain the entire flow without notes",
+        "category": "CN"
+      },
+      {
+        "id": "d100_t09",
+        "title": "Record a 5 minute verbal explanation",
+        "category": "CN"
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "dayNumber": 101,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "CS Core Review I",
+    "focus": "OOP and C++",
+    "tasks": [
+      {
+        "id": "d101_t01",
+        "title": "Answer 40 OOP questions",
+        "category": "OOP"
+      },
+      {
+        "id": "d101_t02",
+        "title": "Answer 30 C++ questions",
+        "category": "OOP"
+      },
+      {
+        "id": "d101_t03",
+        "title": "Solve 5 DSA problems",
+        "category": "OOP"
+      },
+      {
+        "id": "d101_t04",
+        "title": "Explain memory model",
+        "category": "OOP"
+      },
+      {
+        "id": "d101_t05",
+        "title": "Explain polymorphism",
+        "category": "OOP"
+      },
+      {
+        "id": "d101_t06",
+        "title": "Review weak areas",
+        "category": "OOP"
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "dayNumber": 102,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "CS Core Review II",
+    "focus": "DBMS and SQL",
+    "tasks": [
+      {
+        "id": "d102_t01",
+        "title": "Answer 40 DBMS questions",
+        "category": "SQL"
+      },
+      {
+        "id": "d102_t02",
+        "title": "Solve 10 SQL queries",
+        "category": "SQL"
+      },
+      {
+        "id": "d102_t03",
+        "title": "Explain ACID",
+        "category": "SQL"
+      },
+      {
+        "id": "d102_t04",
+        "title": "Explain normalization",
+        "category": "SQL"
+      },
+      {
+        "id": "d102_t05",
+        "title": "Explain indexing",
+        "category": "SQL"
+      },
+      {
+        "id": "d102_t06",
+        "title": "Review weak areas",
+        "category": "SQL"
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "dayNumber": 103,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "CS Core Review III",
+    "focus": "OS",
+    "tasks": [
+      {
+        "id": "d103_t01",
+        "title": "Answer 40 OS questions",
+        "category": "OS"
+      },
+      {
+        "id": "d103_t02",
+        "title": "Explain process versus thread",
+        "category": "OS"
+      },
+      {
+        "id": "d103_t03",
+        "title": "Explain deadlocks",
+        "category": "OS"
+      },
+      {
+        "id": "d103_t04",
+        "title": "Explain virtual memory",
+        "category": "OS"
+      },
+      {
+        "id": "d103_t05",
+        "title": "Solve 5 OS numerical questions",
+        "category": "OS"
+      },
+      {
+        "id": "d103_t06",
+        "title": "Review weak areas",
+        "category": "OS"
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "dayNumber": 104,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "CS Core Review IV",
+    "focus": "Networks",
+    "tasks": [
+      {
+        "id": "d104_t01",
+        "title": "Answer 40 CN questions",
+        "category": "CN"
+      },
+      {
+        "id": "d104_t02",
+        "title": "Explain TCP handshake",
+        "category": "CN"
+      },
+      {
+        "id": "d104_t03",
+        "title": "Explain DNS",
+        "category": "CN"
+      },
+      {
+        "id": "d104_t04",
+        "title": "Explain HTTPS",
+        "category": "CN"
+      },
+      {
+        "id": "d104_t05",
+        "title": "Explain Google.com flow",
+        "category": "CN"
+      },
+      {
+        "id": "d104_t06",
+        "title": "Review weak areas",
+        "category": "CN"
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "dayNumber": 105,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "DSA Mixed I",
+    "focus": "Pattern recognition",
+    "tasks": [
+      {
+        "id": "d105_t01",
+        "title": "Solve 8 mixed Medium problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d105_t02",
+        "title": "Identify pattern before coding",
+        "category": "DSA"
+      },
+      {
+        "id": "d105_t03",
+        "title": "No solution lookup for first 30 minutes",
+        "category": "DSA"
+      },
+      {
+        "id": "d105_t04",
+        "title": "Write complexity",
+        "category": "DSA"
+      },
+      {
+        "id": "d105_t05",
+        "title": "Review all mistakes",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 106,
+    "dayNumber": 106,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "DSA Mixed II",
+    "focus": "Timed solving",
+    "tasks": [
+      {
+        "id": "d106_t01",
+        "title": "Solve 6 timed problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d106_t02",
+        "title": "20 minutes each",
+        "category": "DSA"
+      },
+      {
+        "id": "d106_t03",
+        "title": "Record solve time",
+        "category": "DSA"
+      },
+      {
+        "id": "d106_t04",
+        "title": "Record hints required",
+        "category": "DSA"
+      },
+      {
+        "id": "d106_t05",
+        "title": "Review inefficient solutions",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "dayNumber": 107,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "DSA Mixed III",
+    "focus": "Trees and graphs",
+    "tasks": [
+      {
+        "id": "d107_t01",
+        "title": "Solve 5 tree problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d107_t02",
+        "title": "Solve 5 graph problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d107_t03",
+        "title": "One timed Medium",
+        "category": "DSA"
+      },
+      {
+        "id": "d107_t04",
+        "title": "Explain BFS versus DFS",
+        "category": "DSA"
+      },
+      {
+        "id": "d107_t05",
+        "title": "Explain tree recursion",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 108,
+    "dayNumber": 108,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "DSA Mixed IV",
+    "focus": "DP",
+    "tasks": [
+      {
+        "id": "d108_t01",
+        "title": "Solve 5 DP problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d108_t02",
+        "title": "Solve 2 Medium DP problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d108_t03",
+        "title": "Write state and transition before code",
+        "category": "DSA"
+      },
+      {
+        "id": "d108_t04",
+        "title": "Analyze complexity",
+        "category": "DSA"
+      },
+      {
+        "id": "d108_t05",
+        "title": "Review DP mistakes",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 109,
+    "dayNumber": 109,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "DSA Mixed V",
+    "focus": "Advanced patterns",
+    "tasks": [
+      {
+        "id": "d109_t01",
+        "title": "Solve 2 binary search problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d109_t02",
+        "title": "Solve 2 heap problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d109_t03",
+        "title": "Solve 2 monotonic stack problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d109_t04",
+        "title": "Solve 2 greedy problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d109_t05",
+        "title": "Solve 2 interval problems",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 110,
+    "dayNumber": 110,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "SQL Assessment",
+    "focus": "SQL interview test",
+    "tasks": [
+      {
+        "id": "d110_t01",
+        "title": "Complete 20 SQL queries",
+        "category": "SQL"
+      },
+      {
+        "id": "d110_t02",
+        "title": "60 minute limit",
+        "category": "SQL"
+      },
+      {
+        "id": "d110_t03",
+        "title": "Include joins",
+        "category": "SQL"
+      },
+      {
+        "id": "d110_t04",
+        "title": "Include CTE",
+        "category": "SQL"
+      },
+      {
+        "id": "d110_t05",
+        "title": "Include window functions",
+        "category": "SQL"
+      },
+      {
+        "id": "d110_t06",
+        "title": "Include subqueries",
+        "category": "SQL"
+      },
+      {
+        "id": "d110_t07",
+        "title": "Analyze every mistake",
+        "category": "SQL"
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "dayNumber": 111,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "OOP Assessment",
+    "focus": "Technical interview",
+    "tasks": [
+      {
+        "id": "d111_t01",
+        "title": "Answer 50 OOP questions",
+        "category": "OOP"
+      },
+      {
+        "id": "d111_t02",
+        "title": "Explain SOLID basics",
+        "category": "OOP"
+      },
+      {
+        "id": "d111_t03",
+        "title": "Explain composition versus inheritance",
+        "category": "CN"
+      },
+      {
+        "id": "d111_t04",
+        "title": "Explain virtual functions",
+        "category": "OOP"
+      },
+      {
+        "id": "d111_t05",
+        "title": "Design a small class hierarchy",
+        "category": "OOP"
+      },
+      {
+        "id": "d111_t06",
+        "title": "Conduct a 30 minute verbal interview",
+        "category": "OOP"
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "dayNumber": 112,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "DBMS Assessment",
+    "focus": "Technical interview",
+    "tasks": [
+      {
+        "id": "d112_t01",
+        "title": "Answer 50 DBMS questions",
+        "category": "DBMS"
+      },
+      {
+        "id": "d112_t02",
+        "title": "Explain normalization",
+        "category": "DBMS"
+      },
+      {
+        "id": "d112_t03",
+        "title": "Explain ACID",
+        "category": "DBMS"
+      },
+      {
+        "id": "d112_t04",
+        "title": "Explain indexes",
+        "category": "DBMS"
+      },
+      {
+        "id": "d112_t05",
+        "title": "Explain isolation",
+        "category": "DBMS"
+      },
+      {
+        "id": "d112_t06",
+        "title": "Explain deadlocks",
+        "category": "DBMS"
+      },
+      {
+        "id": "d112_t07",
+        "title": "Conduct a 30 minute verbal interview",
+        "category": "DBMS"
+      }
+    ]
+  },
+  {
+    "id": 113,
+    "dayNumber": 113,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "OS Assessment",
+    "focus": "Technical interview",
+    "tasks": [
+      {
+        "id": "d113_t01",
+        "title": "Answer 50 OS questions",
+        "category": "OS"
+      },
+      {
+        "id": "d113_t02",
+        "title": "Explain scheduling",
+        "category": "OS"
+      },
+      {
+        "id": "d113_t03",
+        "title": "Explain synchronization",
+        "category": "OS"
+      },
+      {
+        "id": "d113_t04",
+        "title": "Explain deadlocks",
+        "category": "OS"
+      },
+      {
+        "id": "d113_t05",
+        "title": "Explain paging",
+        "category": "OS"
+      },
+      {
+        "id": "d113_t06",
+        "title": "Conduct a 30 minute verbal interview",
+        "category": "OS"
+      }
+    ]
+  },
+  {
+    "id": 114,
+    "dayNumber": 114,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "CN Assessment",
+    "focus": "Technical interview",
+    "tasks": [
+      {
+        "id": "d114_t01",
+        "title": "Answer 50 CN questions",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d114_t02",
+        "title": "Explain TCP",
+        "category": "CN"
+      },
+      {
+        "id": "d114_t03",
+        "title": "Explain DNS",
+        "category": "CN"
+      },
+      {
+        "id": "d114_t04",
+        "title": "Explain HTTPS",
+        "category": "CN"
+      },
+      {
+        "id": "d114_t05",
+        "title": "Explain routing",
+        "category": "CN"
+      },
+      {
+        "id": "d114_t06",
+        "title": "Conduct a 30 minute verbal interview",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 115,
+    "dayNumber": 115,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Java Assessment",
+    "focus": "Java interview",
+    "tasks": [
+      {
+        "id": "d115_t01",
+        "title": "Answer 40 Java questions",
+        "category": "JAVA"
+      },
+      {
+        "id": "d115_t02",
+        "title": "Explain collections",
+        "category": "JAVA"
+      },
+      {
+        "id": "d115_t03",
+        "title": "Explain JVM",
+        "category": "JAVA"
+      },
+      {
+        "id": "d115_t04",
+        "title": "Explain garbage collection",
+        "category": "JAVA"
+      },
+      {
+        "id": "d115_t05",
+        "title": "Explain OOP",
+        "category": "JAVA"
+      },
+      {
+        "id": "d115_t06",
+        "title": "Solve 5 Java coding problems",
+        "category": "JAVA"
+      }
+    ]
+  },
+  {
+    "id": 116,
+    "dayNumber": 116,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Aptitude II",
+    "focus": "Placement OA",
+    "tasks": [
+      {
+        "id": "d116_t01",
+        "title": "Time and work",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d116_t02",
+        "title": "Time speed distance",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d116_t03",
+        "title": "Probability",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d116_t04",
+        "title": "Permutations",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d116_t05",
+        "title": "Combinations",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d116_t06",
+        "title": "Solve 40 questions",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d116_t07",
+        "title": "Complete under time limit",
+        "category": "APTITUDE"
+      }
+    ]
+  },
+  {
+    "id": 117,
+    "dayNumber": 117,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Aptitude III",
+    "focus": "Logical reasoning",
+    "tasks": [
+      {
+        "id": "d117_t01",
+        "title": "Number series",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d117_t02",
+        "title": "Arrangements",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d117_t03",
+        "title": "Blood relations",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d117_t04",
+        "title": "Directions",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d117_t05",
+        "title": "Coding and decoding",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d117_t06",
+        "title": "Syllogisms",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d117_t07",
+        "title": "Solve 40 questions",
+        "category": "APTITUDE"
+      }
+    ]
+  },
+  {
+    "id": 118,
+    "dayNumber": 118,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Aptitude IV",
+    "focus": "Verbal",
+    "tasks": [
+      {
+        "id": "d118_t01",
+        "title": "Reading comprehension",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d118_t02",
+        "title": "Grammar",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d118_t03",
+        "title": "Sentence correction",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d118_t04",
+        "title": "Vocabulary",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d118_t05",
+        "title": "Solve 30 questions",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d118_t06",
+        "title": "Review mistakes",
+        "category": "APTITUDE"
+      }
+    ]
+  },
+  {
+    "id": 119,
+    "dayNumber": 119,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Full OA Simulation",
+    "focus": "Assessment",
+    "tasks": [
+      {
+        "id": "d119_t01",
+        "title": "30 aptitude questions",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d119_t02",
+        "title": "3 coding problems",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d119_t03",
+        "title": "10 SQL questions",
+        "category": "SQL"
+      },
+      {
+        "id": "d119_t04",
+        "title": "30 technical MCQs",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d119_t05",
+        "title": "Complete under strict time",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d119_t06",
+        "title": "Analyze score",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d119_t07",
+        "title": "Create weakness report",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 120,
+    "dayNumber": 120,
+    "phase": 3,
+    "phaseName": "ADVANCED DSA + CS CORE",
+    "title": "Advanced DSA Assessment",
+    "focus": "Major checkpoint",
+    "tasks": [
+      {
+        "id": "d120_t01",
+        "title": "180 minute DSA assessment",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d120_t02",
+        "title": "6 problems",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d120_t03",
+        "title": "At least 4 Medium",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d120_t04",
+        "title": "One graph",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d120_t05",
+        "title": "One DP",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d120_t06",
+        "title": "One tree",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d120_t07",
+        "title": "Analyze all failures",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d120_t08",
+        "title": "Update pattern mastery list",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 121,
+    "dayNumber": 121,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "System Design I",
+    "focus": "Architecture basics",
+    "tasks": [
+      {
+        "id": "d121_t01",
+        "title": "Client server model",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d121_t02",
+        "title": "API basics",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d121_t03",
+        "title": "REST",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d121_t04",
+        "title": "HTTP request lifecycle",
+        "category": "CN"
+      },
+      {
+        "id": "d121_t05",
+        "title": "Authentication",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d121_t06",
+        "title": "Authorization",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d121_t07",
+        "title": "Design a basic backend architecture",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d121_t08",
+        "title": "Answer 20 system design questions",
+        "category": "SYSTEM DESIGN"
+      }
+    ]
+  },
+  {
+    "id": 122,
+    "dayNumber": 122,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "System Design II",
+    "focus": "Databases and scaling",
+    "tasks": [
+      {
+        "id": "d122_t01",
+        "title": "SQL versus NoSQL concept",
+        "category": "SQL"
+      },
+      {
+        "id": "d122_t02",
+        "title": "Replication",
+        "category": "DBMS"
+      },
+      {
+        "id": "d122_t03",
+        "title": "Sharding",
+        "category": "DBMS"
+      },
+      {
+        "id": "d122_t04",
+        "title": "Vertical scaling",
+        "category": "DBMS"
+      },
+      {
+        "id": "d122_t05",
+        "title": "Horizontal scaling",
+        "category": "DBMS"
+      },
+      {
+        "id": "d122_t06",
+        "title": "Load balancing",
+        "category": "DBMS"
+      },
+      {
+        "id": "d122_t07",
+        "title": "Caching",
+        "category": "DBMS"
+      },
+      {
+        "id": "d122_t08",
+        "title": "Answer 20 questions",
+        "category": "DBMS"
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "dayNumber": 123,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "System Design III",
+    "focus": "Distributed concepts",
+    "tasks": [
+      {
+        "id": "d123_t01",
+        "title": "Redis concept",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d123_t02",
+        "title": "Message queues",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d123_t03",
+        "title": "Asynchronous processing",
+        "category": "OS"
+      },
+      {
+        "id": "d123_t04",
+        "title": "CDN",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d123_t05",
+        "title": "CAP theorem",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d123_t06",
+        "title": "Consistency",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d123_t07",
+        "title": "Availability",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d123_t08",
+        "title": "Design a basic scalable API",
+        "category": "SYSTEM DESIGN"
+      }
+    ]
+  },
+  {
+    "id": 124,
+    "dayNumber": 124,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "System Design IV",
+    "focus": "URL shortener",
+    "tasks": [
+      {
+        "id": "d124_t01",
+        "title": "Define requirements",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d124_t02",
+        "title": "Estimate scale",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d124_t03",
+        "title": "API design",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d124_t04",
+        "title": "Database design",
+        "category": "DBMS"
+      },
+      {
+        "id": "d124_t05",
+        "title": "Short code generation",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d124_t06",
+        "title": "Caching",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d124_t07",
+        "title": "Scaling",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d124_t08",
+        "title": "Explain architecture for 20 minutes",
+        "category": "SYSTEM DESIGN"
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "dayNumber": 125,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "System Design V",
+    "focus": "Chat application",
+    "tasks": [
+      {
+        "id": "d125_t01",
+        "title": "Requirements",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d125_t02",
+        "title": "WebSocket concept",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d125_t03",
+        "title": "Message storage",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d125_t04",
+        "title": "Presence",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d125_t05",
+        "title": "Notifications",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d125_t06",
+        "title": "Scaling",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d125_t07",
+        "title": "Failure handling",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d125_t08",
+        "title": "Explain architecture for 20 minutes",
+        "category": "SYSTEM DESIGN"
+      }
+    ]
+  },
+  {
+    "id": 126,
+    "dayNumber": 126,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Project Deep Dive I",
+    "focus": "Project ownership",
+    "tasks": [
+      {
+        "id": "d126_t01",
+        "title": "Choose strongest project",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d126_t02",
+        "title": "Write problem statement",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d126_t03",
+        "title": "Explain why it exists",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d126_t04",
+        "title": "Explain architecture",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d126_t05",
+        "title": "Explain every technology",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d126_t06",
+        "title": "Explain data flow",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d126_t07",
+        "title": "Explain your personal contribution",
+        "category": "PROJECTS"
+      }
+    ]
+  },
+  {
+    "id": 127,
+    "dayNumber": 127,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Project Deep Dive II",
+    "focus": "Technical defense",
+    "tasks": [
+      {
+        "id": "d127_t01",
+        "title": "Explain algorithms",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d127_t02",
+        "title": "Explain database",
+        "category": "DBMS"
+      },
+      {
+        "id": "d127_t03",
+        "title": "Explain APIs",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d127_t04",
+        "title": "Explain security",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d127_t05",
+        "title": "Explain failure cases",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d127_t06",
+        "title": "Explain performance",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d127_t07",
+        "title": "Explain scalability",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d127_t08",
+        "title": "Answer 30 project questions",
+        "category": "PROJECTS"
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "dayNumber": 128,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Project Deep Dive III",
+    "focus": "Difficult questions",
+    "tasks": [
+      {
+        "id": "d128_t01",
+        "title": "Why this technology?",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d128_t02",
+        "title": "Why not another technology?",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d128_t03",
+        "title": "Biggest technical challenge",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d128_t04",
+        "title": "Biggest bug",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d128_t05",
+        "title": "Biggest tradeoff",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d128_t06",
+        "title": "What would you change?",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d128_t07",
+        "title": "How would you scale it?",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d128_t08",
+        "title": "Conduct a 30 minute project interrogation",
+        "category": "PROJECTS"
+      }
+    ]
+  },
+  {
+    "id": 129,
+    "dayNumber": 129,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Resume I",
+    "focus": "Resume construction",
+    "tasks": [
+      {
+        "id": "d129_t01",
+        "title": "Build one page resume",
+        "category": "RESUME"
+      },
+      {
+        "id": "d129_t02",
+        "title": "Strong headline",
+        "category": "RESUME"
+      },
+      {
+        "id": "d129_t03",
+        "title": "Technical skills",
+        "category": "RESUME"
+      },
+      {
+        "id": "d129_t04",
+        "title": "Projects",
+        "category": "RESUME"
+      },
+      {
+        "id": "d129_t05",
+        "title": "Experience",
+        "category": "RESUME"
+      },
+      {
+        "id": "d129_t06",
+        "title": "Achievements",
+        "category": "RESUME"
+      },
+      {
+        "id": "d129_t07",
+        "title": "Quantify impact",
+        "category": "RESUME"
+      },
+      {
+        "id": "d129_t08",
+        "title": "Remove weak filler",
+        "category": "RESUME"
+      }
+    ]
+  },
+  {
+    "id": 130,
+    "dayNumber": 130,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Resume II",
+    "focus": "Resume defense",
+    "tasks": [
+      {
+        "id": "d130_t01",
+        "title": "Read every resume line",
+        "category": "RESUME"
+      },
+      {
+        "id": "d130_t02",
+        "title": "Prepare explanation for every technology",
+        "category": "RESUME"
+      },
+      {
+        "id": "d130_t03",
+        "title": "Prepare project questions",
+        "category": "RESUME"
+      },
+      {
+        "id": "d130_t04",
+        "title": "Prepare achievement questions",
+        "category": "RESUME"
+      },
+      {
+        "id": "d130_t05",
+        "title": "Prepare experience questions",
+        "category": "RESUME"
+      },
+      {
+        "id": "d130_t06",
+        "title": "Conduct 20 minute resume walkthrough",
+        "category": "RESUME"
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "dayNumber": 131,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "C++ Interview Round I",
+    "focus": "Rapid fire",
+    "tasks": [
+      {
+        "id": "d131_t01",
+        "title": "Answer 50 C++ questions",
+        "category": "C++"
+      },
+      {
+        "id": "d131_t02",
+        "title": "Pointers",
+        "category": "C++"
+      },
+      {
+        "id": "d131_t03",
+        "title": "References",
+        "category": "C++"
+      },
+      {
+        "id": "d131_t04",
+        "title": "Memory",
+        "category": "C++"
+      },
+      {
+        "id": "d131_t05",
+        "title": "STL",
+        "category": "C++"
+      },
+      {
+        "id": "d131_t06",
+        "title": "OOP",
+        "category": "OOP"
+      },
+      {
+        "id": "d131_t07",
+        "title": "Complexity",
+        "category": "C++"
+      },
+      {
+        "id": "d131_t08",
+        "title": "Modern C++ basics",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 132,
+    "dayNumber": 132,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "C++ Interview Round II",
+    "focus": "Coding",
+    "tasks": [
+      {
+        "id": "d132_t01",
+        "title": "Solve 5 C++ Medium problems",
+        "category": "C++"
+      },
+      {
+        "id": "d132_t02",
+        "title": "Explain while coding",
+        "category": "C++"
+      },
+      {
+        "id": "d132_t03",
+        "title": "State brute force first",
+        "category": "C++"
+      },
+      {
+        "id": "d132_t04",
+        "title": "State optimized solution",
+        "category": "C++"
+      },
+      {
+        "id": "d132_t05",
+        "title": "State complexity",
+        "category": "C++"
+      },
+      {
+        "id": "d132_t06",
+        "title": "Handle interviewer follow ups",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 133,
+    "dayNumber": 133,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Java Interview Round",
+    "focus": "Java rapid fire",
+    "tasks": [
+      {
+        "id": "d133_t01",
+        "title": "Answer 50 Java questions",
+        "category": "JAVA"
+      },
+      {
+        "id": "d133_t02",
+        "title": "JVM",
+        "category": "JAVA"
+      },
+      {
+        "id": "d133_t03",
+        "title": "Collections",
+        "category": "JAVA"
+      },
+      {
+        "id": "d133_t04",
+        "title": "OOP",
+        "category": "JAVA"
+      },
+      {
+        "id": "d133_t05",
+        "title": "Exceptions",
+        "category": "JAVA"
+      },
+      {
+        "id": "d133_t06",
+        "title": "Generics",
+        "category": "JAVA"
+      },
+      {
+        "id": "d133_t07",
+        "title": "Memory",
+        "category": "JAVA"
+      },
+      {
+        "id": "d133_t08",
+        "title": "Threads",
+        "category": "OS"
+      }
+    ]
+  },
+  {
+    "id": 134,
+    "dayNumber": 134,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "DSA Interview I",
+    "focus": "Arrays and strings",
+    "tasks": [
+      {
+        "id": "d134_t01",
+        "title": "Solve 4 interview problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d134_t02",
+        "title": "30 minute limit each",
+        "category": "DSA"
+      },
+      {
+        "id": "d134_t03",
+        "title": "Explain pattern",
+        "category": "DSA"
+      },
+      {
+        "id": "d134_t04",
+        "title": "Explain complexity",
+        "category": "DSA"
+      },
+      {
+        "id": "d134_t05",
+        "title": "Handle edge cases",
+        "category": "DSA"
+      },
+      {
+        "id": "d134_t06",
+        "title": "Practice speaking while coding",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "dayNumber": 135,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "DSA Interview II",
+    "focus": "Linked lists and stacks",
+    "tasks": [
+      {
+        "id": "d135_t01",
+        "title": "Solve 4 interview problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d135_t02",
+        "title": "One linked list Medium",
+        "category": "DSA"
+      },
+      {
+        "id": "d135_t03",
+        "title": "One monotonic stack problem",
+        "category": "DSA"
+      },
+      {
+        "id": "d135_t04",
+        "title": "Explain pointer movement",
+        "category": "C++"
+      },
+      {
+        "id": "d135_t05",
+        "title": "Explain complexity",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "dayNumber": 136,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "DSA Interview III",
+    "focus": "Trees and heaps",
+    "tasks": [
+      {
+        "id": "d136_t01",
+        "title": "Solve 4 interview problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d136_t02",
+        "title": "Tree Medium",
+        "category": "DSA"
+      },
+      {
+        "id": "d136_t03",
+        "title": "BST Medium",
+        "category": "DSA"
+      },
+      {
+        "id": "d136_t04",
+        "title": "Heap Medium",
+        "category": "DSA"
+      },
+      {
+        "id": "d136_t05",
+        "title": "Explain recursive thinking",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 137,
+    "dayNumber": 137,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "DSA Interview IV",
+    "focus": "Graphs",
+    "tasks": [
+      {
+        "id": "d137_t01",
+        "title": "Solve 4 graph problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d137_t02",
+        "title": "BFS",
+        "category": "DSA"
+      },
+      {
+        "id": "d137_t03",
+        "title": "DFS",
+        "category": "DSA"
+      },
+      {
+        "id": "d137_t04",
+        "title": "Shortest path",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d137_t05",
+        "title": "Topological sort",
+        "category": "DSA"
+      },
+      {
+        "id": "d137_t06",
+        "title": "Explain algorithm choice",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 138,
+    "dayNumber": 138,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "DSA Interview V",
+    "focus": "DP",
+    "tasks": [
+      {
+        "id": "d138_t01",
+        "title": "Solve 4 DP problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d138_t02",
+        "title": "Explain state",
+        "category": "DSA"
+      },
+      {
+        "id": "d138_t03",
+        "title": "Explain transition",
+        "category": "DSA"
+      },
+      {
+        "id": "d138_t04",
+        "title": "Explain base case",
+        "category": "DSA"
+      },
+      {
+        "id": "d138_t05",
+        "title": "Optimize space where possible",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "dayNumber": 139,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Technical Rapid Fire I",
+    "focus": "OOP + C++",
+    "tasks": [
+      {
+        "id": "d139_t01",
+        "title": "25 OOP questions",
+        "category": "OOP"
+      },
+      {
+        "id": "d139_t02",
+        "title": "25 C++ questions",
+        "category": "OOP"
+      },
+      {
+        "id": "d139_t03",
+        "title": "10 follow up questions",
+        "category": "OOP"
+      },
+      {
+        "id": "d139_t04",
+        "title": "Explain without notes",
+        "category": "OOP"
+      },
+      {
+        "id": "d139_t05",
+        "title": "Mark weak answers",
+        "category": "OOP"
+      }
+    ]
+  },
+  {
+    "id": 140,
+    "dayNumber": 140,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Technical Rapid Fire II",
+    "focus": "DBMS + SQL",
+    "tasks": [
+      {
+        "id": "d140_t01",
+        "title": "25 DBMS questions",
+        "category": "SQL"
+      },
+      {
+        "id": "d140_t02",
+        "title": "10 SQL queries",
+        "category": "SQL"
+      },
+      {
+        "id": "d140_t03",
+        "title": "Explain indexing",
+        "category": "SQL"
+      },
+      {
+        "id": "d140_t04",
+        "title": "Explain ACID",
+        "category": "SQL"
+      },
+      {
+        "id": "d140_t05",
+        "title": "Explain normalization",
+        "category": "SQL"
+      },
+      {
+        "id": "d140_t06",
+        "title": "Explain joins",
+        "category": "SQL"
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "dayNumber": 141,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Technical Rapid Fire III",
+    "focus": "OS + CN",
+    "tasks": [
+      {
+        "id": "d141_t01",
+        "title": "25 OS questions",
+        "category": "OS"
+      },
+      {
+        "id": "d141_t02",
+        "title": "25 CN questions",
+        "category": "OS"
+      },
+      {
+        "id": "d141_t03",
+        "title": "Explain process versus thread",
+        "category": "OS"
+      },
+      {
+        "id": "d141_t04",
+        "title": "Explain TCP",
+        "category": "OS"
+      },
+      {
+        "id": "d141_t05",
+        "title": "Explain DNS",
+        "category": "OS"
+      },
+      {
+        "id": "d141_t06",
+        "title": "Explain virtual memory",
+        "category": "OS"
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "dayNumber": 142,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Technical Rapid Fire IV",
+    "focus": "Mixed CS",
+    "tasks": [
+      {
+        "id": "d142_t01",
+        "title": "60 mixed CS questions",
+        "category": "DSA"
+      },
+      {
+        "id": "d142_t02",
+        "title": "No notes",
+        "category": "DSA"
+      },
+      {
+        "id": "d142_t03",
+        "title": "Maximum 60 seconds per answer",
+        "category": "DSA"
+      },
+      {
+        "id": "d142_t04",
+        "title": "Mark uncertain questions",
+        "category": "DSA"
+      },
+      {
+        "id": "d142_t05",
+        "title": "Review all weak questions",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "dayNumber": 143,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "DSA Contest Simulation",
+    "focus": "Competitive pressure",
+    "tasks": [
+      {
+        "id": "d143_t01",
+        "title": "120 minute contest",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d143_t02",
+        "title": "4 problems",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d143_t03",
+        "title": "No external help",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d143_t04",
+        "title": "Track solve time",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d143_t05",
+        "title": "Track failed attempts",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d143_t06",
+        "title": "Analyze strategy afterward",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 144,
+    "dayNumber": 144,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "OA Simulation II",
+    "focus": "Placement assessment",
+    "tasks": [
+      {
+        "id": "d144_t01",
+        "title": "Coding",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d144_t02",
+        "title": "Aptitude",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d144_t03",
+        "title": "SQL",
+        "category": "SQL"
+      },
+      {
+        "id": "d144_t04",
+        "title": "Technical MCQs",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d144_t05",
+        "title": "Strict timer",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d144_t06",
+        "title": "Analyze score",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d144_t07",
+        "title": "Compare with Day 119",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "dayNumber": 145,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "System Design VI",
+    "focus": "File storage",
+    "tasks": [
+      {
+        "id": "d145_t01",
+        "title": "Design file upload system",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d145_t02",
+        "title": "Object storage concept",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d145_t03",
+        "title": "Metadata database",
+        "category": "DBMS"
+      },
+      {
+        "id": "d145_t04",
+        "title": "CDN",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d145_t05",
+        "title": "Upload/download APIs",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d145_t06",
+        "title": "Scaling",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d145_t07",
+        "title": "Failure handling",
+        "category": "SYSTEM DESIGN"
+      }
+    ]
+  },
+  {
+    "id": 146,
+    "dayNumber": 146,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "System Design VII",
+    "focus": "Notification system",
+    "tasks": [
+      {
+        "id": "d146_t01",
+        "title": "Push notifications",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d146_t02",
+        "title": "Email",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d146_t03",
+        "title": "SMS concept",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d146_t04",
+        "title": "Queue",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d146_t05",
+        "title": "Retry",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d146_t06",
+        "title": "Idempotency",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d146_t07",
+        "title": "Rate limiting",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d146_t08",
+        "title": "Design for scale",
+        "category": "SYSTEM DESIGN"
+      }
+    ]
+  },
+  {
+    "id": 147,
+    "dayNumber": 147,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Behavioral Interview I",
+    "focus": "Story bank",
+    "tasks": [
+      {
+        "id": "d147_t01",
+        "title": "Tell me about yourself",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d147_t02",
+        "title": "Biggest achievement",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d147_t03",
+        "title": "Biggest failure",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d147_t04",
+        "title": "Difficult teammate",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d147_t05",
+        "title": "Leadership story",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d147_t06",
+        "title": "Conflict story",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d147_t07",
+        "title": "Technical challenge",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d147_t08",
+        "title": "Use STAR structure",
+        "category": "INTERVIEW"
+      }
+    ]
+  },
+  {
+    "id": 148,
+    "dayNumber": 148,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Behavioral Interview II",
+    "focus": "Company fit",
+    "tasks": [
+      {
+        "id": "d148_t01",
+        "title": "Why this company?",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d148_t02",
+        "title": "Why this role?",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d148_t03",
+        "title": "Why should we hire you?",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d148_t04",
+        "title": "Strengths",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d148_t05",
+        "title": "Weaknesses",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d148_t06",
+        "title": "Five year vision",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d148_t07",
+        "title": "Prepare 3 thoughtful questions",
+        "category": "INTERVIEW"
+      }
+    ]
+  },
+  {
+    "id": 149,
+    "dayNumber": 149,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Project Interview Simulation",
+    "focus": "Full project defense",
+    "tasks": [
+      {
+        "id": "d149_t01",
+        "title": "45 minute project interrogation",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d149_t02",
+        "title": "Architecture",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d149_t03",
+        "title": "Algorithms",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d149_t04",
+        "title": "Database",
+        "category": "DBMS"
+      },
+      {
+        "id": "d149_t05",
+        "title": "APIs",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d149_t06",
+        "title": "Security",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d149_t07",
+        "title": "Scaling",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d149_t08",
+        "title": "Tradeoffs",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d149_t09",
+        "title": "Personal contribution",
+        "category": "PROJECTS"
+      }
+    ]
+  },
+  {
+    "id": 150,
+    "dayNumber": 150,
+    "phase": 4,
+    "phaseName": "INTERVIEW LEVEL",
+    "title": "Interview Readiness Assessment",
+    "focus": "Major checkpoint",
+    "tasks": [
+      {
+        "id": "d150_t01",
+        "title": "60 minute DSA round",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d150_t02",
+        "title": "30 minute CS round",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d150_t03",
+        "title": "30 minute project round",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d150_t04",
+        "title": "20 minute HR round",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d150_t05",
+        "title": "20 minute SQL round",
+        "category": "SQL"
+      },
+      {
+        "id": "d150_t06",
+        "title": "Analyze performance",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d150_t07",
+        "title": "Identify final weaknesses",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 151,
+    "dayNumber": 151,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Company Preparation I",
+    "focus": "Company research",
+    "tasks": [
+      {
+        "id": "d151_t01",
+        "title": "Research target companies",
+        "category": "DSA"
+      },
+      {
+        "id": "d151_t02",
+        "title": "Record role requirements",
+        "category": "DSA"
+      },
+      {
+        "id": "d151_t03",
+        "title": "Record common OA topics",
+        "category": "DSA"
+      },
+      {
+        "id": "d151_t04",
+        "title": "Record common DSA topics",
+        "category": "DSA"
+      },
+      {
+        "id": "d151_t05",
+        "title": "Record CS topics",
+        "category": "DSA"
+      },
+      {
+        "id": "d151_t06",
+        "title": "Create company preparation matrix",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 152,
+    "dayNumber": 152,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Company Preparation II",
+    "focus": "OA patterns",
+    "tasks": [
+      {
+        "id": "d152_t01",
+        "title": "Practice company style coding",
+        "category": "DSA"
+      },
+      {
+        "id": "d152_t02",
+        "title": "Practice aptitude",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d152_t03",
+        "title": "Practice SQL",
+        "category": "SQL"
+      },
+      {
+        "id": "d152_t04",
+        "title": "Practice MCQs",
+        "category": "DSA"
+      },
+      {
+        "id": "d152_t05",
+        "title": "Review previous question patterns",
+        "category": "DSA"
+      },
+      {
+        "id": "d152_t06",
+        "title": "Complete one timed OA",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 153,
+    "dayNumber": 153,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Company Preparation III",
+    "focus": "Interview patterns",
+    "tasks": [
+      {
+        "id": "d153_t01",
+        "title": "Research interview experiences",
+        "category": "DSA"
+      },
+      {
+        "id": "d153_t02",
+        "title": "Collect recurring DSA patterns",
+        "category": "DSA"
+      },
+      {
+        "id": "d153_t03",
+        "title": "Collect recurring CS questions",
+        "category": "DSA"
+      },
+      {
+        "id": "d153_t04",
+        "title": "Collect recurring project questions",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d153_t05",
+        "title": "Build company question bank",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 154,
+    "dayNumber": 154,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "DSA Weakness Repair I",
+    "focus": "Personal weaknesses",
+    "tasks": [
+      {
+        "id": "d154_t01",
+        "title": "Review personal DSA failure log",
+        "category": "REVISION"
+      },
+      {
+        "id": "d154_t02",
+        "title": "Pick weakest 3 patterns",
+        "category": "REVISION"
+      },
+      {
+        "id": "d154_t03",
+        "title": "Solve 5 problems per pattern",
+        "category": "REVISION"
+      },
+      {
+        "id": "d154_t04",
+        "title": "Reattempt old failures without notes",
+        "category": "REVISION"
+      },
+      {
+        "id": "d154_t05",
+        "title": "Update mastery status",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 155,
+    "dayNumber": 155,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "DSA Weakness Repair II",
+    "focus": "Personal weaknesses",
+    "tasks": [
+      {
+        "id": "d155_t01",
+        "title": "Pick next weakest 3 patterns",
+        "category": "REVISION"
+      },
+      {
+        "id": "d155_t02",
+        "title": "Solve 5 problems per pattern",
+        "category": "REVISION"
+      },
+      {
+        "id": "d155_t03",
+        "title": "Reattempt failures",
+        "category": "REVISION"
+      },
+      {
+        "id": "d155_t04",
+        "title": "Practice explaining solutions",
+        "category": "REVISION"
+      },
+      {
+        "id": "d155_t05",
+        "title": "Update mastery status",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 156,
+    "dayNumber": 156,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "CS Weakness Repair",
+    "focus": "Core subjects",
+    "tasks": [
+      {
+        "id": "d156_t01",
+        "title": "Identify weakest CS subject",
+        "category": "REVISION"
+      },
+      {
+        "id": "d156_t02",
+        "title": "Answer 50 questions",
+        "category": "REVISION"
+      },
+      {
+        "id": "d156_t03",
+        "title": "Explain 10 concepts aloud",
+        "category": "REVISION"
+      },
+      {
+        "id": "d156_t04",
+        "title": "Complete one mock technical round",
+        "category": "REVISION"
+      },
+      {
+        "id": "d156_t05",
+        "title": "Update weak question bank",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 157,
+    "dayNumber": 157,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "SQL Weakness Repair",
+    "focus": "Query fluency",
+    "tasks": [
+      {
+        "id": "d157_t01",
+        "title": "Solve 20 SQL problems",
+        "category": "SQL"
+      },
+      {
+        "id": "d157_t02",
+        "title": "Joins",
+        "category": "SQL"
+      },
+      {
+        "id": "d157_t03",
+        "title": "CTE",
+        "category": "SQL"
+      },
+      {
+        "id": "d157_t04",
+        "title": "Window functions",
+        "category": "SQL"
+      },
+      {
+        "id": "d157_t05",
+        "title": "Subqueries",
+        "category": "SQL"
+      },
+      {
+        "id": "d157_t06",
+        "title": "Time every query",
+        "category": "SQL"
+      },
+      {
+        "id": "d157_t07",
+        "title": "Review mistakes",
+        "category": "SQL"
+      }
+    ]
+  },
+  {
+    "id": 158,
+    "dayNumber": 158,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "C++ Weakness Repair",
+    "focus": "Interview fluency",
+    "tasks": [
+      {
+        "id": "d158_t01",
+        "title": "Answer 50 C++ questions",
+        "category": "C++"
+      },
+      {
+        "id": "d158_t02",
+        "title": "STL",
+        "category": "C++"
+      },
+      {
+        "id": "d158_t03",
+        "title": "Memory",
+        "category": "C++"
+      },
+      {
+        "id": "d158_t04",
+        "title": "OOP",
+        "category": "OOP"
+      },
+      {
+        "id": "d158_t05",
+        "title": "References",
+        "category": "C++"
+      },
+      {
+        "id": "d158_t06",
+        "title": "Pointers",
+        "category": "C++"
+      },
+      {
+        "id": "d158_t07",
+        "title": "Solve 5 coding problems",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 159,
+    "dayNumber": 159,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Java Weakness Repair",
+    "focus": "Interview fluency",
+    "tasks": [
+      {
+        "id": "d159_t01",
+        "title": "Answer 40 Java questions",
+        "category": "JAVA"
+      },
+      {
+        "id": "d159_t02",
+        "title": "Collections",
+        "category": "JAVA"
+      },
+      {
+        "id": "d159_t03",
+        "title": "JVM",
+        "category": "JAVA"
+      },
+      {
+        "id": "d159_t04",
+        "title": "OOP",
+        "category": "JAVA"
+      },
+      {
+        "id": "d159_t05",
+        "title": "Exceptions",
+        "category": "JAVA"
+      },
+      {
+        "id": "d159_t06",
+        "title": "Memory",
+        "category": "JAVA"
+      },
+      {
+        "id": "d159_t07",
+        "title": "Solve 5 Java problems",
+        "category": "JAVA"
+      }
+    ]
+  },
+  {
+    "id": 160,
+    "dayNumber": 160,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Full Technical Mock I",
+    "focus": "Simulation",
+    "tasks": [
+      {
+        "id": "d160_t01",
+        "title": "45 minute DSA",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d160_t02",
+        "title": "30 minute C++",
+        "category": "C++"
+      },
+      {
+        "id": "d160_t03",
+        "title": "30 minute CS",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d160_t04",
+        "title": "30 minute project",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d160_t05",
+        "title": "15 minute SQL",
+        "category": "SQL"
+      },
+      {
+        "id": "d160_t06",
+        "title": "Record weaknesses",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d160_t07",
+        "title": "Review performance",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 161,
+    "dayNumber": 161,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Full Technical Mock II",
+    "focus": "Simulation",
+    "tasks": [
+      {
+        "id": "d161_t01",
+        "title": "60 minute DSA",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d161_t02",
+        "title": "30 minute OOP",
+        "category": "OOP"
+      },
+      {
+        "id": "d161_t03",
+        "title": "30 minute DBMS",
+        "category": "DBMS"
+      },
+      {
+        "id": "d161_t04",
+        "title": "30 minute OS",
+        "category": "OS"
+      },
+      {
+        "id": "d161_t05",
+        "title": "30 minute CN",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d161_t06",
+        "title": "Review performance",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 162,
+    "dayNumber": 162,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Full Technical Mock III",
+    "focus": "Simulation",
+    "tasks": [
+      {
+        "id": "d162_t01",
+        "title": "60 minute DSA",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d162_t02",
+        "title": "30 minute Java",
+        "category": "JAVA"
+      },
+      {
+        "id": "d162_t03",
+        "title": "30 minute SQL",
+        "category": "SQL"
+      },
+      {
+        "id": "d162_t04",
+        "title": "30 minute System Design",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d162_t05",
+        "title": "30 minute project",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d162_t06",
+        "title": "Review performance",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 163,
+    "dayNumber": 163,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Full OA III",
+    "focus": "Pressure",
+    "tasks": [
+      {
+        "id": "d163_t01",
+        "title": "Full aptitude section",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d163_t02",
+        "title": "Full coding section",
+        "category": "DSA"
+      },
+      {
+        "id": "d163_t03",
+        "title": "Full SQL section",
+        "category": "SQL"
+      },
+      {
+        "id": "d163_t04",
+        "title": "Full technical MCQ section",
+        "category": "DSA"
+      },
+      {
+        "id": "d163_t05",
+        "title": "Strict timer",
+        "category": "DSA"
+      },
+      {
+        "id": "d163_t06",
+        "title": "No external help",
+        "category": "DSA"
+      },
+      {
+        "id": "d163_t07",
+        "title": "Analyze score",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 164,
+    "dayNumber": 164,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Full Interview I",
+    "focus": "End to end",
+    "tasks": [
+      {
+        "id": "d164_t01",
+        "title": "Self introduction",
+        "category": "DSA"
+      },
+      {
+        "id": "d164_t02",
+        "title": "DSA",
+        "category": "DSA"
+      },
+      {
+        "id": "d164_t03",
+        "title": "C++",
+        "category": "C++"
+      },
+      {
+        "id": "d164_t04",
+        "title": "OOP",
+        "category": "OOP"
+      },
+      {
+        "id": "d164_t05",
+        "title": "DBMS",
+        "category": "DBMS"
+      },
+      {
+        "id": "d164_t06",
+        "title": "Project",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d164_t07",
+        "title": "HR",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d164_t08",
+        "title": "Record every weak answer",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 165,
+    "dayNumber": 165,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Full Interview II",
+    "focus": "End to end",
+    "tasks": [
+      {
+        "id": "d165_t01",
+        "title": "Self introduction",
+        "category": "DSA"
+      },
+      {
+        "id": "d165_t02",
+        "title": "DSA",
+        "category": "DSA"
+      },
+      {
+        "id": "d165_t03",
+        "title": "OS",
+        "category": "OS"
+      },
+      {
+        "id": "d165_t04",
+        "title": "CN",
+        "category": "DSA"
+      },
+      {
+        "id": "d165_t05",
+        "title": "SQL",
+        "category": "SQL"
+      },
+      {
+        "id": "d165_t06",
+        "title": "Project",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d165_t07",
+        "title": "HR",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d165_t08",
+        "title": "Record every weak answer",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 166,
+    "dayNumber": 166,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Full Interview III",
+    "focus": "End to end",
+    "tasks": [
+      {
+        "id": "d166_t01",
+        "title": "Self introduction",
+        "category": "DSA"
+      },
+      {
+        "id": "d166_t02",
+        "title": "DSA",
+        "category": "DSA"
+      },
+      {
+        "id": "d166_t03",
+        "title": "Java",
+        "category": "JAVA"
+      },
+      {
+        "id": "d166_t04",
+        "title": "System Design",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d166_t05",
+        "title": "DBMS",
+        "category": "DBMS"
+      },
+      {
+        "id": "d166_t06",
+        "title": "Project",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d166_t07",
+        "title": "HR",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d166_t08",
+        "title": "Record every weak answer",
+        "category": "DSA"
+      }
+    ]
+  },
+  {
+    "id": 167,
+    "dayNumber": 167,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Rapid Revision I",
+    "focus": "C++ and DSA",
+    "tasks": [
+      {
+        "id": "d167_t01",
+        "title": "Review STL",
+        "category": "C++"
+      },
+      {
+        "id": "d167_t02",
+        "title": "Review complexity",
+        "category": "C++"
+      },
+      {
+        "id": "d167_t03",
+        "title": "Review arrays",
+        "category": "C++"
+      },
+      {
+        "id": "d167_t04",
+        "title": "Review strings",
+        "category": "C++"
+      },
+      {
+        "id": "d167_t05",
+        "title": "Review hashing",
+        "category": "C++"
+      },
+      {
+        "id": "d167_t06",
+        "title": "Review binary search",
+        "category": "C++"
+      },
+      {
+        "id": "d167_t07",
+        "title": "Solve 5 timed problems",
+        "category": "C++"
+      }
+    ]
+  },
+  {
+    "id": 168,
+    "dayNumber": 168,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Rapid Revision II",
+    "focus": "DSA advanced",
+    "tasks": [
+      {
+        "id": "d168_t01",
+        "title": "Review linked lists",
+        "category": "REVISION"
+      },
+      {
+        "id": "d168_t02",
+        "title": "Review stacks",
+        "category": "REVISION"
+      },
+      {
+        "id": "d168_t03",
+        "title": "Review heaps",
+        "category": "REVISION"
+      },
+      {
+        "id": "d168_t04",
+        "title": "Review trees",
+        "category": "REVISION"
+      },
+      {
+        "id": "d168_t05",
+        "title": "Review graphs",
+        "category": "REVISION"
+      },
+      {
+        "id": "d168_t06",
+        "title": "Review DP",
+        "category": "REVISION"
+      },
+      {
+        "id": "d168_t07",
+        "title": "Solve 6 timed problems",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 169,
+    "dayNumber": 169,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Rapid Revision III",
+    "focus": "CS core",
+    "tasks": [
+      {
+        "id": "d169_t01",
+        "title": "Review OOP",
+        "category": "OOP"
+      },
+      {
+        "id": "d169_t02",
+        "title": "Review DBMS",
+        "category": "DBMS"
+      },
+      {
+        "id": "d169_t03",
+        "title": "Review SQL",
+        "category": "SQL"
+      },
+      {
+        "id": "d169_t04",
+        "title": "Review OS",
+        "category": "OS"
+      },
+      {
+        "id": "d169_t05",
+        "title": "Review CN",
+        "category": "REVISION"
+      },
+      {
+        "id": "d169_t06",
+        "title": "Answer 100 rapid fire questions",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 170,
+    "dayNumber": 170,
+    "phase": 5,
+    "phaseName": "INTERVIEW SIMULATION",
+    "title": "Rapid Revision IV",
+    "focus": "Interview answers",
+    "tasks": [
+      {
+        "id": "d170_t01",
+        "title": "Tell me about yourself",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d170_t02",
+        "title": "Why should we hire you?",
+        "category": "REVISION"
+      },
+      {
+        "id": "d170_t03",
+        "title": "Project walkthrough",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d170_t04",
+        "title": "Biggest challenge",
+        "category": "REVISION"
+      },
+      {
+        "id": "d170_t05",
+        "title": "Biggest failure",
+        "category": "REVISION"
+      },
+      {
+        "id": "d170_t06",
+        "title": "Leadership",
+        "category": "REVISION"
+      },
+      {
+        "id": "d170_t07",
+        "title": "Conflict",
+        "category": "REVISION"
+      },
+      {
+        "id": "d170_t08",
+        "title": "Why company?",
+        "category": "REVISION"
+      },
+      {
+        "id": "d170_t09",
+        "title": "Practice aloud",
+        "category": "REVISION"
+      }
+    ]
+  },
+  {
+    "id": 171,
+    "dayNumber": 171,
+    "phase": 6,
+    "phaseName": "PLACEMENT MODE",
+    "title": "Final Simulation I",
+    "focus": "Coding assessment",
+    "tasks": [
+      {
+        "id": "d171_t01",
+        "title": "180 minute DSA assessment",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d171_t02",
+        "title": "6 problems",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d171_t03",
+        "title": "Strict timer",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d171_t04",
+        "title": "No help",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d171_t05",
+        "title": "Full post test analysis",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d171_t06",
+        "title": "Reattempt failed problems",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 172,
+    "dayNumber": 172,
+    "phase": 6,
+    "phaseName": "PLACEMENT MODE",
+    "title": "Final Simulation II",
+    "focus": "Technical interview",
+    "tasks": [
+      {
+        "id": "d172_t01",
+        "title": "60 minute DSA interview",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d172_t02",
+        "title": "30 minute C++",
+        "category": "C++"
+      },
+      {
+        "id": "d172_t03",
+        "title": "30 minute OOP",
+        "category": "OOP"
+      },
+      {
+        "id": "d172_t04",
+        "title": "30 minute DBMS",
+        "category": "DBMS"
+      },
+      {
+        "id": "d172_t05",
+        "title": "30 minute SQL",
+        "category": "SQL"
+      },
+      {
+        "id": "d172_t06",
+        "title": "Record all weak answers",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 173,
+    "dayNumber": 173,
+    "phase": 6,
+    "phaseName": "PLACEMENT MODE",
+    "title": "Final Simulation III",
+    "focus": "Technical interview",
+    "tasks": [
+      {
+        "id": "d173_t01",
+        "title": "60 minute DSA interview",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d173_t02",
+        "title": "30 minute OS",
+        "category": "OS"
+      },
+      {
+        "id": "d173_t03",
+        "title": "30 minute CN",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d173_t04",
+        "title": "30 minute Java",
+        "category": "JAVA"
+      },
+      {
+        "id": "d173_t05",
+        "title": "30 minute System Design",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d173_t06",
+        "title": "Record all weak answers",
+        "category": "ASSESSMENT"
+      }
+    ]
+  },
+  {
+    "id": 174,
+    "dayNumber": 174,
+    "phase": 6,
+    "phaseName": "PLACEMENT MODE",
+    "title": "Final Simulation IV",
+    "focus": "Project interview",
+    "tasks": [
+      {
+        "id": "d174_t01",
+        "title": "60 minute project interrogation",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d174_t02",
+        "title": "Architecture",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d174_t03",
+        "title": "Algorithms",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d174_t04",
+        "title": "Database",
+        "category": "DBMS"
+      },
+      {
+        "id": "d174_t05",
+        "title": "APIs",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d174_t06",
+        "title": "Security",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d174_t07",
+        "title": "Scalability",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d174_t08",
+        "title": "Tradeoffs",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d174_t09",
+        "title": "Personal contribution",
+        "category": "PROJECTS"
+      }
+    ]
+  },
+  {
+    "id": 175,
+    "dayNumber": 175,
+    "phase": 6,
+    "phaseName": "PLACEMENT MODE",
+    "title": "Final Simulation V",
+    "focus": "Behavioral interview",
+    "tasks": [
+      {
+        "id": "d175_t01",
+        "title": "Self introduction",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d175_t02",
+        "title": "Achievement",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d175_t03",
+        "title": "Failure",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d175_t04",
+        "title": "Conflict",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d175_t05",
+        "title": "Leadership",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d175_t06",
+        "title": "Teamwork",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d175_t07",
+        "title": "Weakness",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d175_t08",
+        "title": "Why company?",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d175_t09",
+        "title": "Why role?",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d175_t10",
+        "title": "Practice concise answers",
+        "category": "INTERVIEW"
+      }
+    ]
+  },
+  {
+    "id": 176,
+    "dayNumber": 176,
+    "phase": 6,
+    "phaseName": "PLACEMENT MODE",
+    "title": "Full Placement Simulation I",
+    "focus": "Complete process",
+    "tasks": [
+      {
+        "id": "d176_t01",
+        "title": "Aptitude",
+        "category": "OS"
+      },
+      {
+        "id": "d176_t02",
+        "title": "Coding",
+        "category": "OS"
+      },
+      {
+        "id": "d176_t03",
+        "title": "SQL",
+        "category": "SQL"
+      },
+      {
+        "id": "d176_t04",
+        "title": "Technical MCQ",
+        "category": "OS"
+      },
+      {
+        "id": "d176_t05",
+        "title": "DSA interview",
+        "category": "OS"
+      },
+      {
+        "id": "d176_t06",
+        "title": "Project interview",
+        "category": "OS"
+      },
+      {
+        "id": "d176_t07",
+        "title": "HR interview",
+        "category": "OS"
+      },
+      {
+        "id": "d176_t08",
+        "title": "Complete under realistic conditions",
+        "category": "OS"
+      }
+    ]
+  },
+  {
+    "id": 177,
+    "dayNumber": 177,
+    "phase": 6,
+    "phaseName": "PLACEMENT MODE",
+    "title": "Full Placement Simulation II",
+    "focus": "Complete process",
+    "tasks": [
+      {
+        "id": "d177_t01",
+        "title": "Repeat full placement simulation",
+        "category": "OS"
+      },
+      {
+        "id": "d177_t02",
+        "title": "Change DSA problems",
+        "category": "OS"
+      },
+      {
+        "id": "d177_t03",
+        "title": "Change CS questions",
+        "category": "OS"
+      },
+      {
+        "id": "d177_t04",
+        "title": "Change project questions",
+        "category": "OS"
+      },
+      {
+        "id": "d177_t05",
+        "title": "Compare performance with Day 176",
+        "category": "OS"
+      },
+      {
+        "id": "d177_t06",
+        "title": "Fix remaining weaknesses",
+        "category": "OS"
+      }
+    ]
+  },
+  {
+    "id": 178,
+    "dayNumber": 178,
+    "phase": 6,
+    "phaseName": "PLACEMENT MODE",
+    "title": "Final Weakness Elimination",
+    "focus": "Personal gaps",
+    "tasks": [
+      {
+        "id": "d178_t01",
+        "title": "Review entire 180 day mistake log",
+        "category": "REVISION"
+      },
+      {
+        "id": "d178_t02",
+        "title": "Identify top 10 remaining weaknesses",
+        "category": "DSA"
+      },
+      {
+        "id": "d178_t03",
+        "title": "Fix every weakness",
+        "category": "DSA"
+      },
+      {
+        "id": "d178_t04",
+        "title": "Reattempt failed DSA problems",
+        "category": "DSA"
+      },
+      {
+        "id": "d178_t05",
+        "title": "Reanswer failed CS questions",
+        "category": "DSA"
+      },
+      {
+        "id": "d178_t06",
+        "title": "Rehearse project answers",
+        "category": "PROJECTS"
+      }
+    ]
+  },
+  {
+    "id": 179,
+    "dayNumber": 179,
+    "phase": 6,
+    "phaseName": "PLACEMENT MODE",
+    "title": "Final Revision",
+    "focus": "Everything",
+    "tasks": [
+      {
+        "id": "d179_t01",
+        "title": "C++ rapid review",
+        "category": "C++"
+      },
+      {
+        "id": "d179_t02",
+        "title": "DSA pattern review",
+        "category": "REVISION"
+      },
+      {
+        "id": "d179_t03",
+        "title": "OOP review",
+        "category": "OOP"
+      },
+      {
+        "id": "d179_t04",
+        "title": "DBMS review",
+        "category": "DBMS"
+      },
+      {
+        "id": "d179_t05",
+        "title": "SQL review",
+        "category": "SQL"
+      },
+      {
+        "id": "d179_t06",
+        "title": "OS review",
+        "category": "OS"
+      },
+      {
+        "id": "d179_t07",
+        "title": "CN review",
+        "category": "REVISION"
+      },
+      {
+        "id": "d179_t08",
+        "title": "Java review",
+        "category": "JAVA"
+      },
+      {
+        "id": "d179_t09",
+        "title": "System Design review",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d179_t10",
+        "title": "HR review",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d179_t11",
+        "title": "Resume review",
+        "category": "RESUME"
+      }
+    ]
+  },
+  {
+    "id": 180,
+    "dayNumber": 180,
+    "phase": 6,
+    "phaseName": "PLACEMENT MODE",
+    "title": "FINAL PLACEMENT SIMULATION",
+    "focus": "Placement readiness",
+    "tasks": [
+      {
+        "id": "d180_t01",
+        "title": "Full aptitude assessment",
+        "category": "APTITUDE"
+      },
+      {
+        "id": "d180_t02",
+        "title": "Full coding assessment",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d180_t03",
+        "title": "Full SQL assessment",
+        "category": "SQL"
+      },
+      {
+        "id": "d180_t04",
+        "title": "Full technical assessment",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d180_t05",
+        "title": "Full DSA interview",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d180_t06",
+        "title": "Full CS interview",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d180_t07",
+        "title": "Full project interview",
+        "category": "PROJECTS"
+      },
+      {
+        "id": "d180_t08",
+        "title": "Full system design interview",
+        "category": "SYSTEM DESIGN"
+      },
+      {
+        "id": "d180_t09",
+        "title": "Full HR interview",
+        "category": "INTERVIEW"
+      },
+      {
+        "id": "d180_t10",
+        "title": "Explain every resume line",
+        "category": "RESUME"
+      },
+      {
+        "id": "d180_t11",
+        "title": "Solve at least one unfamiliar Medium problem",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d180_t12",
+        "title": "Review final weakness list",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d180_t13",
+        "title": "Write final placement strategy",
+        "category": "ASSESSMENT"
+      },
+      {
+        "id": "d180_t14",
+        "title": "Mark the 180 day journey complete",
+        "category": "ASSESSMENT"
+      }
+    ]
+  }
+]

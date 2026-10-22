@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIKE'S SHEET &mdash; 180 Day Preparation System</title>
+    <meta name="description" content="A structured 180-day placement preparation checklist and daily attendance system for engineering students." />
+    <!-- Apple Web App & Favicon -->
+    <meta name="theme-color" content="#112E52" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%23112E52'/><path d='M30 70V30H52C60 30 66 35 66 42C66 48 61 52 54 53L68 70H56L44 54H40V70H30ZM40 46H50C54 46 56 44 56 41C56 38 54 36 50 36H40V46Z' fill='%23F4D875'/></svg>" />
+    <!-- WorldSmith Typography: Space Grotesk, Manrope, Instrument Serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Early theme initializer to prevent flash of wrong theme -->
+    <script>
+      (function() {
+        try {
+          var theme = localStorage.getItem('placementOS_theme') || 'default';
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.setAttribute('data-theme', 'default');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-app-bg text-app-main antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
