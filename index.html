@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RIKE'S SHEET &mdash; 180 Day Preparation System</title>
+    <title>RIKE'S SHEET</title>
     <meta name="description" content="A structured 180-day placement preparation checklist and daily attendance system for engineering students." />
     <!-- Apple Web App & Favicon -->
     <meta name="theme-color" content="#112E52" />
@@ -22,9 +22,13 @@
           if (theme === 'dark') {
             document.documentElement.classList.add('dark');
             document.documentElement.setAttribute('data-theme', 'dark');
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', '#1f1f1f');
           } else {
             document.documentElement.classList.remove('dark');
-            document.documentElement.setAttribute('data-theme', 'default');
+            document.documentElement.setAttribute('data-theme', 'light');
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', '#F5F2EB');
           }
         } catch (e) {}
       })();
