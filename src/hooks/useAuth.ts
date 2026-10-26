@@ -15,6 +15,13 @@ export interface AuthState {
   rememberMe: boolean;
 }
 
+export const getAuthRedirectUrl = (): string => {
+  if (typeof window !== 'undefined' && window.location.origin) {
+    return `${window.location.origin}/`;
+  }
+  return 'https://rikes-sheet.vercel.app/';
+};
+
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<UserProfileData | null>(null);
@@ -145,12 +152,46 @@ export function useAuth() {
     return Boolean(data);
   };
 
-  const login = async (email: string, password: string, remember: boolean) => {
+  const login = async (identifier: string, password: string, remember: boolean) => {
     setRememberMe(remember);
     setRememberMeState(remember);
 
+    const trimmed = identifier.trim();
+    let emailToUse = trimmed;
+
+    // Check if identifier is an email (contains @ and domain suffix, and doesn't start with @)
+    const isEmail = trimmed.includes('@') && !trimmed.startsWith('@') && /\.[a-z]{2,}$/i.test(trimmed);
+
+    if (!isEmail) {
+      // Lookup email by username via RPC
+      const cleanUsername = trimmed.replace(/^@+/, '').trim().toLowerCase();
+      try {
+        const { data: resolvedEmail, error: rpcErr } = await supabase.rpc('get_email_by_username', {
+          p_username: cleanUsername,
+        });
+
+        if (rpcErr) {
+          console.error('Failed to resolve email from username:', rpcErr);
+          if (!trimmed.includes('@')) {
+            throw new Error('Unable to verify username. Please try logging in with your email address.');
+          }
+        } else if (resolvedEmail) {
+          emailToUse = resolvedEmail;
+        } else {
+          throw new Error(`No account found with username "${trimmed}". Please check your username or use your email.`);
+        }
+      } catch (err: any) {
+        if (err.message && (err.message.includes('No account found') || err.message.includes('Unable to verify username'))) {
+          throw err;
+        }
+        if (!trimmed.includes('@')) {
+          throw new Error(`No account found with username "${trimmed}". Please use your email address.`);
+        }
+      }
+    }
+
     const { data, error } = await supabase.auth.signInWithPassword({
-      email: email.trim(),
+      email: emailToUse,
       password,
     });
 
@@ -185,10 +226,13 @@ export function useAuth() {
     setRememberMe(remember);
     setRememberMeState(remember);
 
+    const redirectUrl = getAuthRedirectUrl();
+
     const { data, error } = await supabase.auth.signUp({
       email: email.trim(),
       password,
       options: {
+        emailRedirectTo: redirectUrl,
         data: {
           username: trimmedUsername,
           display_name: trimmedUsername,
@@ -208,6 +252,18 @@ export function useAuth() {
     }
 
     return data;
+  };
+
+  const resendConfirmationEmail = async (email: string) => {
+    const redirectUrl = getAuthRedirectUrl();
+    const { error } = await supabase.auth.resend({
+      type: 'signup',
+      email: email.trim(),
+      options: {
+        emailRedirectTo: redirectUrl,
+      },
+    });
+    if (error) throw error;
   };
 
   const logout = async () => {
@@ -270,7 +326,7 @@ export function useAuth() {
 
   const resetPassword = async (email: string) => {
     const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
-      redirectTo: window.location.origin,
+      redirectTo: getAuthRedirectUrl(),
     });
     if (error) throw error;
   };
@@ -310,6 +366,7 @@ export function useAuth() {
     rememberMe,
     login,
     signUp,
+    resendConfirmationEmail,
     logout,
     deleteAccount,
     refreshProfile,

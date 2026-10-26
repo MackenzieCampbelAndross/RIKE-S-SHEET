@@ -24,6 +24,8 @@ import { CourseSwitcher } from './components/CourseSwitcher';
 import { AuthModal } from './components/AuthModal';
 import { EloIndicator } from './components/EloIndicator';
 import { AvatarIcon } from './components/AvatarIcon';
+import { VerificationModal, type VerificationStatus } from './components/VerificationModal';
+import { supabase } from './lib/supabase';
 import { ChevronDown, Menu, X, Sun, Moon } from 'lucide-react';
 
 export function App() {
@@ -85,21 +87,141 @@ export function App() {
   // Auth modal state
   const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false);
 
-  // In-memory entry state: MUST ALWAYS BE FALSE ON FRESH APPLICATION LOAD / REFRESH
-  const [hasEnteredThisLoad, setHasEnteredThisLoad] = useState<boolean>(false);
+  // Entry state preserved across in-session refreshes
+  const [hasEnteredThisLoad, setHasEnteredThisLoad] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    return sessionStorage.getItem('rike_has_entered') === 'true';
+  });
 
   // Course selection modal state triggered after clicking ENTER on Landing Page
   const [isCourseSelectModalOpen, setIsCourseSelectModalOpen] = useState<boolean>(false);
+
+  // Post-email confirmation verification modal state
+  const [verificationModalState, setVerificationModalState] = useState<{
+    isOpen: boolean;
+    status: VerificationStatus;
+    errorMessage: string | null;
+  }>({
+    isOpen: false,
+    status: 'verifying',
+    errorMessage: null,
+  });
 
   // Active navigation tab
   const [activeNavTab, setActiveNavTab] = useState<SidebarTab>('home');
   const [isDayPickerOpen, setIsDayPickerOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Clean URL hash on initial load so deep links don't conflict with mandatory landing gate
+  // Detect and process email verification redirects and auth callbacks
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const rawHash = window.location.hash.startsWith('#')
+      ? window.location.hash.substring(1)
+      : window.location.hash;
+    const hashParams = new URLSearchParams(rawHash);
+    const searchParams = new URLSearchParams(window.location.search);
+
+    const hasAccessToken = hashParams.has('access_token');
+    const authType = hashParams.get('type') || searchParams.get('type');
+    const authCode = searchParams.get('code');
+    const rawError = hashParams.get('error') || searchParams.get('error');
+    const rawErrorDesc =
+      hashParams.get('error_description') || searchParams.get('error_description');
+
+    const isVerificationFlow =
+      authType === 'signup' ||
+      authType === 'email_confirmation' ||
+      authType === 'recovery' ||
+      Boolean(hasAccessToken && authType) ||
+      Boolean(authCode);
+
+    // If an error arrived from the verification redirect (e.g. invalid or expired token)
+    if (rawError || rawErrorDesc) {
+      const friendlyMsg = rawErrorDesc
+        ? decodeURIComponent(rawErrorDesc).replace(/\+/g, ' ')
+        : 'The email verification link is invalid or has expired. Please sign in or request a new confirmation email.';
+
+      setVerificationModalState({
+        isOpen: true,
+        status: 'error',
+        errorMessage: friendlyMsg,
+      });
+
+      // Clean the address bar cleanly
+      window.history.replaceState(null, '', window.location.pathname);
+      return;
+    }
+
+    // If confirmation or auth tokens are present in the incoming redirect
+    if (isVerificationFlow) {
+      setVerificationModalState({
+        isOpen: true,
+        status: 'verifying',
+        errorMessage: null,
+      });
+
+      // Handle PKCE code exchange if present
+      if (authCode) {
+        supabase.auth
+          .exchangeCodeForSession(authCode)
+          .then(({ data, error }) => {
+            if (error) {
+              setVerificationModalState({
+                isOpen: true,
+                status: 'error',
+                errorMessage: error.message || 'Failed to verify email confirmation code.',
+              });
+            } else if (data.session) {
+              setVerificationModalState({
+                isOpen: true,
+                status: 'success',
+                errorMessage: null,
+              });
+            }
+          })
+          .catch((err) => {
+            setVerificationModalState({
+              isOpen: true,
+              status: 'error',
+              errorMessage: err.message || 'Failed to complete verification.',
+            });
+          })
+          .finally(() => {
+            window.history.replaceState(null, '', window.location.pathname);
+          });
+      }
+    }
+  }, []);
+
+  // When user is resolved while verifying, mark verification successful
+  useEffect(() => {
+    if (verificationModalState.isOpen && verificationModalState.status === 'verifying' && user) {
+      setVerificationModalState({
+        isOpen: true,
+        status: 'success',
+        errorMessage: null,
+      });
+      // Scrub incoming auth tokens from hash cleanly once session is active
+      if (
+        window.location.hash.includes('access_token=') ||
+        window.location.hash.includes('type=')
+      ) {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    }
+  }, [verificationModalState.isOpen, verificationModalState.status, user]);
+
+  // Clean ordinary URL hash on initial load only if the user hasn't entered and not an auth redirect
   useEffect(() => {
     if (!hasEnteredThisLoad) {
-      if (window.location.hash && window.location.hash !== '#' && window.location.hash !== '#/') {
+      const hash = window.location.hash;
+      const isAuthHash =
+        hash.includes('access_token=') ||
+        hash.includes('error=') ||
+        hash.includes('error_description=') ||
+        hash.includes('type=');
+      if (hash && hash !== '#' && hash !== '#/' && !isAuthHash) {
         window.history.replaceState(null, '', window.location.pathname);
       }
     }
@@ -161,10 +283,14 @@ export function App() {
   const handleCourseChosenFromModal = (courseId: CourseId) => {
     selectCourse(courseId);
     recordAttendanceOnEnter();
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('rike_has_entered', 'true');
+    }
     setHasEnteredThisLoad(true);
     setIsCourseSelectModalOpen(false);
     setActiveNavTab('home');
-    window.location.hash = `/day/${currentDay}`;
+    const targetCourseDay = allCourseStats.find((c) => c.id === courseId)?.currentDay || 1;
+    window.location.hash = `/day/${targetCourseDay}`;
   };
 
   // Dismissing modal returns user to landing page without entering
@@ -172,9 +298,27 @@ export function App() {
     setIsCourseSelectModalOpen(false);
   };
 
+  // Actions for post-email verification modal
+  const handleVerificationContinue = () => {
+    setVerificationModalState((prev) => ({ ...prev, isOpen: false }));
+    setIsCourseSelectModalOpen(true);
+  };
+
+  const handleVerificationOpenLogin = () => {
+    setVerificationModalState((prev) => ({ ...prev, isOpen: false }));
+    setIsAuthModalOpen(true);
+  };
+
+  const handleVerificationClose = () => {
+    setVerificationModalState((prev) => ({ ...prev, isOpen: false }));
+  };
+
   // LOG OUT Handler: logs out of Supabase and returns user directly to landing page
   const handleLogout = async () => {
     await authLogout();
+    if (typeof window !== 'undefined') {
+      sessionStorage.removeItem('rike_has_entered');
+    }
     setHasEnteredThisLoad(false);
     setIsCourseSelectModalOpen(false);
     setIsAuthModalOpen(false);
@@ -186,6 +330,9 @@ export function App() {
     try {
       await deleteAccount();
       resetAll();
+      if (typeof window !== 'undefined') {
+        sessionStorage.removeItem('rike_has_entered');
+      }
       setHasEnteredThisLoad(false);
       setIsCourseSelectModalOpen(false);
       setIsAuthModalOpen(false);
@@ -574,6 +721,18 @@ export function App() {
           </div>
         </div>
       )}
+
+      {/* Post-Email Verification Experience Modal */}
+      <VerificationModal
+        isOpen={verificationModalState.isOpen}
+        status={verificationModalState.status}
+        errorMessage={verificationModalState.errorMessage}
+        profile={authProfile}
+        userEmail={user?.email}
+        onContinue={handleVerificationContinue}
+        onOpenLogin={handleVerificationOpenLogin}
+        onClose={handleVerificationClose}
+      />
     </div>
   );
 }

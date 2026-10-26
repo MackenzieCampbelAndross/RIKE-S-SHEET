@@ -12,7 +12,7 @@ import {
   ArrowLeft,
 } from 'lucide-react';
 import { AvatarIcon } from './AvatarIcon';
-import { FriendProgressModal } from './FriendProgressModal';
+import { FriendProgressView } from './FriendProgressView';
 import {
   useConnections,
   type SearchResultUser,
@@ -154,6 +154,20 @@ export const ConnectionsPage: React.FC<ConnectionsPageProps> = ({
       setActionProcessingId(null);
     }
   };
+
+  if (selectedFriendId) {
+    return (
+      <FriendProgressView
+        friendId={selectedFriendId}
+        friendUsername={selectedFriendUsername}
+        onBack={() => {
+          setSelectedFriendId(null);
+          setSelectedFriendUsername('');
+        }}
+        fetchFriendProgress={fetchFriendProgress}
+      />
+    );
+  }
 
   return (
     <div className="w-full max-w-5xl space-y-6 animate-fadeIn pb-12 font-sans text-[#091424] dark:text-[#F3F3F0]">
@@ -507,15 +521,6 @@ export const ConnectionsPage: React.FC<ConnectionsPageProps> = ({
           )}
         </section>
       </div>
-
-      {/* Friend Progress Modal */}
-      <FriendProgressModal
-        friendId={selectedFriendId}
-        friendUsername={selectedFriendUsername}
-        isOpen={Boolean(selectedFriendId)}
-        onClose={() => setSelectedFriendId(null)}
-        fetchFriendProgress={fetchFriendProgress}
-      />
     </div>
   );
 };

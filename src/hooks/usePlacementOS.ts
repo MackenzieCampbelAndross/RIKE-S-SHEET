@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import type { User } from '@supabase/supabase-js';
 import type {
   CourseId,
@@ -94,19 +94,11 @@ function loadAndMigrateStorage(): MultiCourseStorage {
   return defaultStorageState;
 }
 
-export function usePlacementOS(
-  currentUser?: User | null,
-  onRatingUpdated?: (newRating: number) => void
-) {
-  const [state, setState] = useState<MultiCourseStorage>(() => loadAndMigrateStorage());
-
-  // Save changes to localStorage (both multi-course and synced legacy C++ fallback)
-  useEffect(() => {
-    try {
-      localStorage.setItem(MULTI_STORAGE_KEY, JSON.stringify(state));
-
-      // Keep legacy storage key synced for cpp-heavy for backwards compatibility
-      const cppState = state.courses['cpp-heavy'];
+function saveToLocalStorage(data: MultiCourseStorage): void {
+  try {
+    localStorage.setItem(MULTI_STORAGE_KEY, JSON.stringify(data));
+    const cppState = data.courses['cpp-heavy'];
+    if (cppState) {
       localStorage.setItem(
         LEGACY_STORAGE_KEY,
         JSON.stringify({
@@ -114,111 +106,204 @@ export function usePlacementOS(
           completedTasks: cppState.completedTasks,
         })
       );
-    } catch (e) {
-      console.error('Failed to save placement storage:', e);
     }
+  } catch (e) {
+    console.error('Failed to save placement storage:', e);
+  }
+}
+
+export function usePlacementOS(
+  currentUser?: User | null,
+  onRatingUpdated?: (newRating: number) => void
+) {
+  const [state, setState] = useState<MultiCourseStorage>(() => loadAndMigrateStorage());
+
+  // Keep localStorage continuously synced whenever state changes
+  useEffect(() => {
+    saveToLocalStorage(state);
   }, [state]);
 
-  // Synchronize with Supabase Cloud when authenticated
+  // Track the synced user ID and sync lock to prevent race conditions or re-sync loops
+  const syncedUserIdRef = useRef<string | null>(null);
+  const isSyncingRef = useRef<boolean>(false);
+
+  // Synchronize with Supabase Cloud safely when authenticated
   useEffect(() => {
-    if (!currentUser) return;
+    if (!currentUser) {
+      syncedUserIdRef.current = null;
+      return;
+    }
+
     let mounted = true;
 
     async function syncCloudProgress() {
+      if (!currentUser || isSyncingRef.current) return;
+      isSyncingRef.current = true;
+
       try {
         // 1. Fetch course progress (current day for each course)
         const { data: progressData, error: progressErr } = await supabase
           .from('course_progress')
           .select('course_id, current_day')
-          .eq('user_id', currentUser!.id);
+          .eq('user_id', currentUser.id);
 
-        if (progressErr) console.error('Error fetching cloud course progress:', progressErr);
+        if (progressErr) {
+          console.error('Error fetching cloud course progress (sync aborted to protect local progress):', progressErr);
+          return;
+        }
 
         // 2. Fetch completed tasks
         const { data: tasksData, error: tasksErr } = await supabase
           .from('completed_tasks')
           .select('course_id, day_number, task_id')
-          .eq('user_id', currentUser!.id);
+          .eq('user_id', currentUser.id);
 
-        if (tasksErr) console.error('Error fetching cloud completed tasks:', tasksErr);
+        if (tasksErr) {
+          console.error('Error fetching cloud completed tasks (sync aborted to protect local progress):', tasksErr);
+          return;
+        }
 
-        if (mounted) {
-          const cloudHasTasks = tasksData && tasksData.length > 0;
-          const cloudHasProgress = progressData && progressData.length > 0;
+        if (!mounted) return;
 
-          if (cloudHasTasks || cloudHasProgress) {
-            // Build synced state from cloud records
-            const syncedCourses: Record<CourseId, CourseProgress> = {
-              'cpp-heavy': defaultCourseProgress(),
-              'java-heavy': defaultCourseProgress(),
-              'python': defaultCourseProgress(),
+        // Map cloud progress by course
+        const cloudCourseMap: Record<CourseId, { currentDay: number; completedTasks: Record<number, Record<string, boolean>> }> = {
+          'cpp-heavy': { currentDay: 1, completedTasks: {} },
+          'java-heavy': { currentDay: 1, completedTasks: {} },
+          'python': { currentDay: 1, completedTasks: {} },
+        };
+
+        (progressData || []).forEach((p: { course_id: CourseId; current_day: number }) => {
+          if (cloudCourseMap[p.course_id]) {
+            cloudCourseMap[p.course_id].currentDay = Math.max(1, Math.min(TOTAL_DAYS, p.current_day));
+          }
+        });
+
+        (tasksData || []).forEach((t: { course_id: CourseId; day_number: number; task_id: string }) => {
+          if (cloudCourseMap[t.course_id]) {
+            if (!cloudCourseMap[t.course_id].completedTasks[t.day_number]) {
+              cloudCourseMap[t.course_id].completedTasks[t.day_number] = {};
+            }
+            cloudCourseMap[t.course_id].completedTasks[t.day_number][t.task_id] = true;
+          }
+        });
+
+        const missingInCloud: Array<{
+          courseId: CourseId;
+          dayNumber: number;
+          taskId: string;
+        }> = [];
+
+        // Reconcile state non-destructively: UNION of local and cloud tasks
+        setState((prev) => {
+          const courseIds: CourseId[] = ['cpp-heavy', 'java-heavy', 'python'];
+          const reconciledCourses: Record<CourseId, CourseProgress> = {
+            'cpp-heavy': defaultCourseProgress(),
+            'java-heavy': defaultCourseProgress(),
+            'python': defaultCourseProgress(),
+          };
+
+          for (const cId of courseIds) {
+            const localProg = prev.courses[cId] || defaultCourseProgress();
+            const cloudProg = cloudCourseMap[cId];
+
+            // Reconcile current day: take highest day achieved
+            const effectiveDay = Math.max(localProg.currentDay || 1, cloudProg.currentDay || 1);
+
+            // Reconcile completed tasks: Merge local and cloud
+            const mergedTasksMap: Record<number, Record<string, boolean>> = {};
+
+            // 1. Copy over local completed tasks
+            for (const [dayStr, tMap] of Object.entries(localProg.completedTasks || {})) {
+              const dNum = parseInt(dayStr, 10);
+              if (!mergedTasksMap[dNum]) mergedTasksMap[dNum] = {};
+              for (const [tId, val] of Object.entries(tMap)) {
+                if (val) {
+                  mergedTasksMap[dNum][tId] = true;
+                }
+              }
+            }
+
+            // 2. Add cloud completed tasks
+            for (const [dNum, tMap] of Object.entries(cloudProg.completedTasks)) {
+              const dayInt = Number(dNum);
+              if (!mergedTasksMap[dayInt]) mergedTasksMap[dayInt] = {};
+              for (const [tId, val] of Object.entries(tMap)) {
+                if (val) {
+                  mergedTasksMap[dayInt][tId] = true;
+                }
+              }
+            }
+
+            reconciledCourses[cId] = {
+              currentDay: effectiveDay,
+              completedTasks: mergedTasksMap,
             };
 
-            // Apply days
-            (progressData || []).forEach((p: { course_id: CourseId; current_day: number }) => {
-              if (syncedCourses[p.course_id]) {
-                syncedCourses[p.course_id].currentDay = p.current_day;
-              }
-            });
-
-            // Apply completed tasks
-            (tasksData || []).forEach((t: { course_id: CourseId; day_number: number; task_id: string }) => {
-              if (syncedCourses[t.course_id]) {
-                if (!syncedCourses[t.course_id].completedTasks[t.day_number]) {
-                  syncedCourses[t.course_id].completedTasks[t.day_number] = {};
-                }
-                syncedCourses[t.course_id].completedTasks[t.day_number][t.task_id] = true;
-              }
-            });
-
-            setState((prev) => ({
-              ...prev,
-              courses: syncedCourses,
-            }));
-          } else {
-            // Cloud is empty for this user: Check if local storage has completed tasks to import
-            const courseIds: CourseId[] = ['cpp-heavy', 'java-heavy', 'python'];
-            for (const cId of courseIds) {
-              const cProg = state.courses[cId];
-              if (!cProg) continue;
-
-              // Upsert course day
-              if (cProg.currentDay > 1) {
-                await supabase.from('course_progress').upsert({
-                  user_id: currentUser!.id,
-                  course_id: cId,
-                  current_day: cProg.currentDay,
-                  updated_at: new Date().toISOString(),
-                }, { onConflict: 'user_id,course_id' });
-              }
-
-              // Idempotently sync local completed tasks
-              const curriculum = CURRICULA[cId];
-              for (const [dayNumStr, tasksMap] of Object.entries(cProg.completedTasks)) {
-                const dayNum = parseInt(dayNumStr, 10);
-                const dayPlan = curriculum.find((d) => d.dayNumber === dayNum);
-                const totalDayTasks = dayPlan?.tasks.length || 0;
-
-                for (const [taskId, isCompleted] of Object.entries(tasksMap)) {
-                  if (isCompleted) {
-                    const taskObj = dayPlan?.tasks.find((t) => t.id === taskId);
-                    const difficulty = taskObj ? getTaskDifficulty(taskObj, dayNum) : 'EASY';
-
-                    await supabase.rpc('record_task_completion_rpc', {
-                      p_course_id: cId,
-                      p_day_number: dayNum,
-                      p_task_id: taskId,
-                      p_difficulty: difficulty,
-                      p_total_day_tasks: totalDayTasks,
-                    });
-                  }
+            // Detect any tasks completed locally that cloud doesn't have yet
+            for (const [dayStr, tMap] of Object.entries(localProg.completedTasks || {})) {
+              const dNum = parseInt(dayStr, 10);
+              for (const [tId, val] of Object.entries(tMap)) {
+                if (val && !cloudProg.completedTasks[dNum]?.[tId]) {
+                  missingInCloud.push({ courseId: cId, dayNumber: dNum, taskId: tId });
                 }
               }
             }
           }
+
+          const nextState: MultiCourseStorage = {
+            selectedCourseId: prev.selectedCourseId in COURSES ? prev.selectedCourseId : 'cpp-heavy',
+            courses: reconciledCourses,
+          };
+
+          // Immediately persist merged state to localStorage
+          saveToLocalStorage(nextState);
+
+          return nextState;
+        });
+
+        // 3. Upload missing local tasks to Supabase
+        if (missingInCloud.length > 0) {
+          for (const item of missingInCloud) {
+            try {
+              const curriculum = CURRICULA[item.courseId];
+              const dayPlan = curriculum.find((d) => d.dayNumber === item.dayNumber);
+              const taskObj = dayPlan?.tasks.find((t) => t.id === item.taskId);
+              const totalDayTasks = dayPlan?.tasks.length || 0;
+              const difficulty = taskObj ? getTaskDifficulty(taskObj, item.dayNumber) : 'EASY';
+
+              await supabase.rpc('record_task_completion_rpc', {
+                p_course_id: item.courseId,
+                p_day_number: item.dayNumber,
+                p_task_id: item.taskId,
+                p_difficulty: difficulty,
+                p_total_day_tasks: totalDayTasks,
+              });
+            } catch (rpcErr) {
+              console.warn('Background sync upload failed for task:', item, rpcErr);
+            }
+          }
         }
+
+        // 4. Update cloud current_day if local was ahead
+        const courseIds: CourseId[] = ['cpp-heavy', 'java-heavy', 'python'];
+        for (const cId of courseIds) {
+          const cloudDay = cloudCourseMap[cId]?.currentDay || 1;
+          const localDay = state.courses[cId]?.currentDay || 1;
+          if (localDay > cloudDay) {
+            await supabase.from('course_progress').upsert({
+              user_id: currentUser.id,
+              course_id: cId,
+              current_day: localDay,
+              updated_at: new Date().toISOString(),
+            }, { onConflict: 'user_id,course_id' });
+          }
+        }
+
+        syncedUserIdRef.current = currentUser.id;
       } catch (err) {
         console.error('Cloud sync failure:', err);
+      } finally {
+        isSyncingRef.current = false;
       }
     }
 
@@ -227,7 +312,7 @@ export function usePlacementOS(
     return () => {
       mounted = false;
     };
-  }, [currentUser]);
+  }, [currentUser?.id]);
 
   const selectedCourseId = state.selectedCourseId;
   const activeCourseProgress = state.courses[selectedCourseId] || defaultCourseProgress();
@@ -237,18 +322,24 @@ export function usePlacementOS(
   // Switch course
   const selectCourse = useCallback((courseId: CourseId) => {
     if (!COURSES[courseId]) return;
-    setState((prev) => ({
-      ...prev,
-      selectedCourseId: courseId,
-    }));
+    setState((prev) => {
+      const next = {
+        ...prev,
+        selectedCourseId: courseId,
+      };
+      saveToLocalStorage(next);
+      return next;
+    });
   }, []);
 
   // Update current day for active course
   const setCurrentDay = useCallback((day: number) => {
     const clamped = Math.max(1, Math.min(TOTAL_DAYS, day));
+    let activeCourse: CourseId = 'cpp-heavy';
+
     setState((prev) => {
-      const activeCourse = prev.selectedCourseId;
-      return {
+      activeCourse = prev.selectedCourseId;
+      const next = {
         ...prev,
         courses: {
           ...prev.courses,
@@ -258,52 +349,66 @@ export function usePlacementOS(
           },
         },
       };
+      saveToLocalStorage(next);
+      return next;
     });
 
     if (currentUser) {
       supabase.from('course_progress').upsert({
         user_id: currentUser.id,
-        course_id: state.selectedCourseId,
+        course_id: activeCourse,
         current_day: clamped,
         updated_at: new Date().toISOString(),
       }, { onConflict: 'user_id,course_id' }).then(({ error }) => {
         if (error) console.error('Failed to sync current day:', error);
       });
     }
-  }, [currentUser, state.selectedCourseId]);
+  }, [currentUser]);
 
-  // Toggle a task in the currently active course with authoritative server-side rating calculation
+  // Toggle a task with synchronous localStorage persistence and authoritative server-side RPC
   const toggleTask = useCallback(async (dayNumber: number, taskId: string) => {
-    const activeCourse = state.selectedCourseId;
-    const currentCourseData = state.courses[activeCourse];
-    const isCurrentlyCompleted = Boolean(currentCourseData.completedTasks[dayNumber]?.[taskId]);
-    const willBeCompleted = !isCurrentlyCompleted;
+    let willBeCompleted = false;
+    let targetCourse: CourseId = 'cpp-heavy';
 
-    // 1. Optimistic Local Update
+    // 1. Instant Synchronous Local Update & Persistence
     setState((prev) => {
-      const cData = prev.courses[activeCourse];
-      const dayTasks = { ...(cData.completedTasks[dayNumber] || {}) };
-      dayTasks[taskId] = willBeCompleted;
+      targetCourse = prev.selectedCourseId;
+      const cData = prev.courses[targetCourse] || defaultCourseProgress();
+      const currentTasksForDay = cData.completedTasks[dayNumber] || {};
+      const isCurrentlyCompleted = Boolean(currentTasksForDay[taskId]);
+      willBeCompleted = !isCurrentlyCompleted;
 
-      return {
+      const newDayTasks = { ...currentTasksForDay };
+      if (willBeCompleted) {
+        newDayTasks[taskId] = true;
+      } else {
+        delete newDayTasks[taskId];
+      }
+
+      const nextState: MultiCourseStorage = {
         ...prev,
         courses: {
           ...prev.courses,
-          [activeCourse]: {
+          [targetCourse]: {
             ...cData,
             completedTasks: {
               ...cData.completedTasks,
-              [dayNumber]: dayTasks,
+              [dayNumber]: newDayTasks,
             },
           },
         },
       };
+
+      // Write immediately to localStorage
+      saveToLocalStorage(nextState);
+
+      return nextState;
     });
 
     // 2. Authoritative Supabase Cloud Operation
     if (currentUser) {
       try {
-        const curriculum = CURRICULA[activeCourse];
+        const curriculum = CURRICULA[targetCourse];
         const dayPlan = curriculum.find((d) => d.dayNumber === dayNumber);
         const taskObj = dayPlan?.tasks.find((t) => t.id === taskId);
         const totalDayTasks = dayPlan?.tasks.length || 0;
@@ -311,7 +416,7 @@ export function usePlacementOS(
 
         if (willBeCompleted) {
           const { error } = await supabase.rpc('record_task_completion_rpc', {
-            p_course_id: activeCourse,
+            p_course_id: targetCourse,
             p_day_number: dayNumber,
             p_task_id: taskId,
             p_difficulty: difficulty,
@@ -323,7 +428,7 @@ export function usePlacementOS(
           }
         } else {
           const { error } = await supabase.rpc('revoke_task_completion_rpc', {
-            p_course_id: activeCourse,
+            p_course_id: targetCourse,
             p_day_number: dayNumber,
             p_task_id: taskId,
           });
@@ -336,17 +441,19 @@ export function usePlacementOS(
         console.error('Failed to sync task toggle to cloud:', err);
       }
     }
-  }, [state.selectedCourseId, state.courses, currentUser, onRatingUpdated]);
+  }, [currentUser]);
 
   // Reset tasks for a specific day in the active course
   const resetToday = useCallback((dayNumber: number) => {
+    let activeCourse: CourseId = 'cpp-heavy';
+
     setState((prev) => {
-      const activeCourse = prev.selectedCourseId;
+      activeCourse = prev.selectedCourseId;
       const currentCourseData = prev.courses[activeCourse];
       const updated = { ...currentCourseData.completedTasks };
       delete updated[dayNumber];
 
-      return {
+      const next = {
         ...prev,
         courses: {
           ...prev.courses,
@@ -356,20 +463,39 @@ export function usePlacementOS(
           },
         },
       };
+
+      saveToLocalStorage(next);
+      return next;
     });
-  }, []);
+
+    if (currentUser) {
+      supabase
+        .from('completed_tasks')
+        .delete()
+        .eq('user_id', currentUser.id)
+        .eq('course_id', activeCourse)
+        .eq('day_number', dayNumber)
+        .then(({ error }) => {
+          if (error) console.error('Failed to reset day tasks in cloud:', error);
+        });
+    }
+  }, [currentUser]);
 
   // Reset all tasks in the active course
   const resetCurrentCourse = useCallback(async () => {
-    const activeCourse = state.selectedCourseId;
+    let activeCourse: CourseId = 'cpp-heavy';
+
     setState((prev) => {
-      return {
+      activeCourse = prev.selectedCourseId;
+      const next = {
         ...prev,
         courses: {
           ...prev.courses,
           [activeCourse]: defaultCourseProgress(),
         },
       };
+      saveToLocalStorage(next);
+      return next;
     });
 
     if (currentUser) {
@@ -386,18 +512,21 @@ export function usePlacementOS(
         console.error('Failed to reset course in cloud:', err);
       }
     }
-  }, [state.selectedCourseId, currentUser, onRatingUpdated]);
+  }, [currentUser, onRatingUpdated]);
 
   // Reset all courses completely
   const resetAll = useCallback(async () => {
-    setState({
+    const next: MultiCourseStorage = {
       selectedCourseId: 'cpp-heavy',
       courses: {
         'cpp-heavy': defaultCourseProgress(),
         'java-heavy': defaultCourseProgress(),
         'python': defaultCourseProgress(),
       },
-    });
+    };
+
+    setState(next);
+    saveToLocalStorage(next);
 
     if (currentUser) {
       try {

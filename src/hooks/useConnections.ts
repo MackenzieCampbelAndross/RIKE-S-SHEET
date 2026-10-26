@@ -248,7 +248,25 @@ export function useConnections(currentUser: User | null) {
       p_friend_id: friendId,
     });
 
-    if (rpcErr) throw rpcErr;
+    if (rpcErr) {
+      console.error('get_friend_progress error:', rpcErr);
+      const rawMsg = rpcErr.message || '';
+      // Ensure no raw SQL, RPC, aggregate, or Postgres internals reach the UI
+      if (
+        /aggregate/i.test(rawMsg) ||
+        /SQL/i.test(rawMsg) ||
+        /relation/i.test(rawMsg) ||
+        /PL\/pgSQL/i.test(rawMsg) ||
+        /PostgREST/i.test(rawMsg) ||
+        /function/i.test(rawMsg)
+      ) {
+        throw new Error('Unable to load connection progress at this time. Please try again shortly.');
+      }
+      if (/Access denied/i.test(rawMsg)) {
+        throw new Error('You must have an accepted connection to view this user\'s progress.');
+      }
+      throw new Error(rpcErr.message || 'Unable to load connection progress.');
+    }
     return data as FriendProgressData;
   };
 

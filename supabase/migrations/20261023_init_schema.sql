@@ -400,18 +400,36 @@ BEGIN
   ) INTO v_profile
   FROM public.profiles p WHERE p.id = p_friend_id;
 
-  -- Course progress & task counts
-  SELECT jsonb_object_agg(
-    c.course_id,
-    jsonb_build_object(
-      'current_day', COALESCE(cp.current_day, 1),
-      'completed_count', count(ct.task_id)
-    )
+  -- Course progress & task counts (no nested aggregates)
+  WITH courses AS (
+    SELECT unnest(ARRAY['cpp-heavy', 'java-heavy', 'python']) AS course_id
+  ),
+  task_counts AS (
+    SELECT course_id, count(*)::int AS completed_count
+    FROM public.completed_tasks
+    WHERE user_id = p_friend_id
+    GROUP BY course_id
+  ),
+  course_stats AS (
+    SELECT
+      c.course_id,
+      COALESCE(cp.current_day, 1) AS current_day,
+      COALESCE(tc.completed_count, 0) AS completed_count
+    FROM courses c
+    LEFT JOIN public.course_progress cp ON cp.user_id = p_friend_id AND cp.course_id = c.course_id
+    LEFT JOIN task_counts tc ON tc.course_id = c.course_id
+  )
+  SELECT COALESCE(
+    jsonb_object_agg(
+      course_id,
+      jsonb_build_object(
+        'current_day', current_day,
+        'completed_count', completed_count
+      )
+    ),
+    '{}'::jsonb
   ) INTO v_courses
-  FROM (VALUES ('cpp-heavy'), ('java-heavy'), ('python')) AS c(course_id)
-  LEFT JOIN public.course_progress cp ON cp.user_id = p_friend_id AND cp.course_id = c.course_id
-  LEFT JOIN public.completed_tasks ct ON ct.user_id = p_friend_id AND ct.course_id = c.course_id
-  GROUP BY p_friend_id;
+  FROM course_stats;
 
   -- Attended dates
   SELECT COALESCE(jsonb_agg(attended_date::text ORDER BY attended_date), '[]'::jsonb) INTO v_attendance

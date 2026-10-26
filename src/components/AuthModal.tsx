@@ -118,7 +118,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     setSuccessMessage(null);
 
     if (!email.trim() || !password) {
-      setErrorMessage('Please enter both email and password.');
+      setErrorMessage('Please enter your email or username and password.');
       return;
     }
 
@@ -128,7 +128,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
       onSuccess();
     } catch (err: any) {
       console.error('Login error:', err);
-      setErrorMessage(err.message || 'Invalid email or password.');
+      setErrorMessage(err.message || 'Invalid email, username, or password.');
     } finally {
       setIsSubmitting(false);
     }
@@ -358,18 +358,20 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               </p>
             </div>
 
-            {/* Email Field */}
+            {/* Email or Username Field */}
             <div className="space-y-1.5">
               <label className="text-xs font-heading font-semibold text-[#112E52] dark:text-[#F2F2EF]">
-                Email address
+                Email address or username
               </label>
               <input
-                type="email"
+                type="text"
                 required
-                autoComplete="email"
+                autoCapitalize="none"
+                autoCorrect="off"
+                autoComplete="username"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="name@example.com"
+                placeholder="name@example.com or @username"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-[#D5D0BC] dark:border-[#404040] bg-white dark:bg-[#181818] text-[#112E52] dark:text-white text-sm focus:outline-none focus:border-[#112E52] dark:focus:border-[#F4D875] transition-colors"
               />
             </div>
